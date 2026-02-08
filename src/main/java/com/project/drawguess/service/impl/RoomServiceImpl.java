@@ -28,6 +28,8 @@ import com.project.drawguess.repository.RoomRepository;
 import com.project.drawguess.repository.SessionRepository;
 import com.project.drawguess.repository.UserRepository;
 
+import org.springframework.beans.factory.annotation.Value;
+
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -43,12 +45,16 @@ public class RoomServiceImpl {
 	private final SessionRepository sessionRepository;
 	private final SessionServiceImpl sessionServiceImpl;
 	private final SimpMessagingTemplate messagingTemplate;
-	
+
 	private final Map<String, ScheduledFuture<?>> pendingDisconnectTasks = new ConcurrentHashMap<>();
 	private final Map<String, String> disconnectingPlayers = new ConcurrentHashMap<>();
 	private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(10);
 
-	private static final int GRACE_PERIOD_SECONDS = 30;
+	@Value("${app.disconnect.grace-period-seconds:30}")
+	private int gracePeriodSeconds;
+
+	@Value("${app.room.max-players:5}")
+	private int maxPlayersPerRoom;
 
 	@Transactional
 	public Room createRoom(String username) {
@@ -75,6 +81,13 @@ public class RoomServiceImpl {
 		}
 		if (room.getStatus() == RoomStatus.FINISHED) {
 			throw new IllegalArgumentException("Cannot join finished room");
+		}
+
+		// Check room capacity for new players (reconnecting players bypass the limit)
+		long activePlayerCount = roomPlayerRepository.countByRoomAndIsActive(room, true);
+		boolean hasExistingRecord = roomPlayerRepository.findByRoomAndUser(room, user).stream().findFirst().isPresent();
+		if (activePlayerCount >= maxPlayersPerRoom && !hasExistingRecord) {
+			throw new IllegalArgumentException("Room is full (max " + maxPlayersPerRoom + " players)");
 		}
 
 		String playerKey = user.getUserId() + ":" + room.getRoomId();
@@ -214,7 +227,7 @@ public class RoomServiceImpl {
 		String roomCode = room.getRoomCode();
 
 		log.info("User {} disconnected from room {} - starting {} second grace period", username, roomCode,
-				GRACE_PERIOD_SECONDS);
+				gracePeriodSeconds);
 
 		String playerKey = user.getUserId() + ":" + room.getRoomId();
 		disconnectingPlayers.put(playerKey, wsSessionId);
@@ -227,7 +240,7 @@ public class RoomServiceImpl {
 		Map<String, Object> disconnectMessage = new HashMap<>();
 		disconnectMessage.put("type", messageType);
 		disconnectMessage.put("username", username);
-		disconnectMessage.put("gracePeriod", GRACE_PERIOD_SECONDS);
+		disconnectMessage.put("gracePeriod", gracePeriodSeconds);
 		disconnectMessage.put("players", getActivePlayers(roomCode));
 		disconnectMessage.put("timestamp", LocalDateTime.now().toString());
 
@@ -242,7 +255,7 @@ public class RoomServiceImpl {
 		}
 
 		ScheduledFuture<?> disconnectTask = scheduler.schedule(() -> handleDelayedPlayerDisconnect(wsSessionId, player),
-				GRACE_PERIOD_SECONDS, TimeUnit.SECONDS);
+				gracePeriodSeconds, TimeUnit.SECONDS);
 
 		pendingDisconnectTasks.put(wsSessionId, disconnectTask);
 

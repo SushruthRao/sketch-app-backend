@@ -16,6 +16,7 @@ import com.project.drawguess.game.GameRoundManager;
 import com.project.drawguess.model.Session;
 import com.project.drawguess.model.User;
 import com.project.drawguess.repository.UserRepository;
+import com.project.drawguess.service.impl.CanvasStrokeService;
 import com.project.drawguess.service.impl.RoomServiceImpl;
 import com.project.drawguess.service.impl.SessionServiceImpl;
 
@@ -32,6 +33,7 @@ public class WebSocketController {
 	private final SimpMessagingTemplate messagingTemplate;
 	private final UserRepository userRepository;
 	private final GameRoundManager gameRoundManager;
+	private final CanvasStrokeService canvasStrokeService;
 
 	@MessageMapping("/room/{roomCode}/join")
 	public void joinRoom(@DestinationVariable String roomCode, SimpMessageHeaderAccessor headerAccessor,
@@ -97,6 +99,35 @@ public class WebSocketController {
 				session.getSessionId(), roomCode,
 				user.getUserId(), user.getUsername(), user.getEmail(),
 				message.trim());
+	}
+
+	@MessageMapping("/room/{roomCode}/draw")
+	public void handleDraw(@DestinationVariable String roomCode,
+			Principal principal,
+			@Payload Map<String, Object> strokeData) {
+		if (principal == null) return;
+		if (!gameRoundManager.isDrawerForRoom(roomCode, principal.getName())) {
+			log.warn("Draw rejected for {} in room {} - not the drawer", principal.getName(), roomCode);
+			return;
+		}
+
+		canvasStrokeService.addStroke(roomCode, strokeData);
+
+		Map<String, Object> broadcast = new HashMap<>(strokeData);
+		messagingTemplate.convertAndSend("/topic/room/" + roomCode + "/draw", (Object) broadcast);
+	}
+
+	@MessageMapping("/room/{roomCode}/canvas-clear")
+	public void handleCanvasClear(@DestinationVariable String roomCode,
+			Principal principal) {
+		if (principal == null) return;
+		if (!gameRoundManager.isDrawerForRoom(roomCode, principal.getName())) return;
+
+		canvasStrokeService.clearStrokes(roomCode);
+
+		Map<String, Object> clearMsg = new HashMap<>();
+		clearMsg.put("type", "CANVAS_CLEAR");
+		messagingTemplate.convertAndSend("/topic/room/" + roomCode + "/draw", (Object) clearMsg);
 	}
 
 	@MessageExceptionHandler({ Exception.class, IllegalStateException.class })

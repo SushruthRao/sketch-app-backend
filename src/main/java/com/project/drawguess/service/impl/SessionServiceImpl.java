@@ -20,6 +20,7 @@ import com.project.drawguess.enums.RoomStatus;
 import com.project.drawguess.enums.SessionStatus;
 import com.project.drawguess.game.GameRoundManager;
 import com.project.drawguess.model.Room;
+import java.util.ArrayList;
 import com.project.drawguess.model.RoomPlayer;
 import com.project.drawguess.model.Session;
 import com.project.drawguess.model.User;
@@ -29,6 +30,8 @@ import com.project.drawguess.repository.RoomRepository;
 import com.project.drawguess.repository.SessionRepository;
 import com.project.drawguess.repository.UserRepository;
 import com.project.drawguess.repository.UserSessionRepository;
+
+import org.springframework.beans.factory.annotation.Value;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -45,12 +48,14 @@ public class SessionServiceImpl {
 	private final UserRepository userRepository;
 	private final SimpMessagingTemplate messagingTemplate;
 	private final GameRoundManager gameRoundManager;
+	private final CanvasStrokeService canvasStrokeService;
 
 	private final Map<String, ScheduledFuture<?>> sessionDisconnectTasks = new ConcurrentHashMap<>();
 	private final Map<String, String> disconnectingSessionPlayers = new ConcurrentHashMap<>();
 	private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(10);
 
-	private static final int GRACE_PERIOD_SECONDS = 30;
+	@Value("${app.disconnect.grace-period-seconds:30}")
+	private int gracePeriodSeconds;
 
 	@Transactional
 	public Session startSession(String roomCode, String hostEmail) {
@@ -153,13 +158,13 @@ public class SessionServiceImpl {
 		String playerKey = user.getUserId() + ":" + session.getSessionId();
 
 		log.info("User {} disconnected from SESSION {} - starting {} second grace period", username,
-				session.getSessionId(), GRACE_PERIOD_SECONDS);
+				session.getSessionId(), gracePeriodSeconds);
 
 		disconnectingSessionPlayers.put(playerKey, wsSessionId);
 
 
 		ScheduledFuture<?> task = scheduler.schedule(
-				() -> handleDelayedSessionDisconnect(wsSessionId, room, user, session), GRACE_PERIOD_SECONDS,
+				() -> handleDelayedSessionDisconnect(wsSessionId, room, user, session), gracePeriodSeconds,
 				TimeUnit.SECONDS);
 
 		sessionDisconnectTasks.put(wsSessionId, task);
@@ -305,6 +310,15 @@ public class SessionServiceImpl {
 				betweenRoundsState.put("type", "ROUND_STATE");
 				messagingTemplate.convertAndSendToUser(user.getEmail(), "/queue/round-state", betweenRoundsState);
 			}
+		}
+
+		// Send canvas stroke history for reconnection replay
+		List<Map<String, Object>> strokes = canvasStrokeService.getStrokes(room.getRoomCode());
+		if (strokes != null && !strokes.isEmpty()) {
+			Map<String, Object> canvasState = new HashMap<>();
+			canvasState.put("type", "CANVAS_STATE");
+			canvasState.put("strokes", new ArrayList<>(strokes));
+			messagingTemplate.convertAndSendToUser(user.getEmail(), "/queue/canvas-state", canvasState);
 		}
 	}
 

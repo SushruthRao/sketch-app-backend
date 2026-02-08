@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.project.drawguess.exception.ErrorResponse;
+import com.project.drawguess.exception.UsernameAlreadyTakenException;
 import com.project.drawguess.exception.UserWithEmailAlreadyRegisteredException;
 
 import io.jsonwebtoken.ExpiredJwtException;
@@ -36,22 +37,47 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler(value = BadCredentialsException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	public ErrorResponse handleBadCredentialsException(BadCredentialsException e) {
-		return new ErrorResponse(HttpStatus.BAD_REQUEST.value(), e.getMessage());
+		return new ErrorResponse(HttpStatus.BAD_REQUEST.value(), "Invalid email or password");
 	}
 
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
-	public Map<String, Object> handleMethodArgumentNotValidException(MethodArgumentNotValidException ex) {
+	public ErrorResponse handleMethodArgumentNotValidException(MethodArgumentNotValidException ex) {
 		Map<String, String> fieldErrors = new HashMap<>();
-		ex.getBindingResult().getAllErrors().forEach(error -> {
+		String firstMessage = "Validation failed";
+
+		for (var error : ex.getBindingResult().getAllErrors()) {
 			String fieldName = ((FieldError) error).getField();
 			String errorMessage = error.getDefaultMessage();
 			fieldErrors.put(fieldName, errorMessage);
-		});
-		Map<String, Object> response = new HashMap<>();
-		response.put("error", fieldErrors);
+			if (firstMessage.equals("Validation failed")) {
+				firstMessage = errorMessage;
+			}
+		}
 
+		ErrorResponse response = new ErrorResponse();
+		response.setStatusCode(HttpStatus.BAD_REQUEST.value());
+		response.setMessage(firstMessage);
+		response.setFieldErrors(fieldErrors);
 		return response;
+	}
+
+	@ExceptionHandler(value = IllegalArgumentException.class)
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	public ErrorResponse handleIllegalArgumentException(Exception e) {
+		return new ErrorResponse(HttpStatus.BAD_REQUEST.value(), e.getMessage());
+	}
+
+	@ExceptionHandler(value = UserWithEmailAlreadyRegisteredException.class)
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	public ErrorResponse handleUserWithEmailAlreadyRegisteredException(UserWithEmailAlreadyRegisteredException e) {
+		return new ErrorResponse(HttpStatus.BAD_REQUEST.value(), e.getMessage());
+	}
+
+	@ExceptionHandler(value = UsernameAlreadyTakenException.class)
+	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	public ErrorResponse handleUsernameAlreadyTakenException(UsernameAlreadyTakenException e) {
+		return new ErrorResponse(HttpStatus.BAD_REQUEST.value(), e.getMessage());
 	}
 
 	@ExceptionHandler(value = Exception.class)
@@ -59,20 +85,5 @@ public class GlobalExceptionHandler {
 	public ErrorResponse handleGeneralException(Exception e) {
 		return new ErrorResponse(HttpStatus.BAD_REQUEST.value(), e.getMessage());
 	}
-	
-	
-	@ExceptionHandler(value = IllegalArgumentException.class)
-	@ResponseStatus(HttpStatus.BAD_REQUEST)
-	public ErrorResponse handleIllegalArgumentException(Exception e) {
-		return new ErrorResponse(HttpStatus.BAD_REQUEST.value(), e.getMessage());
-	}
-	
-
-	@ExceptionHandler(value = UserWithEmailAlreadyRegisteredException.class)
-	@ResponseStatus(HttpStatus.BAD_REQUEST)
-	public ErrorResponse handleUserWithEmailAlreadyRegisteredException(UserWithEmailAlreadyRegisteredException e) {
-		return new ErrorResponse(HttpStatus.BAD_REQUEST.value(), e.getMessage());
-	}
-	
 
 }

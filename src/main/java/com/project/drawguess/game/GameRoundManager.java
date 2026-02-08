@@ -24,6 +24,7 @@ import com.project.drawguess.model.UserSession;
 import com.project.drawguess.repository.RoomRepository;
 import com.project.drawguess.repository.SessionRepository;
 import com.project.drawguess.repository.UserSessionRepository;
+import com.project.drawguess.service.impl.CanvasStrokeService;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -37,10 +38,12 @@ public class GameRoundManager {
 	private final UserSessionRepository userSessionRepository;
 	private final RoomRepository roomRepository;
 	private final SimpMessagingTemplate messagingTemplate;
+	private final CanvasStrokeService canvasStrokeService;
 
 	private final Map<Long, RoundState> activeRounds = new ConcurrentHashMap<>();
 	private final Map<Long, List<Long>> drawerOrders = new ConcurrentHashMap<>();
 	private final Map<Long, Integer> drawerRotationCounters = new ConcurrentHashMap<>();
+	private final Map<String, Long> roomCodeToSessionId = new ConcurrentHashMap<>();
 
 	private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(10);
 
@@ -58,6 +61,7 @@ public class GameRoundManager {
 			drawerOrder.add(us.getUser().getUserId());
 		}
 		drawerOrders.put(sessionId, drawerOrder);
+		roomCodeToSessionId.put(roomCode, sessionId);
 
 		log.info("Game initialized for session {}. Drawer order: {}", sessionId, drawerOrder);
 
@@ -128,6 +132,8 @@ public class GameRoundManager {
 		}
 
 		String word = WordProvider.getRandomWord();
+
+		canvasStrokeService.clearStrokes(roomCode);
 
 		session.setCurrentRound(nextRound);
 		sessionRepository.save(session);
@@ -288,6 +294,14 @@ public class GameRoundManager {
 			return round.getWord();
 		}
 		return null;
+	}
+
+	public boolean isDrawerForRoom(String roomCode, String email) {
+		Long sessionId = roomCodeToSessionId.get(roomCode);
+		if (sessionId == null) return false;
+		RoundState round = activeRounds.get(sessionId);
+		if (round == null) return false;
+		return email.equals(round.getDrawerEmail());
 	}
 
 	private synchronized void endRound(Long sessionId, String roomCode, String reason) {
@@ -475,5 +489,6 @@ public class GameRoundManager {
 		}
 		drawerOrders.remove(sessionId);
 		drawerRotationCounters.remove(sessionId);
+		roomCodeToSessionId.values().remove(sessionId);
 	}
 }
