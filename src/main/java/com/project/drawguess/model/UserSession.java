@@ -20,11 +20,14 @@ import jakarta.persistence.ManyToOne;
 import jakarta.persistence.OneToMany;
 import jakarta.persistence.PrePersist;
 import jakarta.persistence.Table;
+import jakarta.persistence.UniqueConstraint;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
 @Entity
-@Table(name = "user_sessions_table")
+@Table(name = "user_sessions_table", uniqueConstraints = {
+		@UniqueConstraint(columnNames = {"user_id", "session_id"})
+})
 @Data
 @NoArgsConstructor
 public class UserSession {

@@ -215,3 +215,372 @@
 2026-02-11T22:27:33.867+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-10] c.p.drawguess.game.GameRoundManager      : Round 1 ended for session 37. Reason: TIME_UP. Correct guessers: 0
 2026-02-11T22:27:38.873+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-10] c.p.d.service.impl.CanvasStrokeService   : Canvas strokes cleared for room 539057
 2026-02-11T22:27:38.880+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-10] c.p.drawguess.game.GameRoundManager      : Round 2 started. Drawer: Sushruth, Word: unicorn
+2026-02-11T22:28:38.881+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-6] c.p.drawguess.game.GameRoundManager      : Round 2 ended for session 37. Reason: TIME_UP. Correct guessers: 0
+2026-02-11T22:28:43.889+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-6] c.p.d.service.impl.CanvasStrokeService   : Canvas strokes cleared for room 539057
+2026-02-11T22:28:43.897+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-6] c.p.drawguess.game.GameRoundManager      : Round 3 started. Drawer: testuser, Word: umbrella
+2026-02-11T22:29:43.898+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-3] c.p.drawguess.game.GameRoundManager      : Round 3 ended for session 37. Reason: TIME_UP. Correct guessers: 0
+2026-02-11T22:29:48.916+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-3] c.p.d.service.impl.CanvasStrokeService   : Canvas strokes cleared for room 539057
+2026-02-11T22:29:48.934+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-3] c.p.drawguess.game.GameRoundManager      : Round 4 started. Drawer: Sushruth, Word: mushroom
+2026-02-11T22:30:37.020+05:30  INFO 16116 --- [DrawGuess] [MessageBroker-3] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[2 current WS(2)-HttpStream(0)-HttpPoll(0), 10 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(10)-CONNECTED(10)-DISCONNECT(8)], stompBrokerRelay[null], inboundChannel[pool size = 12, active threads = 0, queued tasks = 0, completed tasks = 450], outboundChannel[pool size = 5, active threads = 0, queued tasks = 0, completed tasks = 136], sockJsScheduler[pool size = 12, active threads = 1, queued tasks = 3, completed tasks = 433]
+2026-02-11T22:30:48.924+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-7] c.p.drawguess.game.GameRoundManager      : Round 4 ended for session 37. Reason: TIME_UP. Correct guessers: 0
+2026-02-11T22:30:53.929+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-7] c.p.drawguess.game.GameRoundManager      : All 4 rounds complete for session 37
+2026-02-11T22:30:53.982+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-7] c.p.drawguess.game.GameRoundManager      : Session 37 and room 539057 finalized after all rounds complete
+2026-02-11T22:30:53.986+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : p5rt4pgj 
+2026-02-11T22:30:53.987+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : lhnbb4nn 
+2026-02-11T22:30:53.994+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.service.impl.RoomServiceImpl       : User testuser disconnected from room 539057 - starting 30 second grace period
+2026-02-11T22:30:53.994+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.service.impl.RoomServiceImpl       : User Sushruth disconnected from room 539057 - starting 30 second grace period
+2026-02-11T22:30:53.999+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for testuser in room 539057
+2026-02-11T22:30:53.999+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for Sushruth in room 539057
+2026-02-11T22:31:24.002+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-9] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 1:52, disconnectingPlayers list -> {1:52=lhnbb4nn, 2:52=p5rt4pgj}
+2026-02-11T22:31:24.002+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-9] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for Sushruth in room 539057 - removing user
+2026-02-11T22:31:24.002+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-6] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 2:52, disconnectingPlayers list -> {2:52=p5rt4pgj}
+2026-02-11T22:31:24.002+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-6] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for testuser in room 539057 - removing user
+2026-02-11T22:31:24.012+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-9] c.p.d.service.impl.RoomServiceImpl       : User Sushruth left room 539057 (grace period done)
+2026-02-11T22:31:24.012+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-6] c.p.d.service.impl.RoomServiceImpl       : User testuser left room 539057 (grace period done)
+2026-02-11T22:31:24.091+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-6] c.p.d.service.impl.SessionServiceImpl    : endSession: No active session for room 539057 (already ended?)
+2026-02-11T22:31:24.089+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-9] c.p.d.service.impl.SessionServiceImpl    : endSession: No active session for room 539057 (already ended?)
+2026-02-11T22:31:24.092+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-6] c.p.d.service.impl.RoomServiceImpl       : Room 539057 closed - empty
+2026-02-11T22:31:24.092+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-9] c.p.d.service.impl.RoomServiceImpl       : Room 539057 closed - empty
+2026-02-11T22:31:24.097+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-6] c.p.d.service.impl.RoomServiceImpl       : Room 539057 closed - empty
+2026-02-11T22:31:24.097+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-9] c.p.d.service.impl.RoomServiceImpl       : Room 539057 closed - empty
+2026-02-11T22:33:19.368+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJpYXQiOjE3NzA4MjczOTUsImV4cCI6MTc3MDgzODE5NX0.LZvRx7Hci40v9Q-LvjngLa2xhNgZsoMYM46lqrc2L--XILUfcB0LLTbCVrQen4NTG_z4oZyx4hKv3styX4GmDg]
+2026-02-11T22:33:19.379+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-11T22:33:19.456+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-310] c.p.d.controller.WebSocketController     : Joined room - Room - 871449, User - sushruth@gmail.com, wsSessionId - 0c3swnll 
+2026-02-11T22:33:19.472+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-310] c.p.d.service.impl.RoomServiceImpl       : User Sushruth joined room 871449 for first time
+2026-02-11T22:33:32.360+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlckBnbWFpbC5jb20iLCJpYXQiOjE3NzA4Mjc0NDMsImV4cCI6MTc3MDgzODI0M30.b1i7cPNt-k30l3jPFIpsQ4jfOQh-uf-c3R0rbTSoE2Wcqs15sA2pcmy4p-Ef9nOfzabFWWZ2cgTQArBw_i5sbA]
+2026-02-11T22:33:32.368+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: testuser@gmail.com
+2026-02-11T22:33:32.374+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-307] c.p.d.controller.WebSocketController     : Joined room - Room - 871449, User - testuser@gmail.com, wsSessionId - 3g2akyt0 
+2026-02-11T22:33:32.380+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-307] c.p.d.service.impl.RoomServiceImpl       : User testuser joined room 871449 for first time
+2026-02-11T22:33:39.224+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-312] c.p.d.controller.WebSocketController     : Start game request, Roomcode - 871449
+2026-02-11T22:33:39.231+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-312] c.p.d.service.impl.SessionServiceImpl    : Session created for room : 871449
+2026-02-11T22:33:39.233+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-312] c.p.d.service.impl.SessionServiceImpl    : UserSession created for user : Sushruth
+2026-02-11T22:33:39.234+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-312] c.p.d.service.impl.SessionServiceImpl    : UserSession created for user : testuser
+2026-02-11T22:33:39.241+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-312] c.p.d.service.impl.SessionServiceImpl    : Session started at 871449
+2026-02-11T22:33:39.242+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-312] c.p.drawguess.game.GameRoundManager      : Game initialized for session 38. Drawer order: [1, 2]
+2026-02-11T22:33:42.251+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-1] c.p.d.service.impl.CanvasStrokeService   : Canvas strokes cleared for room 871449
+2026-02-11T22:33:42.259+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-1] c.p.drawguess.game.GameRoundManager      : Round 1 started. Drawer: Sushruth, Word: candle
+2026-02-11T22:34:42.259+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-9] c.p.drawguess.game.GameRoundManager      : Round 1 ended for session 38. Reason: TIME_UP. Correct guessers: 0
+2026-02-11T22:34:47.268+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-9] c.p.d.service.impl.CanvasStrokeService   : Canvas strokes cleared for room 871449
+2026-02-11T22:34:47.276+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-9] c.p.drawguess.game.GameRoundManager      : Round 2 started. Drawer: testuser, Word: telescope
+2026-02-11T22:35:47.276+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-10] c.p.drawguess.game.GameRoundManager      : Round 2 ended for session 38. Reason: TIME_UP. Correct guessers: 0
+2026-02-11T22:35:52.284+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-10] c.p.d.service.impl.CanvasStrokeService   : Canvas strokes cleared for room 871449
+2026-02-11T22:35:52.291+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-10] c.p.drawguess.game.GameRoundManager      : Round 3 started. Drawer: Sushruth, Word: banana
+2026-02-11T22:36:52.292+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-6] c.p.drawguess.game.GameRoundManager      : Round 3 ended for session 38. Reason: TIME_UP. Correct guessers: 0
+2026-02-11T22:36:57.298+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-6] c.p.d.service.impl.CanvasStrokeService   : Canvas strokes cleared for room 871449
+2026-02-11T22:36:57.303+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-6] c.p.drawguess.game.GameRoundManager      : Round 4 started. Drawer: testuser, Word: firework
+2026-02-11T22:37:57.304+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-3] c.p.drawguess.game.GameRoundManager      : Round 4 ended for session 38. Reason: TIME_UP. Correct guessers: 0
+2026-02-11T22:38:02.311+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-3] c.p.drawguess.game.GameRoundManager      : All 4 rounds complete for session 38
+2026-02-11T22:38:02.382+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-9] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : 0c3swnll 
+2026-02-11T22:38:02.382+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : 3g2akyt0 
+2026-02-11T22:38:02.384+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-3] c.p.drawguess.game.GameRoundManager      : Session 38 and room 871449 finalized after all rounds complete
+2026-02-11T22:38:02.395+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.service.impl.RoomServiceImpl       : User testuser disconnected from room 871449 - starting 30 second grace period
+2026-02-11T22:38:02.395+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-9] c.p.d.service.impl.RoomServiceImpl       : User Sushruth disconnected from room 871449 - starting 30 second grace period
+2026-02-11T22:38:02.400+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for testuser in room 871449
+2026-02-11T22:38:02.401+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-9] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for Sushruth in room 871449
+2026-02-11T22:38:32.401+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-3] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 2:53, disconnectingPlayers list -> {1:53=0c3swnll, 2:53=3g2akyt0}
+2026-02-11T22:38:32.401+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-3] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for testuser in room 871449 - removing user
+2026-02-11T22:38:32.401+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-4] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 1:53, disconnectingPlayers list -> {1:53=0c3swnll}
+2026-02-11T22:38:32.401+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-4] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for Sushruth in room 871449 - removing user
+2026-02-11T22:38:32.433+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-4] c.p.d.service.impl.RoomServiceImpl       : User Sushruth left room 871449 (grace period done)
+2026-02-11T22:38:32.433+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-3] c.p.d.service.impl.RoomServiceImpl       : User testuser left room 871449 (grace period done)
+2026-02-11T22:38:32.471+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-4] c.p.d.service.impl.SessionServiceImpl    : endSession: No active session for room 871449 (already ended?)
+2026-02-11T22:38:32.472+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-4] c.p.d.service.impl.RoomServiceImpl       : Room 871449 closed - empty
+2026-02-11T22:38:32.487+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-4] c.p.d.service.impl.RoomServiceImpl       : Room 871449 closed - empty
+2026-02-11T22:38:32.489+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-3] c.p.d.service.impl.SessionServiceImpl    : endSession: No active session for room 871449 (already ended?)
+2026-02-11T22:38:32.490+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-3] c.p.d.service.impl.RoomServiceImpl       : Room 871449 closed - empty
+2026-02-11T22:38:32.510+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-3] c.p.d.service.impl.RoomServiceImpl       : Room 871449 closed - empty
+2026-02-11T22:41:42.436+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlckBnbWFpbC5jb20iLCJpYXQiOjE3NzA4Mjc0NDMsImV4cCI6MTc3MDgzODI0M30.b1i7cPNt-k30l3jPFIpsQ4jfOQh-uf-c3R0rbTSoE2Wcqs15sA2pcmy4p-Ef9nOfzabFWWZ2cgTQArBw_i5sbA]
+2026-02-11T22:41:42.443+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: testuser@gmail.com
+2026-02-11T22:41:42.453+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-388] c.p.d.controller.WebSocketController     : Joined room - Room - 858369, User - testuser@gmail.com, wsSessionId - qiinsgt3 
+2026-02-11T22:41:42.462+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-388] c.p.d.service.impl.RoomServiceImpl       : User testuser joined room 858369 for first time
+2026-02-11T22:41:54.300+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJpYXQiOjE3NzA4MjczOTUsImV4cCI6MTc3MDgzODE5NX0.LZvRx7Hci40v9Q-LvjngLa2xhNgZsoMYM46lqrc2L--XILUfcB0LLTbCVrQen4NTG_z4oZyx4hKv3styX4GmDg]
+2026-02-11T22:41:54.310+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-11T22:41:54.347+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-386] c.p.d.controller.WebSocketController     : Joined room - Room - 858369, User - sushruth@gmail.com, wsSessionId - w5b0ootu 
+2026-02-11T22:41:54.357+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-386] c.p.d.service.impl.RoomServiceImpl       : User Sushruth joined room 858369 for first time
+2026-02-11T22:41:57.217+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-389] c.p.d.controller.WebSocketController     : Start game request, Roomcode - 858369
+2026-02-11T22:41:57.227+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-389] c.p.d.service.impl.SessionServiceImpl    : Session created for room : 858369
+2026-02-11T22:41:57.230+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-389] c.p.d.service.impl.SessionServiceImpl    : UserSession created for user : testuser
+2026-02-11T22:41:57.231+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-389] c.p.d.service.impl.SessionServiceImpl    : UserSession created for user : Sushruth
+2026-02-11T22:41:57.234+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-389] c.p.d.service.impl.SessionServiceImpl    : Session started at 858369
+2026-02-11T22:41:57.235+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-389] c.p.drawguess.game.GameRoundManager      : Game initialized for session 39. Drawer order: [2, 1]
+2026-02-11T22:42:00.239+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-7] c.p.d.service.impl.CanvasStrokeService   : Canvas strokes cleared for room 858369
+2026-02-11T22:42:00.246+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-7] c.p.drawguess.game.GameRoundManager      : Round 1 started. Drawer: testuser, Word: necklace
+2026-02-11T22:43:00.246+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-1] c.p.drawguess.game.GameRoundManager      : Round 1 ended for session 39. Reason: TIME_UP. Correct guessers: 0
+2026-02-11T22:43:05.256+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-1] c.p.d.service.impl.CanvasStrokeService   : Canvas strokes cleared for room 858369
+2026-02-11T22:43:05.262+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-1] c.p.drawguess.game.GameRoundManager      : Round 2 started. Drawer: Sushruth, Word: banana
+2026-02-11T22:44:05.263+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-9] c.p.drawguess.game.GameRoundManager      : Round 2 ended for session 39. Reason: TIME_UP. Correct guessers: 0
+2026-02-11T22:44:10.270+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-9] c.p.d.service.impl.CanvasStrokeService   : Canvas strokes cleared for room 858369
+2026-02-11T22:44:10.281+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-9] c.p.drawguess.game.GameRoundManager      : Round 3 started. Drawer: testuser, Word: ladder
+2026-02-11T22:45:10.280+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-10] c.p.drawguess.game.GameRoundManager      : Round 3 ended for session 39. Reason: TIME_UP. Correct guessers: 0
+2026-02-11T22:45:15.287+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-10] c.p.d.service.impl.CanvasStrokeService   : Canvas strokes cleared for room 858369
+2026-02-11T22:45:15.292+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-10] c.p.drawguess.game.GameRoundManager      : Round 4 started. Drawer: Sushruth, Word: bicycle
+2026-02-11T22:46:15.292+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-6] c.p.drawguess.game.GameRoundManager      : Round 4 ended for session 39. Reason: TIME_UP. Correct guessers: 0
+2026-02-11T22:46:20.298+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-6] c.p.drawguess.game.GameRoundManager      : All 4 rounds complete for session 39
+2026-02-11T22:46:20.315+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-9] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : w5b0ootu 
+2026-02-11T22:46:20.318+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-6] c.p.drawguess.game.GameRoundManager      : Session 39 and room 858369 finalized after all rounds complete
+2026-02-11T22:46:20.319+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-9] c.p.d.service.impl.RoomServiceImpl       : User Sushruth disconnected from room 858369 - starting 30 second grace period
+2026-02-11T22:46:20.321+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-9] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for Sushruth in room 858369
+2026-02-11T22:46:20.325+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : qiinsgt3 
+2026-02-11T22:46:20.327+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.service.impl.RoomServiceImpl       : User testuser disconnected from room 858369 - starting 30 second grace period
+2026-02-11T22:46:20.330+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for testuser in room 858369
+2026-02-11T22:46:50.322+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 1:54, disconnectingPlayers list -> {2:54=qiinsgt3, 1:54=w5b0ootu}
+2026-02-11T22:46:50.322+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for Sushruth in room 858369 - removing user
+2026-02-11T22:46:50.328+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : User Sushruth left room 858369 (grace period done)
+2026-02-11T22:46:50.332+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-8] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 2:54, disconnectingPlayers list -> {2:54=qiinsgt3}
+2026-02-11T22:46:50.332+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-8] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for testuser in room 858369 - removing user
+2026-02-11T22:46:50.338+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-8] c.p.d.service.impl.RoomServiceImpl       : User testuser left room 858369 (grace period done)
+2026-02-11T22:46:50.341+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.SessionServiceImpl    : endSession: No active session for room 858369 (already ended?)
+2026-02-11T22:46:50.341+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Room 858369 closed - empty
+2026-02-11T22:46:50.344+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-8] c.p.d.service.impl.SessionServiceImpl    : endSession: No active session for room 858369 (already ended?)
+2026-02-11T22:46:50.345+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-8] c.p.d.service.impl.RoomServiceImpl       : Room 858369 closed - empty
+2026-02-11T22:46:50.347+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-8] c.p.d.service.impl.RoomServiceImpl       : Room 858369 closed - empty
+2026-02-11T22:58:48.763+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlckBnbWFpbC5jb20iLCJpYXQiOjE3NzA4Mjc0NDMsImV4cCI6MTc3MDgzODI0M30.b1i7cPNt-k30l3jPFIpsQ4jfOQh-uf-c3R0rbTSoE2Wcqs15sA2pcmy4p-Ef9nOfzabFWWZ2cgTQArBw_i5sbA]
+2026-02-11T22:58:48.775+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: testuser@gmail.com
+2026-02-11T22:58:48.789+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-466] c.p.d.controller.WebSocketController     : Joined room - Room - 858369, User - testuser@gmail.com, wsSessionId - 1yv1fay2 
+2026-02-11T22:58:48.991+05:30 ERROR 16116 --- [DrawGuess] [clientInboundChannel-466] c.p.d.controller.WebSocketController     : Local WebSocket Error [User: testuser@gmail.com]: Cannot join finished room
+2026-02-11T22:58:49.009+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : 1yv1fay2 
+2026-02-11T22:58:49.014+05:30  WARN 16116 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.service.impl.RoomServiceImpl       : No RoomPlayer found for wsSessionId: 1yv1fay2
+2026-02-11T22:58:50.389+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlckBnbWFpbC5jb20iLCJpYXQiOjE3NzA4Mjc0NDMsImV4cCI6MTc3MDgzODI0M30.b1i7cPNt-k30l3jPFIpsQ4jfOQh-uf-c3R0rbTSoE2Wcqs15sA2pcmy4p-Ef9nOfzabFWWZ2cgTQArBw_i5sbA]
+2026-02-11T22:58:50.399+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: testuser@gmail.com
+2026-02-11T22:58:50.404+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-469] c.p.d.controller.WebSocketController     : Joined room - Room - 254850, User - testuser@gmail.com, wsSessionId - n4wnnzs3 
+2026-02-11T22:58:50.412+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-469] c.p.d.service.impl.RoomServiceImpl       : User testuser joined room 254850 for first time
+2026-02-11T22:59:02.464+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJpYXQiOjE3NzA4MjczOTUsImV4cCI6MTc3MDgzODE5NX0.LZvRx7Hci40v9Q-LvjngLa2xhNgZsoMYM46lqrc2L--XILUfcB0LLTbCVrQen4NTG_z4oZyx4hKv3styX4GmDg]
+2026-02-11T22:59:02.468+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-11T22:59:02.471+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-464] c.p.d.controller.WebSocketController     : Joined room - Room - 254850, User - sushruth@gmail.com, wsSessionId - 3yfef0fk 
+2026-02-11T22:59:02.477+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-464] c.p.d.service.impl.RoomServiceImpl       : User Sushruth joined room 254850 for first time
+2026-02-11T22:59:04.230+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : 3yfef0fk 
+2026-02-11T22:59:04.234+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.service.impl.RoomServiceImpl       : User Sushruth disconnected from room 254850 - starting 30 second grace period
+2026-02-11T22:59:04.240+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for Sushruth in room 254850
+2026-02-11T22:59:08.012+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-450] c.p.d.controller.WebSocketController     : Start game request, Roomcode - 254850
+2026-02-11T22:59:08.031+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-450] c.p.d.service.impl.SessionServiceImpl    : Session created for room : 254850
+2026-02-11T22:59:08.039+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-450] c.p.d.service.impl.SessionServiceImpl    : UserSession created for user : testuser
+2026-02-11T22:59:08.040+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-450] c.p.d.service.impl.SessionServiceImpl    : UserSession created for user : Sushruth
+2026-02-11T22:59:08.054+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-450] c.p.d.service.impl.SessionServiceImpl    : Session started at 254850
+2026-02-11T22:59:08.056+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-450] c.p.drawguess.game.GameRoundManager      : Game initialized for session 40. Drawer order: [2, 1]
+2026-02-11T22:59:11.065+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-3] c.p.d.service.impl.CanvasStrokeService   : Canvas strokes cleared for room 254850
+2026-02-11T22:59:11.090+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-3] c.p.drawguess.game.GameRoundManager      : Round 1 started. Drawer: testuser, Word: violin
+2026-02-11T22:59:34.240+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-7] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 1:55, disconnectingPlayers list -> {1:55=3yfef0fk}
+2026-02-11T22:59:34.241+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-7] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for Sushruth in room 254850 - removing user
+2026-02-11T22:59:34.246+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-7] c.p.d.service.impl.RoomServiceImpl       : User Sushruth left room 254850 (grace period done)
+2026-02-11T23:00:11.091+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-7] c.p.drawguess.game.GameRoundManager      : Round 1 ended for session 40. Reason: TIME_UP. Correct guessers: 0
+2026-02-11T23:00:16.099+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-7] c.p.d.service.impl.CanvasStrokeService   : Canvas strokes cleared for room 254850
+2026-02-11T23:00:16.103+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-7] c.p.drawguess.game.GameRoundManager      : Round 2 started. Drawer: Sushruth, Word: flower
+2026-02-11T23:00:37.027+05:30  INFO 16116 --- [DrawGuess] [MessageBroker-8] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 17 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(17)-CONNECTED(17)-DISCONNECT(15)], stompBrokerRelay[null], inboundChannel[pool size = 6, active threads = 0, queued tasks = 0, completed tasks = 762], outboundChannel[pool size = 2, active threads = 0, queued tasks = 0, completed tasks = 228], sockJsScheduler[pool size = 12, active threads = 1, queued tasks = 2, completed tasks = 829]
+2026-02-11T23:01:16.105+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-1] c.p.drawguess.game.GameRoundManager      : Round 2 ended for session 40. Reason: TIME_UP. Correct guessers: 0
+2026-02-11T23:01:21.113+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-1] c.p.d.service.impl.CanvasStrokeService   : Canvas strokes cleared for room 254850
+2026-02-11T23:01:21.118+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-1] c.p.drawguess.game.GameRoundManager      : Round 3 started. Drawer: testuser, Word: kite
+2026-02-11T23:02:21.118+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-9] c.p.drawguess.game.GameRoundManager      : Round 3 ended for session 40. Reason: TIME_UP. Correct guessers: 0
+2026-02-11T23:02:26.127+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-9] c.p.d.service.impl.CanvasStrokeService   : Canvas strokes cleared for room 254850
+2026-02-11T23:02:26.140+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-9] c.p.drawguess.game.GameRoundManager      : Round 4 started. Drawer: Sushruth, Word: fountain
+2026-02-11T23:03:26.140+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-9] c.p.drawguess.game.GameRoundManager      : Round 4 ended for session 40. Reason: TIME_UP. Correct guessers: 0
+2026-02-11T23:03:31.144+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-9] c.p.drawguess.game.GameRoundManager      : All 4 rounds complete for session 40
+2026-02-11T23:03:31.181+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : n4wnnzs3 
+2026-02-11T23:03:31.182+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-9] c.p.drawguess.game.GameRoundManager      : Session 40 and room 254850 finalized after all rounds complete
+2026-02-11T23:03:31.184+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.service.impl.RoomServiceImpl       : User testuser disconnected from room 254850 - starting 30 second grace period
+2026-02-11T23:03:31.186+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for testuser in room 254850
+2026-02-11T23:04:01.187+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 2:55, disconnectingPlayers list -> {2:55=n4wnnzs3}
+2026-02-11T23:04:01.187+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for testuser in room 254850 - removing user
+2026-02-11T23:04:01.193+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.RoomServiceImpl       : User testuser left room 254850 (grace period done)
+2026-02-11T23:04:01.202+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.SessionServiceImpl    : endSession: No active session for room 254850 (already ended?)
+2026-02-11T23:04:01.202+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.RoomServiceImpl       : Room 254850 closed - empty
+2026-02-11T23:04:01.204+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.RoomServiceImpl       : Room 254850 closed - empty
+2026-02-11T23:05:30.266+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlckBnbWFpbC5jb20iLCJpYXQiOjE3NzA4Mjc0NDMsImV4cCI6MTc3MDgzODI0M30.b1i7cPNt-k30l3jPFIpsQ4jfOQh-uf-c3R0rbTSoE2Wcqs15sA2pcmy4p-Ef9nOfzabFWWZ2cgTQArBw_i5sbA]
+2026-02-11T23:05:30.276+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: testuser@gmail.com
+2026-02-11T23:05:30.286+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-517] c.p.d.controller.WebSocketController     : Joined room - Room - 254850, User - testuser@gmail.com, wsSessionId - nrviptxt 
+2026-02-11T23:05:30.298+05:30 ERROR 16116 --- [DrawGuess] [clientInboundChannel-517] c.p.d.controller.WebSocketController     : Local WebSocket Error [User: testuser@gmail.com]: Cannot join finished room
+2026-02-11T23:05:30.327+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : nrviptxt 
+2026-02-11T23:05:30.333+05:30  WARN 16116 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.service.impl.RoomServiceImpl       : No RoomPlayer found for wsSessionId: nrviptxt
+2026-02-11T23:10:36.411+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlckBnbWFpbC5jb20iLCJpYXQiOjE3NzA4Mjc0NDMsImV4cCI6MTc3MDgzODI0M30.b1i7cPNt-k30l3jPFIpsQ4jfOQh-uf-c3R0rbTSoE2Wcqs15sA2pcmy4p-Ef9nOfzabFWWZ2cgTQArBw_i5sbA]
+2026-02-11T23:10:36.417+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: testuser@gmail.com
+2026-02-11T23:10:36.423+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-541] c.p.d.controller.WebSocketController     : Joined room - Room - 329737, User - testuser@gmail.com, wsSessionId - ycvbrpka 
+2026-02-11T23:10:36.437+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-541] c.p.d.service.impl.RoomServiceImpl       : User testuser joined room 329737 for first time
+2026-02-11T23:10:45.092+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : 4zbwooov 
+2026-02-11T23:10:45.095+05:30  WARN 16116 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.service.impl.RoomServiceImpl       : No RoomPlayer found for wsSessionId: 4zbwooov
+2026-02-11T23:10:45.226+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : qpbpgb01 
+2026-02-11T23:10:45.229+05:30  WARN 16116 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.service.impl.RoomServiceImpl       : No RoomPlayer found for wsSessionId: qpbpgb01
+2026-02-11T23:10:45.664+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJpYXQiOjE3NzA4MjczOTUsImV4cCI6MTc3MDgzODE5NX0.LZvRx7Hci40v9Q-LvjngLa2xhNgZsoMYM46lqrc2L--XILUfcB0LLTbCVrQen4NTG_z4oZyx4hKv3styX4GmDg]
+2026-02-11T23:10:45.669+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-11T23:10:45.673+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-541] c.p.d.controller.WebSocketController     : Joined room - Room - 329737, User - sushruth@gmail.com, wsSessionId - p2fiikoo 
+2026-02-11T23:10:45.679+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-541] c.p.d.service.impl.RoomServiceImpl       : User Sushruth joined room 329737 for first time
+2026-02-11T23:10:49.426+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-523] c.p.d.controller.WebSocketController     : Start game request, Roomcode - 329737
+2026-02-11T23:10:49.444+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-523] c.p.d.service.impl.SessionServiceImpl    : Session created for room : 329737
+2026-02-11T23:10:49.446+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-523] c.p.d.service.impl.SessionServiceImpl    : UserSession created for user : testuser
+2026-02-11T23:10:49.446+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-523] c.p.d.service.impl.SessionServiceImpl    : UserSession created for user : Sushruth
+2026-02-11T23:10:49.451+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-523] c.p.d.service.impl.SessionServiceImpl    : Session started at 329737
+2026-02-11T23:10:49.453+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-523] c.p.drawguess.game.GameRoundManager      : Game initialized for session 41. Drawer order: [2, 1]
+2026-02-11T23:10:52.562+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-6] c.p.d.service.impl.CanvasStrokeService   : Canvas strokes cleared for room 329737
+2026-02-11T23:10:52.786+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-6] c.p.drawguess.game.GameRoundManager      : Round 1 started. Drawer: testuser, Word: rainbow
+2026-02-11T23:11:52.786+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-3] c.p.drawguess.game.GameRoundManager      : Round 1 ended for session 41. Reason: TIME_UP. Correct guessers: 0
+2026-02-11T23:11:57.790+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-3] c.p.d.service.impl.CanvasStrokeService   : Canvas strokes cleared for room 329737
+2026-02-11T23:11:57.796+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-3] c.p.drawguess.game.GameRoundManager      : Round 2 started. Drawer: Sushruth, Word: bicycle
+2026-02-11T23:12:57.796+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-7] c.p.drawguess.game.GameRoundManager      : Round 2 ended for session 41. Reason: TIME_UP. Correct guessers: 0
+2026-02-11T23:13:02.804+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-7] c.p.d.service.impl.CanvasStrokeService   : Canvas strokes cleared for room 329737
+2026-02-11T23:13:02.809+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-7] c.p.drawguess.game.GameRoundManager      : Round 3 started. Drawer: testuser, Word: diamond
+2026-02-11T23:13:17.503+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : p2fiikoo 
+2026-02-11T23:13:17.515+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.service.impl.RoomServiceImpl       : User Sushruth disconnected from room 329737 - starting 30 second grace period
+2026-02-11T23:13:17.521+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.service.impl.SessionServiceImpl    : User Sushruth disconnected from SESSION 41 - starting 30 second grace period
+2026-02-11T23:13:17.523+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.service.impl.SessionServiceImpl    : Session grace period timer started for Sushruth in session 41
+2026-02-11T23:13:17.523+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for Sushruth in room 329737
+2026-02-11T23:13:19.894+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-4] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJpYXQiOjE3NzA4MjczOTUsImV4cCI6MTc3MDgzODE5NX0.LZvRx7Hci40v9Q-LvjngLa2xhNgZsoMYM46lqrc2L--XILUfcB0LLTbCVrQen4NTG_z4oZyx4hKv3styX4GmDg]
+2026-02-11T23:13:19.899+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-4] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-11T23:13:19.901+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-576] c.p.d.controller.WebSocketController     : Joined room - Room - 508407, User - sushruth@gmail.com, wsSessionId - i3istqcx 
+2026-02-11T23:13:19.908+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-576] c.p.d.service.impl.RoomServiceImpl       : User Sushruth joined room 508407 for first time
+2026-02-11T23:13:27.893+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : ycvbrpka 
+2026-02-11T23:13:27.899+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.service.impl.RoomServiceImpl       : User testuser disconnected from room 329737 - starting 30 second grace period
+2026-02-11T23:13:27.913+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.service.impl.SessionServiceImpl    : User testuser disconnected from SESSION 41 - starting 30 second grace period
+2026-02-11T23:13:27.913+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.service.impl.SessionServiceImpl    : Session grace period timer started for testuser in session 41
+2026-02-11T23:13:27.914+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for testuser in room 329737
+2026-02-11T23:13:29.777+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlckBnbWFpbC5jb20iLCJpYXQiOjE3NzA4Mjc0NDMsImV4cCI6MTc3MDgzODI0M30.b1i7cPNt-k30l3jPFIpsQ4jfOQh-uf-c3R0rbTSoE2Wcqs15sA2pcmy4p-Ef9nOfzabFWWZ2cgTQArBw_i5sbA]
+2026-02-11T23:13:29.782+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: testuser@gmail.com
+2026-02-11T23:13:29.786+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-577] c.p.d.controller.WebSocketController     : Joined room - Room - 508407, User - testuser@gmail.com, wsSessionId - u0k4jeh0 
+2026-02-11T23:13:29.794+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-577] c.p.d.service.impl.RoomServiceImpl       : User testuser joined room 508407 for first time
+2026-02-11T23:13:47.524+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-5] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 1:56, disconnectingPlayers list -> {1:56=p2fiikoo, 2:56=ycvbrpka}
+2026-02-11T23:13:47.524+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-5] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for Sushruth in room 329737 - removing user
+2026-02-11T23:13:47.529+05:30  INFO 16116 --- [DrawGuess] [pool-3-thread-1] c.p.d.service.impl.SessionServiceImpl    : Session grace period expired for Sushruth - marking inactive
+2026-02-11T23:13:47.542+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-5] c.p.d.service.impl.RoomServiceImpl       : User Sushruth left room 329737 (grace period done)
+2026-02-11T23:13:47.558+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-5] c.p.d.service.impl.SessionServiceImpl    : Session ended : 41 for room 329737 
+2026-02-11T23:13:47.564+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-5] c.p.d.service.impl.SessionServiceImpl    : Broadcast Game ended called for roomCode - 329737
+2026-02-11T23:13:47.589+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-5] c.p.d.service.impl.SessionServiceImpl    : Sent GAME_ENDED to /topic/room
+2026-02-11T23:13:47.592+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-5] c.p.d.service.impl.RoomServiceImpl       : Room 329737 closed - empty
+2026-02-11T23:13:47.624+05:30  INFO 16116 --- [DrawGuess] [pool-3-thread-1] c.p.drawguess.game.GameRoundManager      : Less than 2 active players, ending round
+2026-02-11T23:13:47.624+05:30  INFO 16116 --- [DrawGuess] [pool-3-thread-1] c.p.drawguess.game.GameRoundManager      : Round already ended for session 41
+2026-02-11T23:13:47.625+05:30  WARN 16116 --- [DrawGuess] [pool-3-thread-1] c.p.d.service.impl.SessionServiceImpl    : Less than 2 players in session 41, ending session
+2026-02-11T23:13:47.626+05:30  INFO 16116 --- [DrawGuess] [pool-3-thread-1] c.p.d.service.impl.SessionServiceImpl    : endSession: No active session for room 329737 (already ended?)
+2026-02-11T23:13:51.996+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-581] c.p.d.controller.WebSocketController     : Start game request, Roomcode - 508407
+2026-02-11T23:13:52.001+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-581] c.p.d.service.impl.SessionServiceImpl    : Session created for room : 508407
+2026-02-11T23:13:52.002+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-581] c.p.d.service.impl.SessionServiceImpl    : UserSession created for user : Sushruth
+2026-02-11T23:13:52.004+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-581] c.p.d.service.impl.SessionServiceImpl    : UserSession created for user : testuser
+2026-02-11T23:13:52.006+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-581] c.p.d.service.impl.SessionServiceImpl    : Session started at 508407
+2026-02-11T23:13:52.012+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-581] c.p.drawguess.game.GameRoundManager      : Game initialized for session 42. Drawer order: [1, 2]
+2026-02-11T23:13:55.017+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-2] c.p.d.service.impl.CanvasStrokeService   : Canvas strokes cleared for room 508407
+2026-02-11T23:13:55.024+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-2] c.p.drawguess.game.GameRoundManager      : Round 1 started. Drawer: Sushruth, Word: octopus
+2026-02-11T23:13:57.915+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-10] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 2:56, disconnectingPlayers list -> {2:56=ycvbrpka}
+2026-02-11T23:13:57.915+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-10] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for testuser in room 329737 - removing user
+2026-02-11T23:13:57.920+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-10] c.p.d.service.impl.RoomServiceImpl       : User testuser left room 329737 (grace period done)
+2026-02-11T23:13:57.932+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-10] c.p.d.service.impl.SessionServiceImpl    : endSession: No active session for room 329737 (already ended?)
+2026-02-11T23:13:57.934+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-10] c.p.d.service.impl.RoomServiceImpl       : Room 329737 closed - empty
+2026-02-11T23:13:57.937+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-10] c.p.d.service.impl.RoomServiceImpl       : Room 329737 closed - empty
+2026-02-11T23:14:55.025+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-10] c.p.drawguess.game.GameRoundManager      : Round 1 ended for session 42. Reason: TIME_UP. Correct guessers: 0
+2026-02-11T23:15:00.030+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-10] c.p.d.service.impl.CanvasStrokeService   : Canvas strokes cleared for room 508407
+2026-02-11T23:15:00.035+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-10] c.p.drawguess.game.GameRoundManager      : Round 2 started. Drawer: testuser, Word: unicorn
+2026-02-11T23:16:00.036+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-9] c.p.drawguess.game.GameRoundManager      : Round 2 ended for session 42. Reason: TIME_UP. Correct guessers: 0
+2026-02-11T23:16:05.040+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-9] c.p.d.service.impl.CanvasStrokeService   : Canvas strokes cleared for room 508407
+2026-02-11T23:16:05.047+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-9] c.p.drawguess.game.GameRoundManager      : Round 3 started. Drawer: Sushruth, Word: parachute
+2026-02-11T23:16:34.257+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : i3istqcx 
+2026-02-11T23:16:34.271+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.service.impl.RoomServiceImpl       : User Sushruth disconnected from room 508407 - starting 30 second grace period
+2026-02-11T23:16:34.295+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.service.impl.SessionServiceImpl    : User Sushruth disconnected from SESSION 42 - starting 30 second grace period
+2026-02-11T23:16:34.296+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.service.impl.SessionServiceImpl    : Session grace period timer started for Sushruth in session 42
+2026-02-11T23:16:34.297+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for Sushruth in room 508407
+2026-02-11T23:16:35.113+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : u0k4jeh0 
+2026-02-11T23:16:35.119+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.service.impl.RoomServiceImpl       : User testuser disconnected from room 508407 - starting 30 second grace period
+2026-02-11T23:16:35.130+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.service.impl.SessionServiceImpl    : User testuser disconnected from SESSION 42 - starting 30 second grace period
+2026-02-11T23:16:35.131+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.service.impl.SessionServiceImpl    : Session grace period timer started for testuser in session 42
+2026-02-11T23:16:35.131+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for testuser in room 508407
+2026-02-11T23:16:35.177+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-9] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJpYXQiOjE3NzA4MjczOTUsImV4cCI6MTc3MDgzODE5NX0.LZvRx7Hci40v9Q-LvjngLa2xhNgZsoMYM46lqrc2L--XILUfcB0LLTbCVrQen4NTG_z4oZyx4hKv3styX4GmDg]
+2026-02-11T23:16:35.187+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-9] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-11T23:16:35.192+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-617] c.p.d.controller.WebSocketController     : Joined room - Room - 508407, User - sushruth@gmail.com, wsSessionId - xowmpvob 
+2026-02-11T23:16:35.203+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-617] c.p.d.service.impl.RoomServiceImpl       : Cancelled pending disconnect for user Sushruth in room 508407
+2026-02-11T23:16:35.204+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-617] c.p.d.service.impl.RoomServiceImpl       : User Sushruth updated ws session id in room 508407
+2026-02-11T23:16:35.212+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-617] c.p.d.service.impl.SessionServiceImpl    : Handling session reconnection for user Sushruth in room 508407
+2026-02-11T23:16:35.218+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-617] c.p.d.service.impl.SessionServiceImpl    : Cancelled pending session disconnect task for user Sushruth 
+2026-02-11T23:16:35.276+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlckBnbWFpbC5jb20iLCJpYXQiOjE3NzA4Mjc0NDMsImV4cCI6MTc3MDgzODI0M30.b1i7cPNt-k30l3jPFIpsQ4jfOQh-uf-c3R0rbTSoE2Wcqs15sA2pcmy4p-Ef9nOfzabFWWZ2cgTQArBw_i5sbA]
+2026-02-11T23:16:35.288+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: testuser@gmail.com
+2026-02-11T23:16:35.295+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-597] c.p.d.controller.WebSocketController     : Joined room - Room - 508407, User - testuser@gmail.com, wsSessionId - m2a2caub 
+2026-02-11T23:16:35.303+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-597] c.p.d.service.impl.RoomServiceImpl       : Cancelled pending disconnect for user testuser in room 508407
+2026-02-11T23:16:35.306+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-597] c.p.d.service.impl.RoomServiceImpl       : User testuser updated ws session id in room 508407
+2026-02-11T23:16:35.313+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-597] c.p.d.service.impl.SessionServiceImpl    : Handling session reconnection for user testuser in room 508407
+2026-02-11T23:16:35.319+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-597] c.p.d.service.impl.SessionServiceImpl    : Cancelled pending session disconnect task for user testuser 
+2026-02-11T23:16:41.454+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : xowmpvob 
+2026-02-11T23:16:41.463+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.service.impl.RoomServiceImpl       : User Sushruth disconnected from room 508407 - starting 30 second grace period
+2026-02-11T23:16:41.481+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.service.impl.SessionServiceImpl    : User Sushruth disconnected from SESSION 42 - starting 30 second grace period
+2026-02-11T23:16:41.481+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.service.impl.SessionServiceImpl    : Session grace period timer started for Sushruth in session 42
+2026-02-11T23:16:41.482+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for Sushruth in room 508407
+2026-02-11T23:16:42.172+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : m2a2caub 
+2026-02-11T23:16:42.184+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.service.impl.RoomServiceImpl       : User testuser disconnected from room 508407 - starting 30 second grace period
+2026-02-11T23:16:42.206+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.service.impl.SessionServiceImpl    : User testuser disconnected from SESSION 42 - starting 30 second grace period
+2026-02-11T23:16:42.209+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.service.impl.SessionServiceImpl    : Session grace period timer started for testuser in session 42
+2026-02-11T23:16:42.209+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for testuser in room 508407
+2026-02-11T23:16:42.506+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlckBnbWFpbC5jb20iLCJpYXQiOjE3NzA4Mjc0NDMsImV4cCI6MTc3MDgzODI0M30.b1i7cPNt-k30l3jPFIpsQ4jfOQh-uf-c3R0rbTSoE2Wcqs15sA2pcmy4p-Ef9nOfzabFWWZ2cgTQArBw_i5sbA]
+2026-02-11T23:16:42.525+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: testuser@gmail.com
+2026-02-11T23:16:42.537+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-600] c.p.d.controller.WebSocketController     : Joined room - Room - 508407, User - testuser@gmail.com, wsSessionId - shx1tvqs 
+2026-02-11T23:16:42.554+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-600] c.p.d.service.impl.RoomServiceImpl       : Cancelled pending disconnect for user testuser in room 508407
+2026-02-11T23:16:42.559+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-600] c.p.d.service.impl.RoomServiceImpl       : User testuser updated ws session id in room 508407
+2026-02-11T23:16:42.579+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-600] c.p.d.service.impl.SessionServiceImpl    : Handling session reconnection for user testuser in room 508407
+2026-02-11T23:16:42.588+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-600] c.p.d.service.impl.SessionServiceImpl    : Cancelled pending session disconnect task for user testuser 
+2026-02-11T23:16:42.681+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-9] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJpYXQiOjE3NzA4MjczOTUsImV4cCI6MTc3MDgzODE5NX0.LZvRx7Hci40v9Q-LvjngLa2xhNgZsoMYM46lqrc2L--XILUfcB0LLTbCVrQen4NTG_z4oZyx4hKv3styX4GmDg]
+2026-02-11T23:16:42.689+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-9] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-11T23:16:42.692+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-598] c.p.d.controller.WebSocketController     : Joined room - Room - 508407, User - sushruth@gmail.com, wsSessionId - ywrvkpq0 
+2026-02-11T23:16:42.698+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-598] c.p.d.service.impl.RoomServiceImpl       : Cancelled pending disconnect for user Sushruth in room 508407
+2026-02-11T23:16:42.699+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-598] c.p.d.service.impl.RoomServiceImpl       : User Sushruth updated ws session id in room 508407
+2026-02-11T23:16:42.705+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-598] c.p.d.service.impl.SessionServiceImpl    : Handling session reconnection for user Sushruth in room 508407
+2026-02-11T23:16:42.709+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-598] c.p.d.service.impl.SessionServiceImpl    : Cancelled pending session disconnect task for user Sushruth 
+2026-02-11T23:17:05.047+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-4] c.p.drawguess.game.GameRoundManager      : Round 3 ended for session 42. Reason: TIME_UP. Correct guessers: 0
+2026-02-11T23:17:10.052+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-4] c.p.d.service.impl.CanvasStrokeService   : Canvas strokes cleared for room 508407
+2026-02-11T23:17:10.058+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-4] c.p.drawguess.game.GameRoundManager      : Round 4 started. Drawer: testuser, Word: lighthouse
+2026-02-11T23:18:10.058+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-8] c.p.drawguess.game.GameRoundManager      : Round 4 ended for session 42. Reason: TIME_UP. Correct guessers: 0
+2026-02-11T23:18:15.063+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-8] c.p.drawguess.game.GameRoundManager      : All 4 rounds complete for session 42
+2026-02-11T23:18:15.088+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-8] c.p.drawguess.game.GameRoundManager      : Session 42 and room 508407 finalized after all rounds complete
+2026-02-11T23:18:15.089+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-4] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : shx1tvqs 
+2026-02-11T23:18:15.094+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-4] c.p.d.service.impl.RoomServiceImpl       : User testuser disconnected from room 508407 - starting 30 second grace period
+2026-02-11T23:18:15.098+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : ywrvkpq0 
+2026-02-11T23:18:15.098+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-4] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for testuser in room 508407
+2026-02-11T23:18:15.106+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.service.impl.RoomServiceImpl       : User Sushruth disconnected from room 508407 - starting 30 second grace period
+2026-02-11T23:18:15.112+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for Sushruth in room 508407
+2026-02-11T23:18:45.098+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 2:57, disconnectingPlayers list -> {1:57=ywrvkpq0, 2:57=shx1tvqs}
+2026-02-11T23:18:45.098+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for testuser in room 508407 - removing user
+2026-02-11T23:18:45.104+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : User testuser left room 508407 (grace period done)
+2026-02-11T23:18:45.112+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-8] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 1:57, disconnectingPlayers list -> {1:57=ywrvkpq0}
+2026-02-11T23:18:45.112+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-8] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for Sushruth in room 508407 - removing user
+2026-02-11T23:18:45.112+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.SessionServiceImpl    : endSession: No active session for room 508407 (already ended?)
+2026-02-11T23:18:45.112+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Room 508407 closed - empty
+2026-02-11T23:18:45.118+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-8] c.p.d.service.impl.RoomServiceImpl       : User Sushruth left room 508407 (grace period done)
+2026-02-11T23:18:45.127+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-8] c.p.d.service.impl.SessionServiceImpl    : endSession: No active session for room 508407 (already ended?)
+2026-02-11T23:18:45.127+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-8] c.p.d.service.impl.RoomServiceImpl       : Room 508407 closed - empty
+2026-02-11T23:18:45.130+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-8] c.p.d.service.impl.RoomServiceImpl       : Room 508407 closed - empty
+2026-02-11T23:23:42.001+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJpYXQiOjE3NzA4MjczOTUsImV4cCI6MTc3MDgzODE5NX0.LZvRx7Hci40v9Q-LvjngLa2xhNgZsoMYM46lqrc2L--XILUfcB0LLTbCVrQen4NTG_z4oZyx4hKv3styX4GmDg]
+2026-02-11T23:23:42.006+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-11T23:23:42.010+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-656] c.p.d.controller.WebSocketController     : Joined room - Room - 658225, User - sushruth@gmail.com, wsSessionId - tveu1n1j 
+2026-02-11T23:23:42.016+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-656] c.p.d.service.impl.RoomServiceImpl       : User Sushruth joined room 658225 for first time
+2026-02-11T23:23:49.046+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlckBnbWFpbC5jb20iLCJpYXQiOjE3NzA4Mjc0NDMsImV4cCI6MTc3MDgzODI0M30.b1i7cPNt-k30l3jPFIpsQ4jfOQh-uf-c3R0rbTSoE2Wcqs15sA2pcmy4p-Ef9nOfzabFWWZ2cgTQArBw_i5sbA]
+2026-02-11T23:23:49.057+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: testuser@gmail.com
+2026-02-11T23:23:49.064+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-653] c.p.d.controller.WebSocketController     : Joined room - Room - 658225, User - testuser@gmail.com, wsSessionId - gaihojh5 
+2026-02-11T23:23:49.072+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-653] c.p.d.service.impl.RoomServiceImpl       : User testuser joined room 658225 for first time
+2026-02-11T23:23:51.646+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-658] c.p.d.controller.WebSocketController     : Start game request, Roomcode - 658225
+2026-02-11T23:23:51.653+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-658] c.p.d.service.impl.SessionServiceImpl    : Session created for room : 658225
+2026-02-11T23:23:51.655+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-658] c.p.d.service.impl.SessionServiceImpl    : UserSession created for user : Sushruth
+2026-02-11T23:23:51.655+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-658] c.p.d.service.impl.SessionServiceImpl    : UserSession created for user : testuser
+2026-02-11T23:23:51.659+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-658] c.p.d.service.impl.SessionServiceImpl    : Session started at 658225
+2026-02-11T23:23:51.661+05:30  INFO 16116 --- [DrawGuess] [clientInboundChannel-658] c.p.drawguess.game.GameRoundManager      : Game initialized for session 43. Drawer order: [1, 2]
+2026-02-11T23:23:53.664+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : tveu1n1j 
+2026-02-11T23:23:53.668+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.service.impl.RoomServiceImpl       : User Sushruth disconnected from room 658225 - starting 30 second grace period
+2026-02-11T23:23:53.675+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.service.impl.SessionServiceImpl    : User Sushruth disconnected from SESSION 43 - starting 30 second grace period
+2026-02-11T23:23:53.676+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.service.impl.SessionServiceImpl    : Session grace period timer started for Sushruth in session 43
+2026-02-11T23:23:53.676+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for Sushruth in room 658225
+2026-02-11T23:23:54.665+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-2] c.p.d.service.impl.CanvasStrokeService   : Canvas strokes cleared for room 658225
+2026-02-11T23:23:54.671+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-2] c.p.drawguess.game.GameRoundManager      : Round 1 started. Drawer: Sushruth, Word: penguin
+2026-02-11T23:24:23.679+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-7] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 1:58, disconnectingPlayers list -> {1:58=tveu1n1j}
+2026-02-11T23:24:23.679+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-7] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for Sushruth in room 658225 - removing user
+2026-02-11T23:24:23.679+05:30  INFO 16116 --- [DrawGuess] [pool-3-thread-5] c.p.d.service.impl.SessionServiceImpl    : Session grace period expired for Sushruth - marking inactive
+2026-02-11T23:24:23.685+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-7] c.p.d.service.impl.RoomServiceImpl       : User Sushruth left room 658225 (grace period done)
+2026-02-11T23:24:23.687+05:30  INFO 16116 --- [DrawGuess] [pool-3-thread-5] c.p.drawguess.game.GameRoundManager      : Drawer Sushruth disconnected during round 1
+2026-02-11T23:24:23.688+05:30  INFO 16116 --- [DrawGuess] [pool-3-thread-5] c.p.drawguess.game.GameRoundManager      : Round 1 ended for session 43. Reason: DRAWER_LEFT. Correct guessers: 0
+2026-02-11T23:24:23.691+05:30  WARN 16116 --- [DrawGuess] [pool-3-thread-5] c.p.d.service.impl.SessionServiceImpl    : Less than 2 players in session 43, ending session
+2026-02-11T23:24:23.697+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-7] c.p.d.service.impl.SessionServiceImpl    : Session ended : 43 for room 658225 
+2026-02-11T23:24:23.697+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-7] c.p.d.service.impl.SessionServiceImpl    : Broadcast Game ended called for roomCode - 658225
+2026-02-11T23:24:23.704+05:30  INFO 16116 --- [DrawGuess] [pool-3-thread-5] c.p.d.service.impl.SessionServiceImpl    : Session ended : 43 for room 658225 
+2026-02-11T23:24:23.704+05:30  INFO 16116 --- [DrawGuess] [pool-3-thread-5] c.p.d.service.impl.SessionServiceImpl    : Broadcast Game ended called for roomCode - 658225
+2026-02-11T23:24:23.705+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-7] c.p.d.service.impl.SessionServiceImpl    : Sent GAME_ENDED to /topic/room
+2026-02-11T23:24:23.710+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-7] c.p.d.service.impl.RoomServiceImpl       : Room 658225 closed - empty
+2026-02-11T23:24:23.711+05:30  INFO 16116 --- [DrawGuess] [pool-3-thread-5] c.p.d.service.impl.SessionServiceImpl    : Sent GAME_ENDED to /topic/room
+2026-02-11T23:24:23.722+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-7] c.p.d.service.impl.RoomServiceImpl       : Host reassigned to testuser in room 658225
+2026-02-11T23:24:23.741+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : gaihojh5 
+2026-02-11T23:24:23.745+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.service.impl.RoomServiceImpl       : User testuser disconnected from room 658225 - starting 30 second grace period
+2026-02-11T23:24:23.750+05:30  INFO 16116 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for testuser in room 658225
+2026-02-11T23:24:28.692+05:30  INFO 16116 --- [DrawGuess] [pool-2-thread-5] c.p.drawguess.game.GameRoundManager      : Session 43 is not active, cannot start next round
+2026-02-11T23:24:53.751+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 2:58, disconnectingPlayers list -> {2:58=gaihojh5}
+2026-02-11T23:24:53.751+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for testuser in room 658225 - removing user
+2026-02-11T23:24:53.757+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.RoomServiceImpl       : User testuser left room 658225 (grace period done)
+2026-02-11T23:24:53.767+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.SessionServiceImpl    : endSession: No active session for room 658225 (already ended?)
+2026-02-11T23:24:53.768+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.RoomServiceImpl       : Room 658225 closed - empty
+2026-02-11T23:24:53.770+05:30  INFO 16116 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.RoomServiceImpl       : Room 658225 closed - empty
+2026-02-11T23:30:37.031+05:30  INFO 16116 --- [DrawGuess] [MessageBroker-3] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 30 total, 0 closed abnormally (0 connect failure, 0 send limit, 2 transport error)], stompSubProtocol[processed CONNECT(28)-CONNECTED(28)-DISCONNECT(27)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 1185], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 347], sockJsScheduler[pool size = 12, active threads = 1, queued tasks = 1, completed tasks = 1219]
