@@ -101,6 +101,26 @@ public class WebSocketController {
 				message.trim());
 	}
 
+	@MessageMapping("/room/{roomCode}/chat")
+	public void sendChat(@DestinationVariable String roomCode,
+			Principal principal,
+			@Payload Map<String, String> payload) {
+		if (principal == null) return;
+		String email = principal.getName();
+		String message = payload.get("message");
+		if (message == null || message.trim().isEmpty()) return;
+		if (message.length() > 250) message = message.substring(0, 250);
+
+		User user = userRepository.findByEmail(email);
+		if (user == null) return;
+
+		Map<String, Object> chatMsg = new HashMap<>();
+		chatMsg.put("type", "CHAT_MESSAGE");
+		chatMsg.put("username", user.getUsername());
+		chatMsg.put("message", message.trim());
+		messagingTemplate.convertAndSend("/topic/room/" + roomCode, (Object) chatMsg);
+	}
+
 	@MessageMapping("/room/{roomCode}/draw")
 	public void handleDraw(@DestinationVariable String roomCode,
 			Principal principal,
