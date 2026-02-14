@@ -16,7 +16,7 @@ import com.project.drawguess.game.GameRoundManager;
 import com.project.drawguess.model.Session;
 import com.project.drawguess.model.User;
 import com.project.drawguess.repository.UserRepository;
-import com.project.drawguess.service.impl.CanvasStrokeService;
+import com.project.drawguess.service.impl.CanvasStrokeServiceImpl;
 import com.project.drawguess.service.impl.RoomServiceImpl;
 import com.project.drawguess.service.impl.SessionServiceImpl;
 
@@ -33,7 +33,7 @@ public class WebSocketController {
 	private final SimpMessagingTemplate messagingTemplate;
 	private final UserRepository userRepository;
 	private final GameRoundManager gameRoundManager;
-	private final CanvasStrokeService canvasStrokeService;
+	private final CanvasStrokeServiceImpl canvasStrokeService;
 
 	@MessageMapping("/room/{roomCode}/join")
 	public void joinRoom(@DestinationVariable String roomCode, SimpMessageHeaderAccessor headerAccessor,
@@ -99,26 +99,6 @@ public class WebSocketController {
 				session.getSessionId(), roomCode,
 				user.getUserId(), user.getUsername(), user.getEmail(),
 				message.trim());
-	}
-
-	@MessageMapping("/room/{roomCode}/chat")
-	public void sendChat(@DestinationVariable String roomCode,
-			Principal principal,
-			@Payload Map<String, String> payload) {
-		if (principal == null) return;
-		String email = principal.getName();
-		String message = payload.get("message");
-		if (message == null || message.trim().isEmpty()) return;
-		if (message.length() > 250) message = message.substring(0, 250);
-
-		User user = userRepository.findByEmail(email);
-		if (user == null) return;
-
-		Map<String, Object> chatMsg = new HashMap<>();
-		chatMsg.put("type", "CHAT_MESSAGE");
-		chatMsg.put("username", user.getUsername());
-		chatMsg.put("message", message.trim());
-		messagingTemplate.convertAndSend("/topic/room/" + roomCode, (Object) chatMsg);
 	}
 
 	@MessageMapping("/room/{roomCode}/draw")

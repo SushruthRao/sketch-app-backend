@@ -8,7 +8,6 @@ import jakarta.persistence.FetchType;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.Index;
 import jakarta.persistence.JoinColumn;
 import jakarta.persistence.JoinColumns;
 import jakarta.persistence.ManyToOne;
@@ -16,11 +15,8 @@ import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-@Entity
-@Table(name = "room_player_table", indexes = {
-	@Index(name = "idx_room_active", columnList = "room_id, is_active"),
-	@Index(name = "idx_websocket_session", columnList = "websocket_session_id")
-})
+@Entity 
+@Table(name = "room_player_table")
 @Data
 @NoArgsConstructor
 public class RoomPlayer {

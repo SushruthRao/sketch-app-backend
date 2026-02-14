@@ -4,6 +4,6 @@ import lombok.Data;
 
 @Data
 public class AuthResponseDto {
-	private String jsonToken;
-	private String userName;
+	public String jsonToken;
+	public String userName;
 }

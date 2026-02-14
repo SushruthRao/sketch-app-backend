@@ -1,0 +1,40 @@
+{"properties": [
+	{
+  "name": "app.room.max-players",
+  "type": "java.lang.Integer",
+  "description": "Max number of players per room"
+},
+
+{
+  "name": "app.room.grace-period-seconds",
+  "type": "java.lang.Integer",
+  "description": "Grace period for reconnecting to room"
+}
+,
+
+{
+  "name": "app.gameroundmanager.round-duration-seconds",
+  "type": "java.lang.Integer",
+  "description": ""
+}
+,
+{
+  "name": "app.gameroundmanager.max-guesser-points",
+  "type": "java.lang.Integer",
+  "description": ""
+}
+,
+{
+  "name": "app.gameroundmanager.drawer-points-per-guess",
+  "type": "java.lang.Integer",
+  "description": ""
+}
+,
+{
+  "name": "app.gameroundmanager.delay-between-round-seconds",
+  "type": "java.lang.Integer",
+  "description": ""
+}
+
+
+]}

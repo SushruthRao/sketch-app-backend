@@ -48,7 +48,7 @@ public class SessionServiceImpl {
 	private final UserRepository userRepository;
 	private final SimpMessagingTemplate messagingTemplate;
 	private final GameRoundManager gameRoundManager;
-	private final CanvasStrokeService canvasStrokeService;
+	private final CanvasStrokeServiceImpl canvasStrokeService;
 
 	private final Map<String, ScheduledFuture<?>> sessionDisconnectTasks = new ConcurrentHashMap<>();
 	private final Map<String, String> disconnectingSessionPlayers = new ConcurrentHashMap<>();
@@ -68,22 +68,7 @@ public class SessionServiceImpl {
 		if (room.getStatus() != RoomStatus.WAITING) {
 			throw new IllegalStateException("Session is already in progress");
 		}
-		// Check no active session already exists (guards against concurrent start requests)
-		Optional<Session> existingSession = sessionRepository.findByRoomAndStatus(room, SessionStatus.ACTIVE);
-		if (existingSession.isPresent()) {
-			throw new IllegalStateException("Session is already in progress");
-		}
-
 		List<RoomPlayer> activePlayers = roomPlayerRepository.findByRoomAndIsActive(room, true);
-
-		// Deduplicate by user ID to prevent duplicate UserSessions
-		activePlayers = new ArrayList<>(activePlayers.stream()
-				.collect(Collectors.toMap(
-						rp -> rp.getUser().getUserId(),
-						rp -> rp,
-						(existing, duplicate) -> existing,
-						java.util.LinkedHashMap::new))
-				.values());
 
 		if (activePlayers.size() < 2) {
 			throw new IllegalStateException("Need at least 2 users to start session");
@@ -345,7 +330,7 @@ public class SessionServiceImpl {
 		message.put("currentRound", session.getCurrentRound());
 		message.put("players", getSessionPlayers(session.getSessionId()));
 		message.put("timestamp", LocalDateTime.now().toString());
-
+		log.info("BROADCAST GAME STARTED PLAYERS = {} ", getSessionPlayers(session.getSessionId()));
 		messagingTemplate.convertAndSend("/topic/room/" + roomCode, (Object) message);
 		log.info("Session started at {}", roomCode);
 	}

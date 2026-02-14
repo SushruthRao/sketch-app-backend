@@ -1,5 +1,4 @@
 package com.project.drawguess.game;
-
 import java.time.LocalDateTime;
 import java.util.ArrayList;
 import java.util.HashMap;
@@ -13,6 +12,7 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
@@ -24,7 +24,7 @@ import com.project.drawguess.model.UserSession;
 import com.project.drawguess.repository.RoomRepository;
 import com.project.drawguess.repository.SessionRepository;
 import com.project.drawguess.repository.UserSessionRepository;
-import com.project.drawguess.service.impl.CanvasStrokeService;
+import com.project.drawguess.service.impl.CanvasStrokeServiceImpl;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -38,7 +38,7 @@ public class GameRoundManager {
 	private final UserSessionRepository userSessionRepository;
 	private final RoomRepository roomRepository;
 	private final SimpMessagingTemplate messagingTemplate;
-	private final CanvasStrokeService canvasStrokeService;
+	private final CanvasStrokeServiceImpl canvasStrokeService;
 
 	private final Map<Long, RoundState> activeRounds = new ConcurrentHashMap<>();
 	private final Map<Long, List<Long>> drawerOrders = new ConcurrentHashMap<>();
@@ -47,10 +47,18 @@ public class GameRoundManager {
 
 	private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(10);
 
-	private static final int ROUND_DURATION_SECONDS = 60;
-	private static final int MAX_GUESSER_POINTS = 500;
-	private static final int DRAWER_POINTS_PER_GUESS = 100;
-	private static final int DELAY_BETWEEN_ROUNDS_SECONDS = 5;
+	
+	@Value("${app.gameroundmanager.round-duration-seconds:40}")
+	private int ROUND_DURATION_SECONDS;
+	
+	@Value("${app.gameroundmanager.max-guesser-points:500}")
+	private int MAX_GUESSER_POINTS;
+	
+	@Value("${app.gameroundmanager.drawer-points-per-guess:100}")
+	private int DRAWER_POINTS_PER_GUESS;
+	
+	@Value("${app.gameroundmanager.delay-between-round-seconds:5}")
+	private int DELAY_BETWEEN_ROUNDS_SECONDS;
 
 	public void initializeGame(Session session, String roomCode) {
 		Long sessionId = session.getSessionId();
@@ -71,7 +79,7 @@ public class GameRoundManager {
 			} catch (Exception e) {
 				log.error("Error starting round for session {}: {}", sessionId, e.getMessage(), e);
 			}
-		}, 3, TimeUnit.SECONDS);
+		}, 2, TimeUnit.SECONDS);
 	}
 
 	public synchronized void startNextRound(Long sessionId, String roomCode) {
@@ -105,9 +113,13 @@ public class GameRoundManager {
 			return;
 		}
 
-		Set<Long> activeIds = activePlayers.stream().map(us -> us.getUser().getUserId()).collect(Collectors.toSet());
+		Set<Long> activeIds = activePlayers.stream()
+				.map(us -> us.getUser().getUserId())
+				.collect(Collectors.toSet());
 
-		List<Long> activeOrder = originalOrder.stream().filter(activeIds::contains).collect(Collectors.toList());
+		List<Long> activeOrder = originalOrder.stream()
+				.filter(activeIds::contains)
+				.collect(Collectors.toList());
 
 		if (activeOrder.isEmpty()) {
 			log.error("No active players in drawer order for session {}", sessionId);
@@ -118,7 +130,8 @@ public class GameRoundManager {
 		Long drawerId = activeOrder.get(rotationIndex % activeOrder.size());
 		drawerRotationCounters.put(sessionId, rotationIndex + 1);
 
-		UserSession drawerSession = activePlayers.stream().filter(us -> us.getUser().getUserId().equals(drawerId))
+		UserSession drawerSession = activePlayers.stream()
+				.filter(us -> us.getUser().getUserId().equals(drawerId))
 				.findFirst().orElse(null);
 
 		if (drawerSession == null) {
@@ -134,8 +147,11 @@ public class GameRoundManager {
 		sessionRepository.save(session);
 
 		int guesserCount = activePlayers.size() - 1;
-		RoundState roundState = new RoundState(sessionId, nextRound, drawerId, drawerSession.getUser().getUsername(),
-				drawerSession.getUser().getEmail(), word, guesserCount);
+		RoundState roundState = new RoundState(
+				sessionId, nextRound, drawerId,
+				drawerSession.getUser().getUsername(),
+				drawerSession.getUser().getEmail(),
+				word, guesserCount);
 		activeRounds.put(sessionId, roundState);
 
 		ScheduledFuture<?> timerTask = scheduler.schedule(() -> {
@@ -150,10 +166,12 @@ public class GameRoundManager {
 		broadcastRoundStarted(roomCode, roundState, activePlayers, session);
 		sendWordToDrawer(drawerSession.getUser().getEmail(), word, nextRound);
 
-		log.info("Round {} started. Drawer: {}, Word: {}", nextRound, drawerSession.getUser().getUsername(), word);
+		log.info("Round {} started. Drawer: {}, Word: {}",
+				nextRound, drawerSession.getUser().getUsername(), word);
 	}
 
-	public void processGuess(Long sessionId, String roomCode, Long userId, String username, String email,
+	public void processGuess(Long sessionId, String roomCode,
+			Long userId, String username, String email,
 			String message) {
 		RoundState round = activeRounds.get(sessionId);
 
@@ -163,12 +181,12 @@ public class GameRoundManager {
 		}
 
 		if (userId.equals(round.getDrawerId())) {
-			sendPrivateError(email, "You are drawing! You cannot send messages during your turn.");
+			sendPrivateError(email, "You are drawing, cannot send message when drawing");
 			return;
 		}
 
 		if (round.hasPlayerGuessed(userId)) {
-			sendPrivateError(email, "You already guessed correctly!");
+			sendPrivateError(email, "Already guessed");
 			return;
 		}
 
@@ -178,7 +196,7 @@ public class GameRoundManager {
 		}
 
 		if (containsWord(message, round.getWord())) {
-			sendPrivateError(email, "Your message is too close to the answer!");
+			sendPrivateError(email, "Almost guessed");
 			return;
 		}
 
@@ -188,15 +206,15 @@ public class GameRoundManager {
 	public void handleDrawerDisconnect(Long sessionId, String roomCode, Long userId) {
 		RoundState round = activeRounds.get(sessionId);
 		if (round != null && round.getDrawerId().equals(userId)) {
-			log.info("Drawer {} disconnected during round {}", round.getDrawerUsername(), round.getRoundNumber());
+			log.info("Drawer {} disconnected during round {}",
+					round.getDrawerUsername(), round.getRoundNumber());
 			endRound(sessionId, roomCode, "DRAWER_LEFT");
 		}
 	}
 
 	public void handleGuesserDisconnect(Long sessionId, String roomCode) {
 		RoundState round = activeRounds.get(sessionId);
-		if (round == null)
-			return;
+		if (round == null) return;
 
 		long activeCount = userSessionRepository.countActivePlayersBySessionId(sessionId);
 		if (activeCount < 2) {
@@ -206,8 +224,10 @@ public class GameRoundManager {
 		}
 
 		List<UserSession> active = userSessionRepository.findActiveUsersBySessionId(sessionId);
-		long remainingGuessers = active.stream().filter(us -> !us.getUser().getUserId().equals(round.getDrawerId()))
-				.filter(us -> !round.hasPlayerGuessed(us.getUser().getUserId())).count();
+		long remainingGuessers = active.stream()
+				.filter(us -> !us.getUser().getUserId().equals(round.getDrawerId()))
+				.filter(us -> !round.hasPlayerGuessed(us.getUser().getUserId()))
+				.count();
 		if (remainingGuessers == 0) {
 			endRound(sessionId, roomCode, "ALL_GUESSED");
 		}
@@ -215,8 +235,7 @@ public class GameRoundManager {
 
 	public Map<String, Object> getRoundStateForReconnection(Long sessionId) {
 		RoundState round = activeRounds.get(sessionId);
-		if (round == null)
-			return null;
+		if (round == null) return null;
 
 		Map<String, Object> state = new HashMap<>();
 		state.put("roundNumber", round.getRoundNumber());
@@ -257,8 +276,7 @@ public class GameRoundManager {
 
 	public Map<String, Object> getBetweenRoundsState(Long sessionId) {
 		Session session = sessionRepository.findById(sessionId).orElse(null);
-		if (session == null)
-			return null;
+		if (session == null) return null;
 
 		Map<String, Object> state = new HashMap<>();
 		state.put("roundNumber", session.getCurrentRound());
@@ -288,11 +306,9 @@ public class GameRoundManager {
 
 	public boolean isDrawerForRoom(String roomCode, String email) {
 		Long sessionId = roomCodeToSessionId.get(roomCode);
-		if (sessionId == null)
-			return false;
+		if (sessionId == null) return false;
 		RoundState round = activeRounds.get(sessionId);
-		if (round == null)
-			return false;
+		if (round == null) return false;
 		return email.equals(round.getDrawerEmail());
 	}
 
@@ -307,8 +323,8 @@ public class GameRoundManager {
 			round.getTimerTask().cancel(false);
 		}
 
-		log.info("Round {} ended for session {}. Reason: {}. Correct guessers: {}", round.getRoundNumber(), sessionId,
-				reason, round.getCorrectGuessers().size());
+		log.info("Round {} ended for session {}. Reason: {}. Correct guessers: {}",
+				round.getRoundNumber(), sessionId, reason, round.getCorrectGuessers().size());
 
 		broadcastRoundEnded(roomCode, round, reason);
 
@@ -321,22 +337,27 @@ public class GameRoundManager {
 		}, DELAY_BETWEEN_ROUNDS_SECONDS, TimeUnit.SECONDS);
 	}
 
-	private void handleCorrectGuess(Long sessionId, String roomCode, RoundState round, Long userId, String username) {
+	private void handleCorrectGuess(Long sessionId, String roomCode,
+			RoundState round, Long userId, String username) {
 		round.addCorrectGuesser(userId);
 
 		long elapsed = round.getElapsedSeconds();
-		int guesserScore = Math.max(50,
-				(int) (MAX_GUESSER_POINTS - (elapsed * MAX_GUESSER_POINTS / ROUND_DURATION_SECONDS)));
+		int guesserScore = Math.max(50, (int) (MAX_GUESSER_POINTS
+				- (elapsed * MAX_GUESSER_POINTS / ROUND_DURATION_SECONDS)));
 
 		List<UserSession> activePlayers = userSessionRepository.findActiveUsersBySessionId(sessionId);
 
-		activePlayers.stream().filter(us -> us.getUser().getUserId().equals(userId)).findFirst()
+		activePlayers.stream()
+				.filter(us -> us.getUser().getUserId().equals(userId))
+				.findFirst()
 				.ifPresent(guesserSession -> {
 					guesserSession.addScore(guesserScore);
 					userSessionRepository.save(guesserSession);
 				});
 
-		activePlayers.stream().filter(us -> us.getUser().getUserId().equals(round.getDrawerId())).findFirst()
+		activePlayers.stream()
+				.filter(us -> us.getUser().getUserId().equals(round.getDrawerId()))
+				.findFirst()
 				.ifPresent(drawerSession -> {
 					drawerSession.addScore(DRAWER_POINTS_PER_GUESS);
 					userSessionRepository.save(drawerSession);
@@ -351,8 +372,8 @@ public class GameRoundManager {
 		msg.put("timestamp", LocalDateTime.now().toString());
 		messagingTemplate.convertAndSend("/topic/room/" + roomCode, (Object) msg);
 
-		log.info("{} guessed correctly! +{} points. ({}/{})", username, guesserScore, round.getCorrectGuessers().size(),
-				round.getTotalGuessers());
+		log.info("{} guessed correctly! +{} points. ({}/{})",
+				username, guesserScore, round.getCorrectGuessers().size(), round.getTotalGuessers());
 
 		if (round.hasEveryoneGuessed()) {
 			endRound(sessionId, roomCode, "ALL_GUESSED");
@@ -367,7 +388,8 @@ public class GameRoundManager {
 		return message.trim().equalsIgnoreCase(word);
 	}
 
-	private void broadcastRoundStarted(String roomCode, RoundState round, List<UserSession> players, Session session) {
+	private void broadcastRoundStarted(String roomCode, RoundState round,
+			List<UserSession> players, Session session) {
 		Map<String, Object> msg = new HashMap<>();
 		msg.put("type", "ROUND_STARTED");
 		msg.put("roundNumber", round.getRoundNumber());
@@ -429,7 +451,8 @@ public class GameRoundManager {
 			scoreData.put("score", us.getScore());
 			finalScores.add(scoreData);
 		}
-		finalScores.sort((a, b) -> Integer.compare((Integer) b.get("score"), (Integer) a.get("score")));
+		finalScores.sort((a, b) -> Integer.compare(
+				(Integer) b.get("score"), (Integer) a.get("score")));
 
 		String winner = finalScores.isEmpty() ? null : (String) finalScores.get(0).get("username");
 

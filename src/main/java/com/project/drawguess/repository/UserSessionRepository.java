@@ -14,7 +14,7 @@ import com.project.drawguess.model.UserSession;
 
 @Repository
 public interface UserSessionRepository extends JpaRepository<UserSession, Long> {
-
+	
 	@EntityGraph(attributePaths = {"user"})
 	List<UserSession> findBySession(Session session);
 

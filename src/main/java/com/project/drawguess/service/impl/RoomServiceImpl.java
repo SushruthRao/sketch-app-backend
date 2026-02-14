@@ -13,7 +13,6 @@ import java.util.concurrent.ScheduledFuture;
 import java.util.concurrent.TimeUnit;
 import java.util.stream.Collectors;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
@@ -28,11 +27,12 @@ import com.project.drawguess.repository.RoomRepository;
 import com.project.drawguess.repository.SessionRepository;
 import com.project.drawguess.repository.UserRepository;
 
-import org.springframework.beans.factory.annotation.Value;
-
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
+
+import org.springframework.beans.factory.annotation.Value;
+
 
 @Service
 @Slf4j
@@ -48,9 +48,10 @@ public class RoomServiceImpl {
 
 	private final Map<String, ScheduledFuture<?>> pendingDisconnectTasks = new ConcurrentHashMap<>();
 	private final Map<String, String> disconnectingPlayers = new ConcurrentHashMap<>();
+	
 	private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(10);
 
-	@Value("${app.disconnect.grace-period-seconds:30}")
+	@Value("${app.room.grace-period-seconds:30}")
 	private int gracePeriodSeconds;
 
 	@Value("${app.room.max-players:5}")
@@ -69,7 +70,7 @@ public class RoomServiceImpl {
 
 	@Transactional
 	public void joinRoomViaWebSocket(String roomCode, String username, String wsSessionId) {
-
+		
 		Room room = roomRepository.findByRoomCode(roomCode).getFirst();
 		User user = userRepository.findByEmail(username);
 
@@ -86,6 +87,7 @@ public class RoomServiceImpl {
 		// Check room capacity for new players (reconnecting players bypass the limit)
 		long activePlayerCount = roomPlayerRepository.countByRoomAndIsActive(room, true);
 		boolean hasExistingRecord = roomPlayerRepository.findByRoomAndUser(room, user).stream().findFirst().isPresent();
+		
 		if (activePlayerCount >= maxPlayersPerRoom && !hasExistingRecord) {
 			throw new IllegalArgumentException("Room is full (max " + maxPlayersPerRoom + " players)");
 		}
@@ -97,9 +99,8 @@ public class RoomServiceImpl {
 		if (!isReconnecting) {
 			Optional<RoomPlayer> existingRecord = roomPlayerRepository.findByRoomAndUser(room, user).stream()
 					.findFirst();
-			if (existingRecord.isPresent() ) {
-				if(existingRecord.get().getIsActive())
-				{
+			if (existingRecord.isPresent()) {
+				if (existingRecord.get().getIsActive()) {
 					isReconnecting = true;
 					log.info("User {} has existing RoomPlayer record - treating as reconnection", user.getUsername());
 				}
@@ -278,7 +279,8 @@ public class RoomServiceImpl {
 			log.info("Player {} already reconnected, skipping disconnect", player.getUser().getUsername());
 			return;
 		}
-		log.info("Removed playerkey from disconnectingPlayers {}, disconnectingPlayers list -> {}", playerKey, disconnectingPlayers);
+		log.info("Removed playerkey from disconnectingPlayers {}, disconnectingPlayers list -> {}", playerKey,
+				disconnectingPlayers);
 		disconnectingPlayers.remove(playerKey);
 		pendingDisconnectTasks.remove(wsSession);
 
@@ -297,12 +299,9 @@ public class RoomServiceImpl {
 		broadcastPlayerUpdate(roomCode, "PLAYER_LEFT", username);
 
 		long activeCount = roomPlayerRepository.countByRoomAndIsActive(player.getRoom(), true);
-		
-		
-		if(activeCount < 1 && player.getRoom().getStatus() == RoomStatus.WAITING)
-		{
-			if(disconnectingPlayers.isEmpty())
-			{
+
+		if (activeCount < 1 && player.getRoom().getStatus() == RoomStatus.WAITING) {
+			if (disconnectingPlayers.isEmpty()) {
 				Room room = player.getRoom();
 				room.setStatus(RoomStatus.FINISHED);
 				room.setClosedAt(LocalDateTime.now());
@@ -310,9 +309,8 @@ public class RoomServiceImpl {
 				log.info("Room {} closed - no session started, all players left ", roomCode);
 			}
 		}
-		
-		if(activeCount < 2 && player.getRoom().getStatus() != RoomStatus.WAITING)
-		{
+
+		if (activeCount < 2 && player.getRoom().getStatus() != RoomStatus.WAITING) {
 			Room room = player.getRoom();
 			room.setStatus(RoomStatus.FINISHED);
 			room.setClosedAt(LocalDateTime.now());
@@ -320,8 +318,7 @@ public class RoomServiceImpl {
 			sessionServiceImpl.endSession(roomCode);
 			log.info("Room {} closed - empty", roomCode);
 		}
-		
-		
+
 		if (activeCount == 0) {
 			Room room = player.getRoom();
 			room.setStatus(RoomStatus.FINISHED);

@@ -9,8 +9,8 @@ public class AuthRequestDto {
 
 	@NotBlank(message = "Email is required")
 	@Email(message = "Please provide a valid email address")
-	private String email;
+	public String email;
 
 	@NotBlank(message = "Password is required")
-	private String password;
+	public String password;
 }
