@@ -44,8 +44,12 @@ public class GameRoundManager {
 	private final Map<Long, List<Long>> drawerOrders = new ConcurrentHashMap<>();
 	private final Map<Long, Integer> drawerRotationCounters = new ConcurrentHashMap<>();
 	private final Map<String, Long> roomCodeToSessionId = new ConcurrentHashMap<>();
+	private final Map<Long, ScheduledFuture<?>> pendingNextRoundTasks = new ConcurrentHashMap<>();
 
 	private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(10);
+
+	private static final int MAX_START_RETRIES = 6;
+	private static final int RETRY_INTERVAL_SECONDS = 5;
 
 	
 	@Value("${app.gameroundmanager.round-duration-seconds:40}")
@@ -83,6 +87,12 @@ public class GameRoundManager {
 	}
 
 	public synchronized void startNextRound(Long sessionId, String roomCode) {
+		startNextRound(sessionId, roomCode, 0);
+	}
+
+	private synchronized void startNextRound(Long sessionId, String roomCode, int retryCount) {
+		pendingNextRoundTasks.remove(sessionId);
+
 		Session session = sessionRepository.findById(sessionId).orElse(null);
 		if (session == null || session.getStatus() != SessionStatus.ACTIVE) {
 			log.info("Session {} is not active, cannot start next round", sessionId);
@@ -103,7 +113,13 @@ public class GameRoundManager {
 		List<UserSession> activePlayers = userSessionRepository.findActiveUsersBySessionId(sessionId);
 
 		if (activePlayers.size() < 2) {
-			log.warn("Less than 2 active players, cannot start round");
+			if (retryCount < MAX_START_RETRIES) {
+				log.info("Less than 2 active players for session {}, retrying in {}s (attempt {}/{})",
+						sessionId, RETRY_INTERVAL_SECONDS, retryCount + 1, MAX_START_RETRIES);
+				scheduleRetry(sessionId, roomCode, retryCount + 1);
+			} else {
+				log.warn("Less than 2 active players for session {} after {} retries, giving up", sessionId, MAX_START_RETRIES);
+			}
 			return;
 		}
 
@@ -122,7 +138,13 @@ public class GameRoundManager {
 				.collect(Collectors.toList());
 
 		if (activeOrder.isEmpty()) {
-			log.error("No active players in drawer order for session {}", sessionId);
+			if (retryCount < MAX_START_RETRIES) {
+				log.info("No active players in drawer order for session {}, retrying in {}s (attempt {}/{})",
+						sessionId, RETRY_INTERVAL_SECONDS, retryCount + 1, MAX_START_RETRIES);
+				scheduleRetry(sessionId, roomCode, retryCount + 1);
+			} else {
+				log.error("No active players in drawer order for session {} after {} retries", sessionId, MAX_START_RETRIES);
+			}
 			return;
 		}
 
@@ -490,13 +512,28 @@ public class GameRoundManager {
 		messagingTemplate.convertAndSendToUser(email, "/queue/errors", msg);
 	}
 
+	private void scheduleRetry(Long sessionId, String roomCode, int retryCount) {
+		ScheduledFuture<?> task = scheduler.schedule(() -> {
+			try {
+				startNextRound(sessionId, roomCode, retryCount);
+			} catch (Exception e) {
+				log.error("Error retrying startNextRound for session {}: {}", sessionId, e.getMessage(), e);
+			}
+		}, RETRY_INTERVAL_SECONDS, TimeUnit.SECONDS);
+		pendingNextRoundTasks.put(sessionId, task);
+	}
+
 	public void cleanup(Long sessionId) {
 		RoundState round = activeRounds.remove(sessionId);
 		if (round != null && round.getTimerTask() != null && !round.getTimerTask().isDone()) {
 			round.getTimerTask().cancel(false);
 		}
+		ScheduledFuture<?> pendingTask = pendingNextRoundTasks.remove(sessionId);
+		if (pendingTask != null && !pendingTask.isDone()) {
+			pendingTask.cancel(false);
+		}
 		drawerOrders.remove(sessionId);
 		drawerRotationCounters.remove(sessionId);
-		roomCodeToSessionId.values().remove(sessionId);
+		roomCodeToSessionId.entrySet().removeIf(e -> e.getValue().equals(sessionId));
 	}
 }
