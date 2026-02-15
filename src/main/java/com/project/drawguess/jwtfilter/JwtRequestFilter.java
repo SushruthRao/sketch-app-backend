@@ -24,8 +24,8 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 	private JwtUtil jwtUtil;
 	private UserServiceImpl userServiceImpl;
     private final HandlerExceptionResolver handlerExceptionResolver;
-	
-	
+
+
 	 public JwtRequestFilter(JwtUtil jwtUtil, @Lazy UserServiceImpl userServiceImpl, HandlerExceptionResolver handlerExceptionResolver) {
 	        this.jwtUtil = jwtUtil;
 	        this.userServiceImpl = userServiceImpl;
@@ -33,11 +33,15 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 	    }
 
 	@Override
+	protected boolean shouldNotFilter(HttpServletRequest request) {
+		return "OPTIONS".equalsIgnoreCase(request.getMethod());
+	}
+
+	@Override
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
 			throws ServletException, IOException {
 		try {
-			
-	
+
 		final String authorizationHeader = request.getHeader("Authorization");
 
 		String username = null;
@@ -59,10 +63,9 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 			}
 		}
 		chain.doFilter(request, response);
-		} catch (Exception e )
+		} catch (Exception e)
 		{
 			handlerExceptionResolver.resolveException(request, response, null, e);
 		}
 	}
 }
-
