@@ -7,6 +7,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -53,10 +54,11 @@ public class SecurityConfig {
 			.cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource()))
 				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.authorizeHttpRequests(
-						auth -> 
-						auth.requestMatchers("/health").permitAll()
+						auth ->
+						auth.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
+						.requestMatchers("/health").permitAll()
 						.requestMatchers("/user/register", "/user/login").permitAll()
-						.requestMatchers("/ws/**").permitAll() 
+						.requestMatchers("/ws/**").permitAll()
 						.anyRequest().authenticated()
 						);
 								
@@ -96,6 +98,7 @@ public class SecurityConfig {
 
 	    corsConfiguration.setAllowedHeaders(List.of("*"));
 	    corsConfiguration.setAllowCredentials(true);
+	    corsConfiguration.setMaxAge(3600L);
 
 	    UrlBasedCorsConfigurationSource source =
 	        new UrlBasedCorsConfigurationSource();
