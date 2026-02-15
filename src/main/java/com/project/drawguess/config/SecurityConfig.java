@@ -96,7 +96,7 @@ public class SecurityConfig {
 	        List.of("GET", "POST", "PUT", "DELETE", "OPTIONS")
 	    );
 
-	    corsConfiguration.setAllowedHeaders(List.of("*"));
+	    corsConfiguration.setAllowedHeaders(List.of("Authorization", "Content-Type", "Accept"));
 	    corsConfiguration.setAllowCredentials(true);
 	    corsConfiguration.setMaxAge(3600L);
 
