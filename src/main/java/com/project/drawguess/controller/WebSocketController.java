@@ -124,6 +124,7 @@ public class WebSocketController {
 		}
 
 		Map<String, Object> broadcast = new HashMap<>(strokeData);
+		broadcast.put("senderUsername", principal.getName());
 		messagingTemplate.convertAndSend("/topic/room/" + roomCode + "/draw", (Object) broadcast);
 	}
 
