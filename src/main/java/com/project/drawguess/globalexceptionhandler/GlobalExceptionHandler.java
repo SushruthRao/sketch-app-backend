@@ -1,11 +1,7 @@
 package com.project.drawguess.globalexceptionhandler;
 
-import java.util.HashMap;
-import java.util.Map;
-
 import org.springframework.http.HttpStatus;
 import org.springframework.security.authentication.BadCredentialsException;
-import org.springframework.validation.FieldError;
 import org.springframework.web.bind.MethodArgumentNotValidException;
 import org.springframework.web.bind.annotation.ExceptionHandler;
 import org.springframework.web.bind.annotation.ResponseStatus;
@@ -36,22 +32,17 @@ public class GlobalExceptionHandler {
 	@ExceptionHandler(value = BadCredentialsException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
 	public ErrorResponse handleBadCredentialsException(BadCredentialsException e) {
-		return new ErrorResponse(HttpStatus.BAD_REQUEST.value(), e.getMessage());
+		return new ErrorResponse(HttpStatus.BAD_REQUEST.value(), "Invalid email or password");
 	}
 
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
-	public Map<String, Object> handleMethodArgumentNotValidException(MethodArgumentNotValidException ex) {
-		Map<String, String> fieldErrors = new HashMap<>();
-		ex.getBindingResult().getAllErrors().forEach(error -> {
-			String fieldName = ((FieldError) error).getField();
-			String errorMessage = error.getDefaultMessage();
-			fieldErrors.put(fieldName, errorMessage);
-		});
-		Map<String, Object> response = new HashMap<>();
-		response.put("error", fieldErrors);
-
-		return response;
+	public ErrorResponse handleMethodArgumentNotValidException(MethodArgumentNotValidException ex) {
+		String firstError = ex.getBindingResult().getAllErrors().stream()
+				.map(error -> error.getDefaultMessage())
+				.findFirst()
+				.orElse("Validation failed");
+		return new ErrorResponse(HttpStatus.BAD_REQUEST.value(), firstError);
 	}
 
 	@ExceptionHandler(value = Exception.class)
