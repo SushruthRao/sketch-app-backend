@@ -2,12 +2,14 @@ package com.project.drawguess.config;
 
 import java.util.List;
 
+import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.context.annotation.Lazy;
+import org.springframework.core.Ordered;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.config.annotation.authentication.builders.AuthenticationManagerBuilder;
-import org.springframework.http.HttpMethod;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
@@ -18,8 +20,8 @@ import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.access.AccessDeniedHandler;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
 import org.springframework.web.cors.CorsConfiguration;
-import org.springframework.web.cors.CorsConfigurationSource;
 import org.springframework.web.cors.UrlBasedCorsConfigurationSource;
+import org.springframework.web.filter.CorsFilter;
 
 import com.project.drawguess.jwtfilter.JwtRequestFilter;
 import com.project.drawguess.service.impl.UserServiceImpl;
@@ -51,7 +53,7 @@ public class SecurityConfig {
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.csrf(csrf -> csrf.disable())
-			.cors(httpSecurityCorsConfigurer -> httpSecurityCorsConfigurer.configurationSource(corsConfigurationSource()))
+			.cors(cors -> cors.disable())
 				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.authorizeHttpRequests(
 						auth ->
@@ -61,7 +63,7 @@ public class SecurityConfig {
 						.requestMatchers("/ws/**").permitAll()
 						.anyRequest().authenticated()
 						);
-								
+
 		http.exceptionHandling(exceptions -> exceptions.authenticationEntryPoint(authenticationEntryPoint)
 				.accessDeniedHandler(accessDeniedHandler)
 
@@ -70,46 +72,30 @@ public class SecurityConfig {
 
 		return http.build();
 	}
-	
-//	@Bean
-//	public CorsConfigurationSource corsConfigurationSource() {
-//	    CorsConfiguration corsConfiguration = new CorsConfiguration();
-//
-//	    corsConfiguration.setAllowedOriginPatterns(List.of("*")); 
-//	    corsConfiguration.setAllowedMethods(List.of("*"));
-//	    corsConfiguration.setAllowedHeaders(List.of("*"));
-//	    corsConfiguration.setAllowCredentials(true);
-//
-//	    UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
-//	    source.registerCorsConfiguration("/**", corsConfiguration);
-//	    return source;
-//	}
+
 	@Bean
-	public CorsConfigurationSource corsConfigurationSource() {
-	    CorsConfiguration corsConfiguration = new CorsConfiguration();
+	public FilterRegistrationBean<CorsFilter> corsFilterRegistration() {
+		CorsConfiguration corsConfiguration = new CorsConfiguration();
+		corsConfiguration.setAllowedOrigins(
+			List.of("https://sketch-app-frontend.vercel.app")
+		);
+		corsConfiguration.setAllowedMethods(
+			List.of("GET", "POST", "PUT", "DELETE", "OPTIONS")
+		);
+		corsConfiguration.setAllowedHeaders(
+			List.of("Authorization", "Content-Type", "Accept")
+		);
+		corsConfiguration.setAllowCredentials(true);
+		corsConfiguration.setMaxAge(3600L);
 
-	    corsConfiguration.setAllowedOrigins(
-	        List.of("https://sketch-app-frontend.vercel.app")
-	    );
+		UrlBasedCorsConfigurationSource source = new UrlBasedCorsConfigurationSource();
+		source.registerCorsConfiguration("/**", corsConfiguration);
 
-	    corsConfiguration.setAllowedMethods(
-	        List.of("GET", "POST", "PUT", "DELETE", "OPTIONS")
-	    );
-
-	    corsConfiguration.setAllowedHeaders(List.of("Authorization", "Content-Type", "Accept"));
-	    corsConfiguration.setAllowCredentials(true);
-	    corsConfiguration.setMaxAge(3600L);
-
-	    UrlBasedCorsConfigurationSource source =
-	        new UrlBasedCorsConfigurationSource();
-
-	    source.registerCorsConfiguration("/**", corsConfiguration);
-
-	    return source;
+		FilterRegistrationBean<CorsFilter> bean = new FilterRegistrationBean<>(new CorsFilter(source));
+		bean.setOrder(Ordered.HIGHEST_PRECEDENCE);
+		return bean;
 	}
 
-	
-	
 	@Bean
 	public AuthenticationManager authManager(HttpSecurity http) throws Exception {
 		AuthenticationManagerBuilder authenticationManagerBuilder = http
