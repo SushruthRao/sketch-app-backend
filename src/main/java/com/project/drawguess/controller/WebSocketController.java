@@ -12,6 +12,8 @@ import org.springframework.messaging.simp.SimpMessageHeaderAccessor;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Controller;
 
+import java.time.LocalDateTime;
+
 import com.project.drawguess.game.GameRoundManager;
 import com.project.drawguess.model.Session;
 import com.project.drawguess.model.User;
@@ -91,7 +93,12 @@ public class WebSocketController {
 
 		Session session = sessionServiceImpl.getActiveSession(roomCode);
 		if (session == null) {
-			log.warn("No active session for guess in room {}", roomCode);
+			Map<String, Object> chatMsg = new HashMap<>();
+			chatMsg.put("type", "CHAT_MESSAGE");
+			chatMsg.put("username", user.getUsername());
+			chatMsg.put("message", message.trim());
+			chatMsg.put("timestamp", LocalDateTime.now().toString());
+			messagingTemplate.convertAndSend("/topic/room/" + roomCode, (Object) chatMsg);
 			return;
 		}
 
@@ -106,12 +113,15 @@ public class WebSocketController {
 			Principal principal,
 			@Payload Map<String, Object> strokeData) {
 		if (principal == null) return;
-		if (!gameRoundManager.isDrawerForRoom(roomCode, principal.getName())) {
-			log.warn("Draw rejected for {} in room {} - not the drawer", principal.getName(), roomCode);
-			return;
-		}
 
-		canvasStrokeService.addStroke(roomCode, strokeData);
+		Session session = sessionServiceImpl.getActiveSession(roomCode);
+		if (session != null) {
+			if (!gameRoundManager.isDrawerForRoom(roomCode, principal.getName())) {
+				log.warn("Draw rejected for {} in room {} - not the drawer", principal.getName(), roomCode);
+				return;
+			}
+			canvasStrokeService.addStroke(roomCode, strokeData);
+		}
 
 		Map<String, Object> broadcast = new HashMap<>(strokeData);
 		messagingTemplate.convertAndSend("/topic/room/" + roomCode + "/draw", (Object) broadcast);
