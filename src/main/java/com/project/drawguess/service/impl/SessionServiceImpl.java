@@ -88,6 +88,7 @@ public class SessionServiceImpl {
 			log.info("UserSession created for user : {}", rp.getUser().getUsername());
 
 		}
+		canvasStrokeService.clearStrokes(roomCode);
 		broadcastGameStarted(roomCode, session);
 		gameRoundManager.initializeGame(session, roomCode);
 		return session;
