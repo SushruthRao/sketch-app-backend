@@ -31,7 +31,7 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 	public void registerStompEndpoints(StompEndpointRegistry registry)
 	{
 		registry.addEndpoint("/ws")
-			.setAllowedOrigins("https://sketch-app-frontend.vercel.app")
+			.setAllowedOrigins("https://sketch-app-frontend.vercel.app", "http://localhost:5173")
 			.withSockJS();
 	}
 	
