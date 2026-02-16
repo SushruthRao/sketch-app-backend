@@ -2584,3 +2584,208 @@ Caused by: org.springframework.security.authorization.AuthorizationDeniedExcepti
 2026-02-16T20:57:26.280+05:30  INFO 21140 --- [DrawGuess] [RMI TCP Connection(13)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2026-02-16T20:57:26.303+05:30  INFO 21140 --- [DrawGuess] [RMI TCP Connection(13)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2026-02-16T20:57:26.341+05:30  INFO 21140 --- [DrawGuess] [RMI TCP Connection(13)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-02-16T20:57:31.169+05:30  INFO 10552 --- [DrawGuess] [main] c.p.drawguess.DrawGuessApplication       : Starting DrawGuessApplication using Java 25.0.1 with PID 10552 (C:\Users\dUser\Documents\sketch-app\backend\DrawGuess\target\classes started by dUser in C:\Users\dUser\Documents\sketch-app\backend\DrawGuess)
+2026-02-16T20:57:31.175+05:30  INFO 10552 --- [DrawGuess] [main] c.p.drawguess.DrawGuessApplication       : No active profile set, falling back to 1 default profile: "default"
+2026-02-16T20:57:32.808+05:30  INFO 10552 --- [DrawGuess] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-16T20:57:32.944+05:30  INFO 10552 --- [DrawGuess] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 120 ms. Found 5 JPA repository interfaces.
+2026-02-16T20:57:33.846+05:30  INFO 10552 --- [DrawGuess] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-02-16T20:57:33.871+05:30  INFO 10552 --- [DrawGuess] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-16T20:57:33.872+05:30  INFO 10552 --- [DrawGuess] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-02-16T20:57:33.968+05:30  INFO 10552 --- [DrawGuess] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 2656 ms
+2026-02-16T20:57:34.574+05:30  INFO 10552 --- [DrawGuess] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-02-16T20:57:34.669+05:30  INFO 10552 --- [DrawGuess] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.1.Final
+2026-02-16T20:57:35.349+05:30  INFO 10552 --- [DrawGuess] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-16T20:57:35.422+05:30  INFO 10552 --- [DrawGuess] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-02-16T20:57:35.729+05:30  INFO 10552 --- [DrawGuess] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4ba402b5
+2026-02-16T20:57:35.732+05:30  INFO 10552 --- [DrawGuess] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-02-16T20:57:35.861+05:30  WARN 10552 --- [DrawGuess] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-16T20:57:35.898+05:30  INFO 10552 --- [DrawGuess] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://127.0.0.1:3306/DrawGuessDB?useSSL=false]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.36
+	Default catalog/schema: DrawGuessDB/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-16T20:57:37.663+05:30  INFO 10552 --- [DrawGuess] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-16T20:57:37.669+05:30  INFO 10552 --- [DrawGuess] [main] org.hibernate.orm.jdbc.batch             : HHH100501: Automatic JDBC statement batching enabled (maximum batch size 16)
+2026-02-16T20:57:37.796+05:30  INFO 10552 --- [DrawGuess] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-16T20:57:37.899+05:30  INFO 10552 --- [DrawGuess] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-16T20:57:38.974+05:30  INFO 10552 --- [DrawGuess] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userServiceImpl
+2026-02-16T20:57:39.612+05:30  INFO 10552 --- [DrawGuess] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2026-02-16T20:57:39.613+05:30  INFO 10552 --- [DrawGuess] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@7b7d69d1]]
+2026-02-16T20:57:39.614+05:30  INFO 10552 --- [DrawGuess] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2026-02-16T20:57:39.643+05:30  INFO 10552 --- [DrawGuess] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-02-16T20:57:39.651+05:30  INFO 10552 --- [DrawGuess] [main] c.p.drawguess.DrawGuessApplication       : Started DrawGuessApplication in 9.23 seconds (process running for 10.434)
+2026-02-16T20:57:40.076+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-16T20:57:40.076+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-02-16T20:57:40.079+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2026-02-16T20:57:40.320+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlckBnbWFpbC5jb20iLCJpYXQiOjE3NzEyNTQyMzUsImV4cCI6MTc3MTI2NTAzNX0.gtOEg9Zj7TmEd0y0AV0RnbBLA0tKP5FMgr5EJ-rtp3lUGabp7_3yxGpqDtzbvmQgd0vMaP0h9wBikp0hxIcZHQ]
+2026-02-16T20:57:40.505+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJpYXQiOjE3NzEyNTM0NzUsImV4cCI6MTc3MTI2NDI3NX0.PU-MnBtOLBNvjYyQZgjqQhzmp495rGfN-3TevkYkOaQ_uJXpVkZBGV6-fFhizGN4dk9u4wmm27F6RGMvJxSu9Q]
+2026-02-16T20:57:40.579+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: testuser@gmail.com
+2026-02-16T20:57:40.579+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-16T20:57:46.669+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : 1zh2z2t2 
+2026-02-16T20:57:46.694+05:30  WARN 10552 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.service.impl.RoomServiceImpl       : No RoomPlayer found for wsSessionId: 1zh2z2t2
+2026-02-16T20:58:10.282+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : if5ir31i 
+2026-02-16T20:58:10.294+05:30  WARN 10552 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.service.impl.RoomServiceImpl       : No RoomPlayer found for wsSessionId: if5ir31i
+2026-02-16T20:58:14.154+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlckBnbWFpbC5jb20iLCJpYXQiOjE3NzEyNTQyMzUsImV4cCI6MTc3MTI2NTAzNX0.gtOEg9Zj7TmEd0y0AV0RnbBLA0tKP5FMgr5EJ-rtp3lUGabp7_3yxGpqDtzbvmQgd0vMaP0h9wBikp0hxIcZHQ]
+2026-02-16T20:58:14.171+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: testuser@gmail.com
+2026-02-16T20:58:14.234+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-15] c.p.d.controller.WebSocketController     : Joined room - Room - 979243, User - testuser@gmail.com, wsSessionId - theuipgo 
+2026-02-16T20:58:14.282+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-15] c.p.d.service.impl.RoomServiceImpl       : User testuser has existing RoomPlayer record - treating as reconnection
+2026-02-16T20:58:14.313+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-15] c.p.d.service.impl.RoomServiceImpl       : User testuser updated websocket session in room 979243
+2026-02-16T20:58:15.348+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-9] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : theuipgo 
+2026-02-16T20:58:15.366+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-9] c.p.d.service.impl.RoomServiceImpl       : User testuser disconnected from room 979243 - starting 30 second grace period
+2026-02-16T20:58:15.421+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-9] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for testuser in room 979243
+2026-02-16T20:58:39.607+05:30  INFO 10552 --- [DrawGuess] [MessageBroker-2] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 3 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(3)-CONNECTED(3)-DISCONNECT(2)], stompBrokerRelay[null], inboundChannel[pool size = 24, active threads = 0, queued tasks = 0, completed tasks = 72], outboundChannel[pool size = 9, active threads = 0, queued tasks = 0, completed tasks = 9], sockJsScheduler[pool size = 12, active threads = 1, queued tasks = 1, completed tasks = 13]
+2026-02-16T20:58:45.421+05:30  INFO 10552 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 2:87, disconnectingPlayers list -> {2:87=theuipgo}
+2026-02-16T20:58:45.422+05:30  INFO 10552 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for testuser in room 979243 - removing user
+2026-02-16T20:58:45.969+05:30  INFO 10552 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : User testuser left room 979243 (grace period done)
+2026-02-16T20:58:46.030+05:30  INFO 10552 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Host reassigned to Sushruth in room 979243
+2026-02-16T20:59:34.146+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJpYXQiOjE3NzEyNTM0NzUsImV4cCI6MTc3MTI2NDI3NX0.PU-MnBtOLBNvjYyQZgjqQhzmp495rGfN-3TevkYkOaQ_uJXpVkZBGV6-fFhizGN4dk9u4wmm27F6RGMvJxSu9Q]
+2026-02-16T20:59:34.160+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-16T20:59:34.214+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-25] c.p.d.controller.WebSocketController     : Joined room - Room - 824548, User - sushruth@gmail.com, wsSessionId - iz4lzy30 
+2026-02-16T20:59:34.247+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-25] c.p.d.service.impl.RoomServiceImpl       : User Sushruth joined room 824548 for first time
+2026-02-16T20:59:43.685+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlckBnbWFpbC5jb20iLCJpYXQiOjE3NzEyNTQyMzUsImV4cCI6MTc3MTI2NTAzNX0.gtOEg9Zj7TmEd0y0AV0RnbBLA0tKP5FMgr5EJ-rtp3lUGabp7_3yxGpqDtzbvmQgd0vMaP0h9wBikp0hxIcZHQ]
+2026-02-16T20:59:43.703+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: testuser@gmail.com
+2026-02-16T20:59:43.725+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-43] c.p.d.controller.WebSocketController     : Joined room - Room - 824548, User - testuser@gmail.com, wsSessionId - p55wquct 
+2026-02-16T20:59:43.740+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-43] c.p.d.service.impl.RoomServiceImpl       : User testuser joined room 824548 for first time
+2026-02-16T20:59:49.254+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : iz4lzy30 
+2026-02-16T20:59:49.261+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.service.impl.RoomServiceImpl       : User Sushruth disconnected from room 824548 - starting 30 second grace period
+2026-02-16T20:59:49.268+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for Sushruth in room 824548
+2026-02-16T20:59:50.691+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJpYXQiOjE3NzEyNTM0NzUsImV4cCI6MTc3MTI2NDI3NX0.PU-MnBtOLBNvjYyQZgjqQhzmp495rGfN-3TevkYkOaQ_uJXpVkZBGV6-fFhizGN4dk9u4wmm27F6RGMvJxSu9Q]
+2026-02-16T20:59:50.700+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-16T20:59:50.748+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-25] c.p.d.controller.WebSocketController     : Joined room - Room - 824548, User - sushruth@gmail.com, wsSessionId - tszmelvo 
+2026-02-16T20:59:50.764+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-25] c.p.d.service.impl.RoomServiceImpl       : Cancelled pending disconnect for user Sushruth in room 824548
+2026-02-16T20:59:50.774+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-25] c.p.d.service.impl.RoomServiceImpl       : User Sushruth updated ws session id in room 824548
+2026-02-16T21:00:21.307+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-47] c.p.d.controller.WebSocketController     : Start game request, Roomcode - 824548
+2026-02-16T21:00:21.363+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-47] c.p.d.service.impl.SessionServiceImpl    : Session created for room : 824548
+2026-02-16T21:00:21.379+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-47] c.p.d.service.impl.SessionServiceImpl    : UserSession created for user : Sushruth
+2026-02-16T21:00:21.383+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-47] c.p.d.service.impl.SessionServiceImpl    : UserSession created for user : testuser
+2026-02-16T21:00:21.479+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-47] c.p.d.service.impl.SessionServiceImpl    : BROADCAST GAME STARTED PLAYERS = [{score=0, isHost=true, userId=1, username=Sushruth}, {score=0, isHost=false, userId=2, username=testuser}] 
+2026-02-16T21:00:21.481+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-47] c.p.d.service.impl.SessionServiceImpl    : Session started at 824548
+2026-02-16T21:00:21.487+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-47] c.p.drawguess.game.GameRoundManager      : Game initialized for session 46. Drawer order: [1, 2]
+2026-02-16T21:00:23.541+05:30  INFO 10552 --- [DrawGuess] [pool-2-thread-1] c.p.d.s.impl.CanvasStrokeServiceImpl     : Canvas strokes cleared for room 824548
+2026-02-16T21:00:23.574+05:30  INFO 10552 --- [DrawGuess] [pool-2-thread-1] c.p.drawguess.game.GameRoundManager      : Round 1 started. Drawer: Sushruth, Word: tree
+2026-02-16T21:00:31.297+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : p55wquct 
+2026-02-16T21:00:31.311+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.service.impl.RoomServiceImpl       : User testuser disconnected from room 824548 - starting 30 second grace period
+2026-02-16T21:00:31.337+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.service.impl.SessionServiceImpl    : User testuser disconnected from SESSION 46 - starting 30 second grace period
+2026-02-16T21:00:31.339+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.service.impl.SessionServiceImpl    : Session grace period timer started for testuser in session 46
+2026-02-16T21:00:31.339+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for testuser in room 824548
+2026-02-16T21:00:32.473+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-4] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlckBnbWFpbC5jb20iLCJpYXQiOjE3NzEyNTQyMzUsImV4cCI6MTc3MTI2NTAzNX0.gtOEg9Zj7TmEd0y0AV0RnbBLA0tKP5FMgr5EJ-rtp3lUGabp7_3yxGpqDtzbvmQgd0vMaP0h9wBikp0hxIcZHQ]
+2026-02-16T21:00:32.492+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-4] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: testuser@gmail.com
+2026-02-16T21:00:32.531+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-28] c.p.d.controller.WebSocketController     : Joined room - Room - 824548, User - testuser@gmail.com, wsSessionId - ocalhgj5 
+2026-02-16T21:00:32.548+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-28] c.p.d.service.impl.RoomServiceImpl       : Cancelled pending disconnect for user testuser in room 824548
+2026-02-16T21:00:32.554+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-28] c.p.d.service.impl.RoomServiceImpl       : User testuser updated ws session id in room 824548
+2026-02-16T21:00:32.564+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-28] c.p.d.service.impl.SessionServiceImpl    : Handling session reconnection for user testuser in room 824548
+2026-02-16T21:00:32.582+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-28] c.p.d.service.impl.SessionServiceImpl    : Cancelled pending session disconnect task for user testuser 
+2026-02-16T21:00:38.681+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : tszmelvo 
+2026-02-16T21:00:38.690+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.service.impl.RoomServiceImpl       : User Sushruth disconnected from room 824548 - starting 30 second grace period
+2026-02-16T21:00:38.705+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.service.impl.SessionServiceImpl    : User Sushruth disconnected from SESSION 46 - starting 30 second grace period
+2026-02-16T21:00:38.706+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.service.impl.SessionServiceImpl    : Session grace period timer started for Sushruth in session 46
+2026-02-16T21:00:38.706+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for Sushruth in room 824548
+2026-02-16T21:00:41.025+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJpYXQiOjE3NzEyNTM0NzUsImV4cCI6MTc3MTI2NDI3NX0.PU-MnBtOLBNvjYyQZgjqQhzmp495rGfN-3TevkYkOaQ_uJXpVkZBGV6-fFhizGN4dk9u4wmm27F6RGMvJxSu9Q]
+2026-02-16T21:00:41.032+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-16T21:00:41.094+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-47] c.p.d.controller.WebSocketController     : Joined room - Room - 824548, User - sushruth@gmail.com, wsSessionId - 5j5averb 
+2026-02-16T21:00:41.121+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-47] c.p.d.service.impl.RoomServiceImpl       : Cancelled pending disconnect for user Sushruth in room 824548
+2026-02-16T21:00:41.128+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-47] c.p.d.service.impl.RoomServiceImpl       : User Sushruth updated ws session id in room 824548
+2026-02-16T21:00:41.141+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-47] c.p.d.service.impl.SessionServiceImpl    : Handling session reconnection for user Sushruth in room 824548
+2026-02-16T21:00:41.150+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-47] c.p.d.service.impl.SessionServiceImpl    : Cancelled pending session disconnect task for user Sushruth 
+2026-02-16T21:00:47.342+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : 5j5averb 
+2026-02-16T21:00:47.351+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.service.impl.RoomServiceImpl       : User Sushruth disconnected from room 824548 - starting 30 second grace period
+2026-02-16T21:00:47.362+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.service.impl.SessionServiceImpl    : User Sushruth disconnected from SESSION 46 - starting 30 second grace period
+2026-02-16T21:00:47.363+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.service.impl.SessionServiceImpl    : Session grace period timer started for Sushruth in session 46
+2026-02-16T21:00:47.363+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for Sushruth in room 824548
+2026-02-16T21:01:17.365+05:30  INFO 10552 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 1:88, disconnectingPlayers list -> {1:88=5j5averb}
+2026-02-16T21:01:17.365+05:30  INFO 10552 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for Sushruth in room 824548 - removing user
+2026-02-16T21:01:17.365+05:30  INFO 10552 --- [DrawGuess] [pool-3-thread-3] c.p.d.service.impl.SessionServiceImpl    : Session grace period expired for Sushruth - marking inactive
+2026-02-16T21:01:17.743+05:30  INFO 10552 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.RoomServiceImpl       : User Sushruth left room 824548 (grace period done)
+2026-02-16T21:01:17.770+05:30  INFO 10552 --- [DrawGuess] [pool-3-thread-3] c.p.drawguess.game.GameRoundManager      : Drawer Sushruth disconnected during round 1
+2026-02-16T21:01:17.770+05:30  INFO 10552 --- [DrawGuess] [pool-3-thread-3] c.p.drawguess.game.GameRoundManager      : Round 1 ended for session 46. Reason: DRAWER_LEFT. Correct guessers: 0
+2026-02-16T21:01:17.829+05:30  INFO 10552 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.SessionServiceImpl    : Session ended : 46 for room 824548 
+2026-02-16T21:01:17.848+05:30  INFO 10552 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.SessionServiceImpl    : Broadcast Game ended called for roomCode - 824548
+2026-02-16T21:01:17.853+05:30  WARN 10552 --- [DrawGuess] [pool-3-thread-3] c.p.d.service.impl.SessionServiceImpl    : Less than 2 players in session 46, ending session
+2026-02-16T21:01:17.891+05:30  INFO 10552 --- [DrawGuess] [pool-3-thread-3] c.p.d.service.impl.SessionServiceImpl    : Session ended : 46 for room 824548 
+2026-02-16T21:01:17.891+05:30  INFO 10552 --- [DrawGuess] [pool-3-thread-3] c.p.d.service.impl.SessionServiceImpl    : Broadcast Game ended called for roomCode - 824548
+2026-02-16T21:01:17.949+05:30  INFO 10552 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.SessionServiceImpl    : Sent GAME_ENDED to /topic/room
+2026-02-16T21:01:17.949+05:30  INFO 10552 --- [DrawGuess] [pool-3-thread-3] c.p.d.service.impl.SessionServiceImpl    : Sent GAME_ENDED to /topic/room
+2026-02-16T21:01:17.956+05:30  INFO 10552 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.RoomServiceImpl       : Room 824548 closed - empty
+2026-02-16T21:01:17.980+05:30  INFO 10552 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.RoomServiceImpl       : Host reassigned to testuser in room 824548
+2026-02-16T21:01:18.147+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : ocalhgj5 
+2026-02-16T21:01:18.156+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.service.impl.RoomServiceImpl       : User testuser disconnected from room 824548 - starting 30 second grace period
+2026-02-16T21:01:18.171+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for testuser in room 824548
+2026-02-16T21:01:27.851+05:30  INFO 10552 --- [DrawGuess] [pool-2-thread-2] c.p.drawguess.game.GameRoundManager      : Session 46 is not active, cannot start next round
+2026-02-16T21:01:48.172+05:30  INFO 10552 --- [DrawGuess] [pool-4-thread-4] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 2:88, disconnectingPlayers list -> {2:88=ocalhgj5}
+2026-02-16T21:01:48.226+05:30  INFO 10552 --- [DrawGuess] [pool-4-thread-4] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for testuser in room 824548 - removing user
+2026-02-16T21:01:48.258+05:30  INFO 10552 --- [DrawGuess] [pool-4-thread-4] c.p.d.service.impl.RoomServiceImpl       : User testuser left room 824548 (grace period done)
+2026-02-16T21:01:48.294+05:30  INFO 10552 --- [DrawGuess] [pool-4-thread-4] c.p.d.service.impl.SessionServiceImpl    : endSession: No active session for room 824548 (already ended?)
+2026-02-16T21:01:48.296+05:30  INFO 10552 --- [DrawGuess] [pool-4-thread-4] c.p.d.service.impl.RoomServiceImpl       : Room 824548 closed - empty
+2026-02-16T21:01:48.313+05:30  INFO 10552 --- [DrawGuess] [pool-4-thread-4] c.p.d.service.impl.RoomServiceImpl       : Room 824548 closed - empty
+2026-02-16T21:02:14.623+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJpYXQiOjE3NzEyNTM0NzUsImV4cCI6MTc3MTI2NDI3NX0.PU-MnBtOLBNvjYyQZgjqQhzmp495rGfN-3TevkYkOaQ_uJXpVkZBGV6-fFhizGN4dk9u4wmm27F6RGMvJxSu9Q]
+2026-02-16T21:02:14.636+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-16T21:02:14.731+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-49] c.p.d.controller.WebSocketController     : Joined room - Room - 416616, User - sushruth@gmail.com, wsSessionId - xzodifdj 
+2026-02-16T21:02:14.757+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-49] c.p.d.service.impl.RoomServiceImpl       : User Sushruth joined room 416616 for first time
+2026-02-16T21:02:20.535+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : xzodifdj 
+2026-02-16T21:02:20.545+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.service.impl.RoomServiceImpl       : User Sushruth disconnected from room 416616 - starting 30 second grace period
+2026-02-16T21:02:20.550+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for Sushruth in room 416616
+2026-02-16T21:02:21.657+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJpYXQiOjE3NzEyNTM0NzUsImV4cCI6MTc3MTI2NDI3NX0.PU-MnBtOLBNvjYyQZgjqQhzmp495rGfN-3TevkYkOaQ_uJXpVkZBGV6-fFhizGN4dk9u4wmm27F6RGMvJxSu9Q]
+2026-02-16T21:02:21.666+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-16T21:02:21.683+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-62] c.p.d.controller.WebSocketController     : Joined room - Room - 395662, User - sushruth@gmail.com, wsSessionId - s0cqx4w2 
+2026-02-16T21:02:21.700+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-62] c.p.d.service.impl.RoomServiceImpl       : User Sushruth joined room 395662 for first time
+2026-02-16T21:02:25.027+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : s0cqx4w2 
+2026-02-16T21:02:25.033+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.service.impl.RoomServiceImpl       : User Sushruth disconnected from room 395662 - starting 30 second grace period
+2026-02-16T21:02:25.037+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for Sushruth in room 395662
+2026-02-16T21:02:26.731+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJpYXQiOjE3NzEyNTM0NzUsImV4cCI6MTc3MTI2NDI3NX0.PU-MnBtOLBNvjYyQZgjqQhzmp495rGfN-3TevkYkOaQ_uJXpVkZBGV6-fFhizGN4dk9u4wmm27F6RGMvJxSu9Q]
+2026-02-16T21:02:26.738+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-16T21:02:26.759+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-50] c.p.d.controller.WebSocketController     : Joined room - Room - 702905, User - sushruth@gmail.com, wsSessionId - tzanasmw 
+2026-02-16T21:02:26.774+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-50] c.p.d.service.impl.RoomServiceImpl       : User Sushruth joined room 702905 for first time
+2026-02-16T21:02:33.374+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlckBnbWFpbC5jb20iLCJpYXQiOjE3NzEyNTQyMzUsImV4cCI6MTc3MTI2NTAzNX0.gtOEg9Zj7TmEd0y0AV0RnbBLA0tKP5FMgr5EJ-rtp3lUGabp7_3yxGpqDtzbvmQgd0vMaP0h9wBikp0hxIcZHQ]
+2026-02-16T21:02:33.393+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: testuser@gmail.com
+2026-02-16T21:02:33.476+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-68] c.p.d.controller.WebSocketController     : Joined room - Room - 702905, User - testuser@gmail.com, wsSessionId - webrumlo 
+2026-02-16T21:02:33.493+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-68] c.p.d.service.impl.RoomServiceImpl       : User testuser joined room 702905 for first time
+2026-02-16T21:02:36.225+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : webrumlo 
+2026-02-16T21:02:36.231+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.service.impl.RoomServiceImpl       : User testuser disconnected from room 702905 - starting 30 second grace period
+2026-02-16T21:02:36.238+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for testuser in room 702905
+2026-02-16T21:02:37.106+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlckBnbWFpbC5jb20iLCJpYXQiOjE3NzEyNTQyMzUsImV4cCI6MTc3MTI2NTAzNX0.gtOEg9Zj7TmEd0y0AV0RnbBLA0tKP5FMgr5EJ-rtp3lUGabp7_3yxGpqDtzbvmQgd0vMaP0h9wBikp0hxIcZHQ]
+2026-02-16T21:02:37.120+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: testuser@gmail.com
+2026-02-16T21:02:37.150+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-56] c.p.d.controller.WebSocketController     : Joined room - Room - 702905, User - testuser@gmail.com, wsSessionId - 30spjmgd 
+2026-02-16T21:02:37.160+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-56] c.p.d.service.impl.RoomServiceImpl       : Cancelled pending disconnect for user testuser in room 702905
+2026-02-16T21:02:37.162+05:30  INFO 10552 --- [DrawGuess] [clientInboundChannel-56] c.p.d.service.impl.RoomServiceImpl       : User testuser updated ws session id in room 702905
+2026-02-16T21:02:41.857+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : 30spjmgd 
+2026-02-16T21:02:41.868+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.service.impl.RoomServiceImpl       : User testuser disconnected from room 702905 - starting 30 second grace period
+2026-02-16T21:02:41.878+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for testuser in room 702905
+2026-02-16T21:02:45.361+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : tzanasmw 
+2026-02-16T21:02:45.368+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.service.impl.RoomServiceImpl       : User Sushruth disconnected from room 702905 - starting 30 second grace period
+2026-02-16T21:02:45.374+05:30  INFO 10552 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for Sushruth in room 702905
+2026-02-16T21:02:50.553+05:30  INFO 10552 --- [DrawGuess] [pool-4-thread-5] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 1:89, disconnectingPlayers list -> {1:91=tzanasmw, 1:90=s0cqx4w2, 2:91=30spjmgd, 1:89=xzodifdj}
+2026-02-16T21:02:50.553+05:30  INFO 10552 --- [DrawGuess] [pool-4-thread-5] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for Sushruth in room 416616 - removing user
+2026-02-16T21:02:50.566+05:30  INFO 10552 --- [DrawGuess] [pool-4-thread-5] c.p.d.service.impl.RoomServiceImpl       : User Sushruth left room 416616 (grace period done)
+2026-02-16T21:02:50.582+05:30  INFO 10552 --- [DrawGuess] [pool-4-thread-5] c.p.d.service.impl.RoomServiceImpl       : Room 416616 closed - empty
+2026-02-16T21:02:55.037+05:30  INFO 10552 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 1:90, disconnectingPlayers list -> {1:91=tzanasmw, 1:90=s0cqx4w2, 2:91=30spjmgd}
+2026-02-16T21:02:55.037+05:30  INFO 10552 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for Sushruth in room 395662 - removing user
+2026-02-16T21:02:55.043+05:30  INFO 10552 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : User Sushruth left room 395662 (grace period done)
+2026-02-16T21:02:55.050+05:30  INFO 10552 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Room 395662 closed - empty
+2026-02-16T21:03:11.878+05:30  INFO 10552 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 2:91, disconnectingPlayers list -> {1:91=tzanasmw, 2:91=30spjmgd}
+2026-02-16T21:03:11.878+05:30  INFO 10552 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for testuser in room 702905 - removing user
+2026-02-16T21:03:11.889+05:30  INFO 10552 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.RoomServiceImpl       : User testuser left room 702905 (grace period done)
+2026-02-16T21:03:15.375+05:30  INFO 10552 --- [DrawGuess] [pool-4-thread-6] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 1:91, disconnectingPlayers list -> {1:91=tzanasmw}
+2026-02-16T21:03:15.375+05:30  INFO 10552 --- [DrawGuess] [pool-4-thread-6] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for Sushruth in room 702905 - removing user
+2026-02-16T21:03:15.382+05:30  INFO 10552 --- [DrawGuess] [pool-4-thread-6] c.p.d.service.impl.RoomServiceImpl       : User Sushruth left room 702905 (grace period done)
+2026-02-16T21:03:15.392+05:30  INFO 10552 --- [DrawGuess] [pool-4-thread-6] c.p.d.service.impl.RoomServiceImpl       : Room 702905 closed - no session started, all players left 
+2026-02-16T21:03:15.401+05:30  INFO 10552 --- [DrawGuess] [pool-4-thread-6] c.p.d.service.impl.SessionServiceImpl    : endSession: No active session for room 702905 (already ended?)
+2026-02-16T21:03:15.402+05:30  INFO 10552 --- [DrawGuess] [pool-4-thread-6] c.p.d.service.impl.RoomServiceImpl       : Room 702905 closed - empty
+2026-02-16T21:03:15.407+05:30  INFO 10552 --- [DrawGuess] [pool-4-thread-6] c.p.d.service.impl.RoomServiceImpl       : Room 702905 closed - empty
+2026-02-16T21:18:54.065+05:30  INFO 10552 --- [DrawGuess] [RMI TCP Connection(32)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2026-02-16T21:18:54.061+05:30  INFO 10552 --- [DrawGuess] [RMI TCP Connection(31)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2026-02-16T21:18:54.262+05:30  INFO 10552 --- [DrawGuess] [RMI TCP Connection(33)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2026-02-16T21:18:54.304+05:30  INFO 10552 --- [DrawGuess] [RMI TCP Connection(31)-127.0.0.1] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-16T21:18:54.356+05:30  INFO 10552 --- [DrawGuess] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-02-16T21:18:54.384+05:30  INFO 10552 --- [DrawGuess] [RMI TCP Connection(31)-127.0.0.1] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2026-02-16T21:18:54.386+05:30  INFO 10552 --- [DrawGuess] [RMI TCP Connection(31)-127.0.0.1] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@7b7d69d1]]
+2026-02-16T21:18:54.386+05:30  INFO 10552 --- [DrawGuess] [RMI TCP Connection(31)-127.0.0.1] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2026-02-16T21:18:54.431+05:30  INFO 10552 --- [DrawGuess] [RMI TCP Connection(31)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-16T21:18:54.518+05:30  INFO 10552 --- [DrawGuess] [RMI TCP Connection(31)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-02-16T21:18:54.529+05:30  INFO 10552 --- [DrawGuess] [RMI TCP Connection(31)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

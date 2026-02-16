@@ -318,7 +318,7 @@ public class SessionServiceImpl {
 			Map<String, Object> canvasState = new HashMap<>();
 			canvasState.put("type", "CANVAS_STATE");
 			canvasState.put("strokes", new ArrayList<>(strokes));
-			messagingTemplate.convertAndSendToUser(user.getEmail(), "/queue/canvas-state", canvasState);
+			messagingTemplate.convertAndSendToUser(user.getEmail(), "/canvas-queue/canvas-state", canvasState);
 		}
 	}
 

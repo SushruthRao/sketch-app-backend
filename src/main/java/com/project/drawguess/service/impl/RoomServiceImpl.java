@@ -395,7 +395,7 @@ public class RoomServiceImpl {
 			Map<String, Object> canvasState = new HashMap<>();
 			canvasState.put("type", "CANVAS_STATE");
 			canvasState.put("strokes", new ArrayList<>(strokes));
-			messagingTemplate.convertAndSendToUser(user.getEmail(), "/queue/canvas-state", canvasState);
+			messagingTemplate.convertAndSendToUser(user.getEmail(), "/canvas-queue/canvas-state", canvasState);
 			log.info("Sent {} lobby canvas strokes to {}", strokes.size(), user.getUsername());
 		}
 	}
