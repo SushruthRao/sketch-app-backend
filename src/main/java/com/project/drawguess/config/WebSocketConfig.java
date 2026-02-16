@@ -37,11 +37,11 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 	public void registerStompEndpoints(StompEndpointRegistry registry)
 	{
 		registry.addEndpoint("/ws")
-			.setAllowedOrigins("https://sketch-app-frontend.vercel.app", "http://localhost:5173")
+			.setAllowedOrigins("https://sketch-app-frontend.vercel.app", "https://sketch-vr.vercel.app", "http://localhost:5173")
 			.withSockJS();
 
 		registry.addEndpoint("/ws-canvas")
-			.setAllowedOrigins("https://sketch-app-frontend.vercel.app", "http://localhost:5173")
+			.setAllowedOrigins("https://sketch-app-frontend.vercel.app","https://sketch-vr.vercel.app", "http://localhost:5173")
 			.addInterceptors(new CanvasHandshakeInterceptor())
 			.withSockJS();
 	}
