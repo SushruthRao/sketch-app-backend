@@ -1,5 +1,6 @@
 package com.project.drawguess.service.impl;
 
+import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -45,6 +46,7 @@ public class RoomServiceImpl {
 	private final SessionRepository sessionRepository;
 	private final SessionServiceImpl sessionServiceImpl;
 	private final SimpMessagingTemplate messagingTemplate;
+	private final CanvasStrokeServiceImpl canvasStrokeService;
 
 	private final Map<String, ScheduledFuture<?>> pendingDisconnectTasks = new ConcurrentHashMap<>();
 	private final Map<String, String> disconnectingPlayers = new ConcurrentHashMap<>();
@@ -155,6 +157,8 @@ public class RoomServiceImpl {
 
 			if (room.getStatus() == RoomStatus.PLAYING) {
 				sessionServiceImpl.handlePlayerReconnection(room, user);
+			} else {
+				sendLobbyCanvasState(roomCode, user);
 			}
 		} else {
 			Optional<RoomPlayer> existing = roomPlayerRepository.findByRoomAndIsActive(room, true).stream()
@@ -171,6 +175,7 @@ public class RoomServiceImpl {
 					sessionServiceImpl.handlePlayerReconnection(room, user);
 				} else {
 					broadcastPlayerUpdate(roomCode, "PLAYER_JOINED", user.getUsername());
+					sendLobbyCanvasState(roomCode, user);
 				}
 			} else {
 				Optional<RoomPlayer> inactiveRecord = roomPlayerRepository.findByRoomAndUser(room, user).stream()
@@ -190,12 +195,14 @@ public class RoomServiceImpl {
 						sessionServiceImpl.handlePlayerReconnection(room, user);
 					} else {
 						broadcastPlayerUpdate(roomCode, "PLAYER_JOINED", user.getUsername());
+						sendLobbyCanvasState(roomCode, user);
 					}
 				} else {
 					RoomPlayer player = new RoomPlayer(room, user, wsSessionId);
 					roomPlayerRepository.save(player);
 					log.info("User {} joined room {} for first time", user.getUsername(), roomCode);
 					broadcastPlayerUpdate(roomCode, "PLAYER_JOINED", user.getUsername());
+					sendLobbyCanvasState(roomCode, user);
 				}
 			}
 		}
@@ -380,6 +387,17 @@ public class RoomServiceImpl {
 		message.put("timestamp", LocalDateTime.now().toString());
 
 		messagingTemplate.convertAndSend("/topic/room/" + roomCode, (Object) message);
+	}
+
+	private void sendLobbyCanvasState(String roomCode, User user) {
+		List<Map<String, Object>> strokes = canvasStrokeService.getStrokes(roomCode);
+		if (strokes != null && !strokes.isEmpty()) {
+			Map<String, Object> canvasState = new HashMap<>();
+			canvasState.put("type", "CANVAS_STATE");
+			canvasState.put("strokes", new ArrayList<>(strokes));
+			messagingTemplate.convertAndSendToUser(user.getEmail(), "/queue/canvas-state", canvasState);
+			log.info("Sent {} lobby canvas strokes to {}", strokes.size(), user.getUsername());
+		}
 	}
 
 	public String generateRoomCode() {
