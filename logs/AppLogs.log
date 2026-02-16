@@ -748,3 +748,56 @@ java.lang.InterruptedException
 2026-02-16T19:32:33.353+05:30  INFO 18580 --- [DrawGuess] [RMI TCP Connection(15)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
 2026-02-16T19:32:33.529+05:30  INFO 18580 --- [DrawGuess] [RMI TCP Connection(15)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
 2026-02-16T19:32:33.545+05:30  INFO 18580 --- [DrawGuess] [RMI TCP Connection(15)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-02-16T19:32:38.932+05:30  INFO 27412 --- [DrawGuess] [main] c.p.drawguess.DrawGuessApplication       : Starting DrawGuessApplication using Java 25.0.1 with PID 27412 (C:\Users\dUser\Documents\sketch-app\backend\DrawGuess\target\classes started by dUser in C:\Users\dUser\Documents\sketch-app\backend\DrawGuess)
+2026-02-16T19:32:38.936+05:30  INFO 27412 --- [DrawGuess] [main] c.p.drawguess.DrawGuessApplication       : No active profile set, falling back to 1 default profile: "default"
+2026-02-16T19:32:39.837+05:30  INFO 27412 --- [DrawGuess] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-16T19:32:39.925+05:30  INFO 27412 --- [DrawGuess] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 74 ms. Found 5 JPA repository interfaces.
+2026-02-16T19:32:40.470+05:30  INFO 27412 --- [DrawGuess] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-02-16T19:32:40.486+05:30  INFO 27412 --- [DrawGuess] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-16T19:32:40.487+05:30  INFO 27412 --- [DrawGuess] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-02-16T19:32:40.544+05:30  INFO 27412 --- [DrawGuess] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1562 ms
+2026-02-16T19:32:40.867+05:30  INFO 27412 --- [DrawGuess] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-02-16T19:32:40.939+05:30  INFO 27412 --- [DrawGuess] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.1.Final
+2026-02-16T19:32:41.636+05:30  INFO 27412 --- [DrawGuess] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-16T19:32:41.681+05:30  INFO 27412 --- [DrawGuess] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-02-16T19:32:41.889+05:30  INFO 27412 --- [DrawGuess] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@320ba79f
+2026-02-16T19:32:41.891+05:30  INFO 27412 --- [DrawGuess] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-02-16T19:32:41.964+05:30  WARN 27412 --- [DrawGuess] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-16T19:32:41.986+05:30  INFO 27412 --- [DrawGuess] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://127.0.0.1:3306/DrawGuessDB?useSSL=false]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.36
+	Default catalog/schema: DrawGuessDB/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-16T19:32:43.372+05:30  INFO 27412 --- [DrawGuess] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-16T19:32:43.377+05:30  INFO 27412 --- [DrawGuess] [main] org.hibernate.orm.jdbc.batch             : HHH100501: Automatic JDBC statement batching enabled (maximum batch size 16)
+2026-02-16T19:32:43.502+05:30  INFO 27412 --- [DrawGuess] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-16T19:32:43.620+05:30  INFO 27412 --- [DrawGuess] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-16T19:32:44.525+05:30  INFO 27412 --- [DrawGuess] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userServiceImpl
+2026-02-16T19:32:46.012+05:30  INFO 27412 --- [DrawGuess] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2026-02-16T19:32:46.013+05:30  INFO 27412 --- [DrawGuess] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@13d63185]]
+2026-02-16T19:32:46.013+05:30  INFO 27412 --- [DrawGuess] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2026-02-16T19:32:46.035+05:30  INFO 27412 --- [DrawGuess] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-02-16T19:32:46.040+05:30  INFO 27412 --- [DrawGuess] [main] c.p.drawguess.DrawGuessApplication       : Started DrawGuessApplication in 7.69 seconds (process running for 8.618)
+2026-02-16T19:32:49.704+05:30  INFO 27412 --- [DrawGuess] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-16T19:32:49.705+05:30  INFO 27412 --- [DrawGuess] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-02-16T19:32:49.706+05:30  INFO 27412 --- [DrawGuess] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-02-16T19:32:49.837+05:30  INFO 27412 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJpYXQiOjE3NzEyNTAwNzMsImV4cCI6MTc3MTI2MDg3M30.ICWdmdWjz2RnpYmiwigOAirfq0ZrbSROVrv9lU9zK0QNkvhdYjFTEW62dTOmIUt1lEKczgeS8Zp9Rt4q2AoXqw]
+2026-02-16T19:32:50.060+05:30  INFO 27412 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-16T19:32:50.079+05:30  INFO 27412 --- [DrawGuess] [clientInboundChannel-22] c.p.d.controller.WebSocketController     : Joined room - Room - 675092, User - sushruth@gmail.com, wsSessionId - ffuo1x2n 
+2026-02-16T19:32:50.177+05:30  INFO 27412 --- [DrawGuess] [clientInboundChannel-22] c.p.d.service.impl.RoomServiceImpl       : User Sushruth joined room 675092 for first time
+2026-02-16T19:33:46.005+05:30  INFO 27412 --- [DrawGuess] [MessageBroker-4] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[1 current WS(1)-HttpStream(0)-HttpPoll(0), 1 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(1)-CONNECTED(1)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 24, active threads = 0, queued tasks = 0, completed tasks = 24], outboundChannel[pool size = 2, active threads = 0, queued tasks = 0, completed tasks = 2], sockJsScheduler[pool size = 12, active threads = 1, queued tasks = 2, completed tasks = 14]
+2026-02-16T19:33:49.209+05:30  INFO 27412 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : ffuo1x2n 
+2026-02-16T19:33:49.235+05:30  INFO 27412 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.service.impl.RoomServiceImpl       : User Sushruth disconnected from room 675092 - starting 30 second grace period
+2026-02-16T19:33:49.305+05:30  INFO 27412 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for Sushruth in room 675092
+2026-02-16T19:33:51.419+05:30  INFO 27412 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJpYXQiOjE3NzEyNTAwNzMsImV4cCI6MTc3MTI2MDg3M30.ICWdmdWjz2RnpYmiwigOAirfq0ZrbSROVrv9lU9zK0QNkvhdYjFTEW62dTOmIUt1lEKczgeS8Zp9Rt4q2AoXqw]
+2026-02-16T19:33:51.432+05:30  INFO 27412 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-16T19:33:51.602+05:30  INFO 27412 --- [DrawGuess] [clientInboundChannel-46] c.p.d.controller.WebSocketController     : Joined room - Room - 675092, User - sushruth@gmail.com, wsSessionId - 0kldor5v 
+2026-02-16T19:33:51.621+05:30  INFO 27412 --- [DrawGuess] [clientInboundChannel-46] c.p.d.service.impl.RoomServiceImpl       : Cancelled pending disconnect for user Sushruth in room 675092
+2026-02-16T19:33:51.630+05:30  INFO 27412 --- [DrawGuess] [clientInboundChannel-46] c.p.d.service.impl.RoomServiceImpl       : User Sushruth updated ws session id in room 675092
