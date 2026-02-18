@@ -38,11 +38,12 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 	{
 		registry.addEndpoint("/ws")
 			.setAllowedOrigins("https://sketch-app-frontend.vercel.app", "https://sketch-vr.vercel.app", "http://localhost:5173")
+			.addInterceptors(new JwtCookieHandshakeInterceptor())
 			.withSockJS();
 
 		registry.addEndpoint("/ws-canvas")
 			.setAllowedOrigins("https://sketch-app-frontend.vercel.app","https://sketch-vr.vercel.app", "http://localhost:5173")
-			.addInterceptors(new CanvasHandshakeInterceptor())
+			.addInterceptors(new JwtCookieHandshakeInterceptor(), new CanvasHandshakeInterceptor())
 			.withSockJS();
 	}
 
@@ -50,6 +51,19 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 	public void configureClientInboundChannel(ChannelRegistration registration)
 	{
 		registration.interceptors(webSocketAuthInterceptor);
+	}
+
+	static class JwtCookieHandshakeInterceptor implements HandshakeInterceptor {
+		@Override
+		public boolean beforeHandshake(ServerHttpRequest request, ServerHttpResponse response,
+				WebSocketHandler wsHandler, Map<String, Object> attributes) {
+			return true;
+		}
+
+		@Override
+		public void afterHandshake(ServerHttpRequest request, ServerHttpResponse response,
+				WebSocketHandler wsHandler, Exception exception) {
+		}
 	}
 
 	static class CanvasHandshakeInterceptor implements HandshakeInterceptor {

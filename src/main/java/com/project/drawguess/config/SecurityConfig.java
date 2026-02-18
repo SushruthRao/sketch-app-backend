@@ -59,7 +59,7 @@ public class SecurityConfig {
 						auth ->
 						auth.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 						.requestMatchers("/health").permitAll()
-						.requestMatchers("/user/register", "/user/login").permitAll()
+						.requestMatchers("/user/register", "/user/login", "/user/logout", "/user/refresh").permitAll()
 						.requestMatchers("/ws/**", "/ws-canvas/**").permitAll()
 						.anyRequest().authenticated()
 						);
@@ -76,12 +76,12 @@ public class SecurityConfig {
 	@Bean
 	public FilterRegistrationBean<CorsFilter> corsFilterRegistration() {
 		CorsConfiguration corsConfiguration = new CorsConfiguration();
-//		corsConfiguration.setAllowedOriginPatterns(
-//			List.of("*")
-//		);
-		corsConfiguration.setAllowedOrigins(
-				List.of("https://sketch-app-frontend.vercel.app", "https://sketch-vr.vercel.app")
-			);
+		corsConfiguration.setAllowedOriginPatterns(
+			List.of("*")
+		);
+//		corsConfiguration.setAllowedOrigins(
+//				List.of("https://sketch-app-frontend.vercel.app", "https://sketch-vr.vercel.app")
+//			);
 		corsConfiguration.setAllowedMethods(
 			List.of("GET", "POST", "PUT", "DELETE", "OPTIONS")
 		);

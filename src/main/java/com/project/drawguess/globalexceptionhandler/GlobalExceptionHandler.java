@@ -8,62 +8,82 @@ import org.springframework.web.bind.annotation.ResponseStatus;
 import org.springframework.web.bind.annotation.RestControllerAdvice;
 
 import com.project.drawguess.exception.ErrorResponse;
+import com.project.drawguess.exception.ResourceNotFoundException;
 import com.project.drawguess.exception.UserWithEmailAlreadyRegisteredException;
 
 import io.jsonwebtoken.ExpiredJwtException;
 import io.jsonwebtoken.MalformedJwtException;
 import io.jsonwebtoken.security.SignatureException;
+import lombok.extern.slf4j.Slf4j;
 
+@Slf4j
 @RestControllerAdvice
 public class GlobalExceptionHandler {
 
-	@ExceptionHandler(value = { SignatureException.class, MalformedJwtException.class })
+	@ExceptionHandler({SignatureException.class, MalformedJwtException.class})
 	@ResponseStatus(HttpStatus.UNAUTHORIZED)
-	public ErrorResponse handleInvalidJwtSignatureException(Exception e) {
-		return new ErrorResponse(HttpStatus.UNAUTHORIZED.value(), "Invalid JWT token: " + e.getMessage());
+	public ErrorResponse handleInvalidJwtException(Exception e) {
+		log.warn("Invalid JWT token: {}", e.getMessage());
+		return new ErrorResponse(HttpStatus.UNAUTHORIZED.value(), "Unauthorized", "Invalid JWT token");
 	}
 
-	@ExceptionHandler(value = ExpiredJwtException.class)
+	@ExceptionHandler(ExpiredJwtException.class)
 	@ResponseStatus(HttpStatus.UNAUTHORIZED)
 	public ErrorResponse handleExpiredJwtException(ExpiredJwtException e) {
-		return new ErrorResponse(HttpStatus.UNAUTHORIZED.value(), "JWT token has expired: " + e.getMessage());
+		log.warn("Expired JWT token: {}", e.getMessage());
+		return new ErrorResponse(HttpStatus.UNAUTHORIZED.value(), "Unauthorized", "JWT token has expired");
 	}
 
-	@ExceptionHandler(value = BadCredentialsException.class)
-	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	@ExceptionHandler(BadCredentialsException.class)
+	@ResponseStatus(HttpStatus.UNAUTHORIZED)
 	public ErrorResponse handleBadCredentialsException(BadCredentialsException e) {
-		return new ErrorResponse(HttpStatus.BAD_REQUEST.value(), "Invalid email or password");
+		log.warn("Bad credentials: {}", e.getMessage());
+		return new ErrorResponse(HttpStatus.UNAUTHORIZED.value(), "Unauthorized", "Invalid email or password");
 	}
 
 	@ExceptionHandler(MethodArgumentNotValidException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
-	public ErrorResponse handleMethodArgumentNotValidException(MethodArgumentNotValidException ex) {
+	public ErrorResponse handleValidationException(MethodArgumentNotValidException ex) {
 		String firstError = ex.getBindingResult().getAllErrors().stream()
 				.map(error -> error.getDefaultMessage())
 				.findFirst()
 				.orElse("Validation failed");
-		return new ErrorResponse(HttpStatus.BAD_REQUEST.value(), firstError);
+		log.warn("Validation error: {}", firstError);
+		return new ErrorResponse(HttpStatus.BAD_REQUEST.value(), "Bad Request", firstError);
 	}
 
-	@ExceptionHandler(value = Exception.class)
+	@ExceptionHandler(IllegalArgumentException.class)
 	@ResponseStatus(HttpStatus.BAD_REQUEST)
+	public ErrorResponse handleIllegalArgumentException(IllegalArgumentException e) {
+		log.warn("Bad request: {}", e.getMessage());
+		return new ErrorResponse(HttpStatus.BAD_REQUEST.value(), "Bad Request", e.getMessage());
+	}
+
+	@ExceptionHandler(ResourceNotFoundException.class)
+	@ResponseStatus(HttpStatus.NOT_FOUND)
+	public ErrorResponse handleResourceNotFoundException(ResourceNotFoundException e) {
+		log.warn("Resource not found: {}", e.getMessage());
+		return new ErrorResponse(HttpStatus.NOT_FOUND.value(), "Not Found", e.getMessage());
+	}
+
+	@ExceptionHandler(UserWithEmailAlreadyRegisteredException.class)
+	@ResponseStatus(HttpStatus.CONFLICT)
+	public ErrorResponse handleUserAlreadyRegisteredException(UserWithEmailAlreadyRegisteredException e) {
+		log.warn("Registration conflict: {}", e.getMessage());
+		return new ErrorResponse(HttpStatus.CONFLICT.value(), "Conflict", e.getMessage());
+	}
+
+	@ExceptionHandler(IllegalStateException.class)
+	@ResponseStatus(HttpStatus.CONFLICT)
+	public ErrorResponse handleIllegalStateException(IllegalStateException e) {
+		log.warn("Conflict: {}", e.getMessage());
+		return new ErrorResponse(HttpStatus.CONFLICT.value(), "Conflict", e.getMessage());
+	}
+
+	@ExceptionHandler(Exception.class)
+	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	public ErrorResponse handleGeneralException(Exception e) {
-		return new ErrorResponse(HttpStatus.BAD_REQUEST.value(), e.getMessage());
+		log.error("Unexpected error: {}", e.getMessage(), e);
+		return new ErrorResponse(HttpStatus.INTERNAL_SERVER_ERROR.value(), "Internal Server Error", "An unexpected error occurred");
 	}
-	
-	
-	@ExceptionHandler(value = IllegalArgumentException.class)
-	@ResponseStatus(HttpStatus.BAD_REQUEST)
-	public ErrorResponse handleIllegalArgumentException(Exception e) {
-		return new ErrorResponse(HttpStatus.BAD_REQUEST.value(), e.getMessage());
-	}
-	
-
-	@ExceptionHandler(value = UserWithEmailAlreadyRegisteredException.class)
-	@ResponseStatus(HttpStatus.BAD_REQUEST)
-	public ErrorResponse handleUserWithEmailAlreadyRegisteredException(UserWithEmailAlreadyRegisteredException e) {
-		return new ErrorResponse(HttpStatus.BAD_REQUEST.value(), e.getMessage());
-	}
-	
-
 }

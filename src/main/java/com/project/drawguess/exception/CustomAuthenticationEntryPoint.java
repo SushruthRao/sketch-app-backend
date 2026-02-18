@@ -1,7 +1,6 @@
 package com.project.drawguess.exception;
 
 import java.io.IOException;
-import java.util.Collections;
 
 import org.springframework.http.HttpStatus;
 import org.springframework.http.MediaType;
@@ -17,14 +16,19 @@ import jakarta.servlet.http.HttpServletResponse;
 @Component
 public class CustomAuthenticationEntryPoint implements AuthenticationEntryPoint {
 
+    private final ObjectMapper mapper = new ObjectMapper();
+
     @Override
     public void commence(HttpServletRequest request, HttpServletResponse response, AuthenticationException authException) throws IOException {
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
         response.setStatus(HttpStatus.UNAUTHORIZED.value());
 
-        String message = "Authentication failed: " + authException.getMessage();
-        
-        ObjectMapper mapper = new ObjectMapper();
-        mapper.writeValue(response.getOutputStream(), Collections.singletonMap("error", message));
+        ErrorResponse errorResponse = new ErrorResponse(
+                HttpStatus.UNAUTHORIZED.value(),
+                "Unauthorized",
+                "Authentication failed: " + authException.getMessage()
+        );
+
+        mapper.writeValue(response.getOutputStream(), errorResponse);
     }
 }

@@ -17,6 +17,7 @@ import java.util.stream.Collectors;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
+import com.project.drawguess.exception.ResourceNotFoundException;
 import com.project.drawguess.enums.RoomStatus;
 import com.project.drawguess.enums.SessionStatus;
 import com.project.drawguess.model.Room;
@@ -63,7 +64,7 @@ public class RoomServiceImpl {
 	public Room createRoom(String username) {
 		User user = userRepository.findByEmail(username);
 		if (user == null) {
-			throw new IllegalArgumentException("User " + username + " not found");
+			throw new ResourceNotFoundException("User " + username + " not found");
 		}
 		String roomCode = generateRoomCode();
 		Room room = new Room(roomCode, user);
@@ -77,10 +78,10 @@ public class RoomServiceImpl {
 		User user = userRepository.findByEmail(username);
 
 		if (room == null) {
-			throw new IllegalArgumentException("Room not found");
+			throw new ResourceNotFoundException("Room not found");
 		}
 		if (user == null) {
-			throw new IllegalArgumentException("User not found");
+			throw new ResourceNotFoundException("User not found");
 		}
 		if (room.getStatus() == RoomStatus.FINISHED) {
 			throw new IllegalArgumentException("Cannot join finished room");
@@ -111,7 +112,10 @@ public class RoomServiceImpl {
 		}
 		if (room.getStatus() == RoomStatus.PLAYING && !isReconnecting) {
 			log.warn("User {} tried to join PLAYING room {} - not a reconnection", user.getUsername(), roomCode);
-			messagingTemplate.convertAndSendToUser(username, "/queue/errors", "CANNOT_JOIN_ROOM");
+			Map<String, Object> error = new HashMap<>();
+			error.put("type", "CANNOT_JOIN_ROOM");
+			error.put("message", "Cannot join room - game in progress");
+			messagingTemplate.convertAndSendToUser(username, "/queue/errors", error);
 			throw new IllegalArgumentException("Cannot join room - game in progress");
 		}
 
@@ -411,7 +415,7 @@ public class RoomServiceImpl {
 	public Room getRoomByCode(String roomCode) {
 		Room room = roomRepository.findByRoomCode(roomCode).getFirst();
 		if (room == null) {
-			throw new IllegalArgumentException("Room not found Exception");
+			throw new ResourceNotFoundException("Room not found");
 		}
 		return room;
 	}

@@ -32,29 +32,35 @@ public class WebSocketAuthInterceptor implements ChannelInterceptor {
 
         if (StompCommand.CONNECT.equals(accessor.getCommand())) {
 
+            String jwt = null;
+
+            // First try STOMP Authorization header
             List<String> authorization = accessor.getNativeHeader("Authorization");
             log.info("STOMP Connect Authorization: {}", authorization);
 
             if (authorization != null && !authorization.isEmpty()) {
                 String bearerToken = authorization.get(0);
                 if (bearerToken.startsWith("Bearer ")) {
-                    String jwt = bearerToken.substring(7);
-                    try {
-                        String username = jwtUtil.extractUsername(jwt);
-                        if (username != null) {
-                            UserDetails userDetails = userServiceImpl.loadUserByUsername(username);
-                            
-                            if (jwtUtil.isTokenValid(jwt, userDetails.getUsername())) {
-                                UsernamePasswordAuthenticationToken authentication = 
-                                    new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
-                       
-                                accessor.setUser(authentication);
-                                log.info("Successfully authenticated WebSocket user: {}", username);
-                            }
+                    jwt = bearerToken.substring(7);
+                }
+            }
+
+            if (jwt != null) {
+                try {
+                    String username = jwtUtil.extractUsernameFromAccessToken(jwt);
+                    if (username != null) {
+                        UserDetails userDetails = userServiceImpl.loadUserByUsername(username);
+
+                        if (jwtUtil.isAccessTokenValid(jwt, userDetails.getUsername())) {
+                            UsernamePasswordAuthenticationToken authentication =
+                                new UsernamePasswordAuthenticationToken(userDetails, null, userDetails.getAuthorities());
+
+                            accessor.setUser(authentication);
+                            log.info("Successfully authenticated WebSocket user: {}", username);
                         }
-                    } catch (Exception e) {
-                        log.error("WebSocket Auth Error: {}", e.getMessage());
                     }
+                } catch (Exception e) {
+                    log.error("WebSocket Auth Error: {}", e.getMessage());
                 }
             }
         }

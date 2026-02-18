@@ -2,6 +2,7 @@ package com.project.drawguess.service.impl;
 
 import java.util.List;
 
+import com.project.drawguess.exception.ResourceNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -49,8 +50,10 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 	public String fetchUsername(String email)
 	{
 		User existingUser = userRepository.findByEmail(email);
-		
-		return existingUser.getUsername(); 
+		if (existingUser == null) {
+			throw new ResourceNotFoundException("User not found for email: " + email);
+		}
+		return existingUser.getUsername();
 	}
 	
 	@Override

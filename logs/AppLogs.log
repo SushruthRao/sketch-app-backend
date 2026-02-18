@@ -591,3 +591,686 @@
 2026-02-18T20:55:02.030+05:30  INFO 4204 --- [DrawGuess] [pool-4-thread-10] c.p.d.service.impl.SessionServiceImpl    : endSession: No active session for room 030988 (already ended?)
 2026-02-18T20:55:02.031+05:30  INFO 4204 --- [DrawGuess] [pool-4-thread-10] c.p.d.service.impl.RoomServiceImpl       : Room 030988 closed - empty
 2026-02-18T20:55:02.047+05:30  INFO 4204 --- [DrawGuess] [pool-4-thread-10] c.p.d.service.impl.RoomServiceImpl       : Room 030988 closed - empty
+2026-02-18T21:02:53.355+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJpYXQiOjE3NzE0Mjc3OTUsImV4cCI6MTc3MTQzODU5NX0.wS3VNrbxy9Z9TgKtzspXOz-Gk9A8zaht9xRQ-B7V0xLVqaBaPXptm95DFuLS8fWTWmG45s0tQXPANM0drR_fGQ]
+2026-02-18T21:02:53.367+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-18T21:02:53.429+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJpYXQiOjE3NzE0Mjc3OTUsImV4cCI6MTc3MTQzODU5NX0.wS3VNrbxy9Z9TgKtzspXOz-Gk9A8zaht9xRQ-B7V0xLVqaBaPXptm95DFuLS8fWTWmG45s0tQXPANM0drR_fGQ]
+2026-02-18T21:02:53.444+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-18T21:02:53.501+05:30  INFO 4204 --- [DrawGuess] [clientInboundChannel-149] c.p.d.controller.WebSocketController     : Joined room - Room - 774381, User - sushruth@gmail.com, wsSessionId - pmks5vlr 
+2026-02-18T21:02:53.521+05:30  INFO 4204 --- [DrawGuess] [clientInboundChannel-149] c.p.d.service.impl.RoomServiceImpl       : User Sushruth joined room 774381 for first time
+2026-02-18T21:03:56.983+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.websocket.WebSocketEventListener   : Canvas websocket disconnected: i4ekvwq1, skipping grace period
+2026-02-18T21:03:56.983+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : pmks5vlr 
+2026-02-18T21:03:57.012+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.service.impl.RoomServiceImpl       : User Sushruth disconnected from room 774381 - starting 30 second grace period
+2026-02-18T21:03:57.038+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for Sushruth in room 774381
+2026-02-18T21:04:01.523+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlckBnbWFpbC5jb20iLCJpYXQiOjE3NzE0MjY4MDgsImV4cCI6MTc3MTQzNzYwOH0.KhP31gOF1Rf6na2YidgokSd_4oKYvPiD5Z4d5SJvMF-e9dm0LdeDwxznF-Bogjg8u-kv3A1HNt6a5ZoOu39r7Q]
+2026-02-18T21:04:01.532+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: testuser@gmail.com
+2026-02-18T21:04:01.567+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJ0ZXN0dXNlckBnbWFpbC5jb20iLCJpYXQiOjE3NzE0MjY4MDgsImV4cCI6MTc3MTQzNzYwOH0.KhP31gOF1Rf6na2YidgokSd_4oKYvPiD5Z4d5SJvMF-e9dm0LdeDwxznF-Bogjg8u-kv3A1HNt6a5ZoOu39r7Q]
+2026-02-18T21:04:01.579+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: testuser@gmail.com
+2026-02-18T21:04:01.707+05:30  INFO 4204 --- [DrawGuess] [clientInboundChannel-181] c.p.d.controller.WebSocketController     : Joined room - Room - 655228, User - testuser@gmail.com, wsSessionId - b2gepqun 
+2026-02-18T21:04:02.134+05:30 ERROR 4204 --- [DrawGuess] [clientInboundChannel-181] c.p.d.controller.WebSocketController     : Local WebSocket Error [User: testuser@gmail.com]: Cannot join finished room
+2026-02-18T21:04:02.396+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : b2gepqun 
+2026-02-18T21:04:02.396+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.websocket.WebSocketEventListener   : Canvas websocket disconnected: whohskje, skipping grace period
+2026-02-18T21:04:02.399+05:30  WARN 4204 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.service.impl.RoomServiceImpl       : No RoomPlayer found for wsSessionId: b2gepqun
+2026-02-18T21:04:27.040+05:30  INFO 4204 --- [DrawGuess] [pool-4-thread-6] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 1:113, disconnectingPlayers list -> {1:113=pmks5vlr}
+2026-02-18T21:04:27.041+05:30  INFO 4204 --- [DrawGuess] [pool-4-thread-6] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for Sushruth in room 774381 - removing user
+2026-02-18T21:04:27.070+05:30  INFO 4204 --- [DrawGuess] [pool-4-thread-6] c.p.d.service.impl.RoomServiceImpl       : User Sushruth left room 774381 (grace period done)
+2026-02-18T21:04:27.080+05:30  INFO 4204 --- [DrawGuess] [pool-4-thread-6] c.p.d.service.impl.RoomServiceImpl       : Room 774381 closed - no session started, all players left 
+2026-02-18T21:04:27.085+05:30  INFO 4204 --- [DrawGuess] [pool-4-thread-6] c.p.d.service.impl.SessionServiceImpl    : endSession: No active session for room 774381 (already ended?)
+2026-02-18T21:04:27.086+05:30  INFO 4204 --- [DrawGuess] [pool-4-thread-6] c.p.d.service.impl.RoomServiceImpl       : Room 774381 closed - empty
+2026-02-18T21:04:27.090+05:30  INFO 4204 --- [DrawGuess] [pool-4-thread-6] c.p.d.service.impl.RoomServiceImpl       : Room 774381 closed - empty
+2026-02-18T21:04:31.222+05:30  INFO 4204 --- [DrawGuess] [MessageBroker-5] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 40 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(40)-CONNECTED(40)-DISCONNECT(38)], stompBrokerRelay[null], inboundChannel[pool size = 24, active threads = 0, queued tasks = 0, completed tasks = 891], outboundChannel[pool size = 10, active threads = 0, queued tasks = 0, completed tasks = 201], sockJsScheduler[pool size = 12, active threads = 1, queued tasks = 2, completed tasks = 789]
+2026-02-18T21:14:26.790+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJpYXQiOjE3NzE0Mjk0NTgsImV4cCI6MTc3MTQ0MDI1OH0.GFQ_Des-n6wDo4F7fav6Pgw9PL6RzQguCj4nQzwoW9OSxuACGPeUhanTkzx2Uo40CmxJKBokA-11kkhYxSBqkg]
+2026-02-18T21:14:26.802+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-18T21:14:26.871+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJpYXQiOjE3NzE0Mjk0NTgsImV4cCI6MTc3MTQ0MDI1OH0.GFQ_Des-n6wDo4F7fav6Pgw9PL6RzQguCj4nQzwoW9OSxuACGPeUhanTkzx2Uo40CmxJKBokA-11kkhYxSBqkg]
+2026-02-18T21:14:26.878+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-18T21:14:26.903+05:30  INFO 4204 --- [DrawGuess] [clientInboundChannel-197] c.p.d.controller.WebSocketController     : Joined room - Room - 784768, User - sushruth@gmail.com, wsSessionId - i30fzs0v 
+2026-02-18T21:14:26.920+05:30  INFO 4204 --- [DrawGuess] [clientInboundChannel-197] c.p.d.service.impl.RoomServiceImpl       : User Sushruth joined room 784768 for first time
+2026-02-18T21:14:28.664+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : i30fzs0v 
+2026-02-18T21:14:28.664+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-4] c.p.d.websocket.WebSocketEventListener   : Canvas websocket disconnected: quw5d3ry, skipping grace period
+2026-02-18T21:14:28.672+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.service.impl.RoomServiceImpl       : User Sushruth disconnected from room 784768 - starting 30 second grace period
+2026-02-18T21:14:28.681+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for Sushruth in room 784768
+2026-02-18T21:14:58.682+05:30  INFO 4204 --- [DrawGuess] [pool-4-thread-4] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 1:114, disconnectingPlayers list -> {1:114=i30fzs0v}
+2026-02-18T21:14:58.682+05:30  INFO 4204 --- [DrawGuess] [pool-4-thread-4] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for Sushruth in room 784768 - removing user
+2026-02-18T21:14:58.707+05:30  INFO 4204 --- [DrawGuess] [pool-4-thread-4] c.p.d.service.impl.RoomServiceImpl       : User Sushruth left room 784768 (grace period done)
+2026-02-18T21:14:58.735+05:30  INFO 4204 --- [DrawGuess] [pool-4-thread-4] c.p.d.service.impl.RoomServiceImpl       : Room 784768 closed - no session started, all players left 
+2026-02-18T21:14:58.746+05:30  INFO 4204 --- [DrawGuess] [pool-4-thread-4] c.p.d.service.impl.SessionServiceImpl    : endSession: No active session for room 784768 (already ended?)
+2026-02-18T21:14:58.747+05:30  INFO 4204 --- [DrawGuess] [pool-4-thread-4] c.p.d.service.impl.RoomServiceImpl       : Room 784768 closed - empty
+2026-02-18T21:14:58.753+05:30  INFO 4204 --- [DrawGuess] [pool-4-thread-4] c.p.d.service.impl.RoomServiceImpl       : Room 784768 closed - empty
+2026-02-18T21:18:34.537+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJpYXQiOjE3NzE0Mjk0NTgsImV4cCI6MTc3MTQ0MDI1OH0.GFQ_Des-n6wDo4F7fav6Pgw9PL6RzQguCj4nQzwoW9OSxuACGPeUhanTkzx2Uo40CmxJKBokA-11kkhYxSBqkg]
+2026-02-18T21:18:34.544+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-18T21:18:34.613+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-9] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJpYXQiOjE3NzE0Mjk0NTgsImV4cCI6MTc3MTQ0MDI1OH0.GFQ_Des-n6wDo4F7fav6Pgw9PL6RzQguCj4nQzwoW9OSxuACGPeUhanTkzx2Uo40CmxJKBokA-11kkhYxSBqkg]
+2026-02-18T21:18:34.619+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-9] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-18T21:18:34.653+05:30  INFO 4204 --- [DrawGuess] [clientInboundChannel-223] c.p.d.controller.WebSocketController     : Joined room - Room - 204911, User - sushruth@gmail.com, wsSessionId - c23d3qsl 
+2026-02-18T21:18:34.671+05:30  INFO 4204 --- [DrawGuess] [clientInboundChannel-223] c.p.d.service.impl.RoomServiceImpl       : User Sushruth joined room 204911 for first time
+2026-02-18T21:27:15.304+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-9] c.p.d.websocket.WebSocketEventListener   : Canvas websocket disconnected: ysr5mkdb, skipping grace period
+2026-02-18T21:27:15.304+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : c23d3qsl 
+2026-02-18T21:27:15.466+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.service.impl.RoomServiceImpl       : User Sushruth disconnected from room 204911 - starting 30 second grace period
+2026-02-18T21:27:15.499+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for Sushruth in room 204911
+2026-02-18T21:27:19.630+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJpYXQiOjE3NzE0Mjk0NTgsImV4cCI6MTc3MTQ0MDI1OH0.GFQ_Des-n6wDo4F7fav6Pgw9PL6RzQguCj4nQzwoW9OSxuACGPeUhanTkzx2Uo40CmxJKBokA-11kkhYxSBqkg]
+2026-02-18T21:27:19.635+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-18T21:27:21.634+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJpYXQiOjE3NzE0Mjk0NTgsImV4cCI6MTc3MTQ0MDI1OH0.GFQ_Des-n6wDo4F7fav6Pgw9PL6RzQguCj4nQzwoW9OSxuACGPeUhanTkzx2Uo40CmxJKBokA-11kkhYxSBqkg]
+2026-02-18T21:27:21.638+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-18T21:27:21.665+05:30  INFO 4204 --- [DrawGuess] [clientInboundChannel-262] c.p.d.controller.WebSocketController     : Joined room - Room - 204911, User - sushruth@gmail.com, wsSessionId - cam0s0yg 
+2026-02-18T21:27:21.679+05:30  INFO 4204 --- [DrawGuess] [clientInboundChannel-262] c.p.d.service.impl.RoomServiceImpl       : Cancelled pending disconnect for user Sushruth in room 204911
+2026-02-18T21:27:21.710+05:30  INFO 4204 --- [DrawGuess] [clientInboundChannel-262] c.p.d.service.impl.RoomServiceImpl       : User Sushruth updated ws session id in room 204911
+2026-02-18T21:27:22.670+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : cam0s0yg 
+2026-02-18T21:27:22.670+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-4] c.p.d.websocket.WebSocketEventListener   : Canvas websocket disconnected: g1dksohy, skipping grace period
+2026-02-18T21:27:22.673+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.service.impl.RoomServiceImpl       : User Sushruth disconnected from room 204911 - starting 30 second grace period
+2026-02-18T21:27:22.675+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for Sushruth in room 204911
+2026-02-18T21:27:26.911+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJpYXQiOjE3NzE0Mjk0NTgsImV4cCI6MTc3MTQ0MDI1OH0.GFQ_Des-n6wDo4F7fav6Pgw9PL6RzQguCj4nQzwoW9OSxuACGPeUhanTkzx2Uo40CmxJKBokA-11kkhYxSBqkg]
+2026-02-18T21:27:26.916+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-18T21:27:29.015+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJpYXQiOjE3NzE0Mjk0NTgsImV4cCI6MTc3MTQ0MDI1OH0.GFQ_Des-n6wDo4F7fav6Pgw9PL6RzQguCj4nQzwoW9OSxuACGPeUhanTkzx2Uo40CmxJKBokA-11kkhYxSBqkg]
+2026-02-18T21:27:29.020+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-18T21:27:29.044+05:30  INFO 4204 --- [DrawGuess] [clientInboundChannel-261] c.p.d.controller.WebSocketController     : Joined room - Room - 204911, User - sushruth@gmail.com, wsSessionId - m5nkt4ih 
+2026-02-18T21:27:29.048+05:30  INFO 4204 --- [DrawGuess] [clientInboundChannel-261] c.p.d.service.impl.RoomServiceImpl       : Cancelled pending disconnect for user Sushruth in room 204911
+2026-02-18T21:27:29.049+05:30  INFO 4204 --- [DrawGuess] [clientInboundChannel-261] c.p.d.service.impl.RoomServiceImpl       : User Sushruth updated ws session id in room 204911
+2026-02-18T21:27:33.286+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.websocket.WebSocketEventListener   : Canvas websocket disconnected: kjfyyrrn, skipping grace period
+2026-02-18T21:27:33.286+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : m5nkt4ih 
+2026-02-18T21:27:33.289+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.service.impl.RoomServiceImpl       : User Sushruth disconnected from room 204911 - starting 30 second grace period
+2026-02-18T21:27:33.292+05:30  INFO 4204 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for Sushruth in room 204911
+2026-02-18T21:28:03.294+05:30  INFO 4204 --- [DrawGuess] [pool-4-thread-7] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 1:115, disconnectingPlayers list -> {1:115=m5nkt4ih}
+2026-02-18T21:28:03.296+05:30  INFO 4204 --- [DrawGuess] [pool-4-thread-7] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for Sushruth in room 204911 - removing user
+2026-02-18T21:28:03.330+05:30  INFO 4204 --- [DrawGuess] [pool-4-thread-7] c.p.d.service.impl.RoomServiceImpl       : User Sushruth left room 204911 (grace period done)
+2026-02-18T21:28:03.405+05:30  INFO 4204 --- [DrawGuess] [pool-4-thread-7] c.p.d.service.impl.RoomServiceImpl       : Room 204911 closed - no session started, all players left 
+2026-02-18T21:28:03.451+05:30  INFO 4204 --- [DrawGuess] [pool-4-thread-7] c.p.d.service.impl.SessionServiceImpl    : endSession: No active session for room 204911 (already ended?)
+2026-02-18T21:28:03.452+05:30  INFO 4204 --- [DrawGuess] [pool-4-thread-7] c.p.d.service.impl.RoomServiceImpl       : Room 204911 closed - empty
+2026-02-18T21:28:03.461+05:30  INFO 4204 --- [DrawGuess] [pool-4-thread-7] c.p.d.service.impl.RoomServiceImpl       : Room 204911 closed - empty
+2026-02-18T21:34:31.228+05:30  INFO 4204 --- [DrawGuess] [MessageBroker-11] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 48 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(48)-CONNECTED(48)-DISCONNECT(46)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 1068], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 229], sockJsScheduler[pool size = 12, active threads = 1, queued tasks = 2, completed tasks = 1550]
+2026-02-18T21:42:59.502+05:30  INFO 4204 --- [DrawGuess] [RMI TCP Connection(80)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2026-02-18T21:42:59.502+05:30  INFO 4204 --- [DrawGuess] [RMI TCP Connection(79)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2026-02-18T21:42:59.724+05:30  INFO 4204 --- [DrawGuess] [RMI TCP Connection(79)-127.0.0.1] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-18T21:42:59.806+05:30  INFO 4204 --- [DrawGuess] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-02-18T21:42:59.838+05:30  INFO 4204 --- [DrawGuess] [RMI TCP Connection(79)-127.0.0.1] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2026-02-18T21:42:59.840+05:30  INFO 4204 --- [DrawGuess] [RMI TCP Connection(79)-127.0.0.1] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@10031e49]]
+2026-02-18T21:42:59.840+05:30  INFO 4204 --- [DrawGuess] [RMI TCP Connection(79)-127.0.0.1] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2026-02-18T21:42:59.877+05:30  INFO 4204 --- [DrawGuess] [RMI TCP Connection(79)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-18T21:42:59.937+05:30  INFO 4204 --- [DrawGuess] [RMI TCP Connection(79)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-02-18T21:42:59.946+05:30  INFO 4204 --- [DrawGuess] [RMI TCP Connection(79)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-02-18T21:43:05.051+05:30  INFO 12388 --- [DrawGuess] [main] c.p.drawguess.DrawGuessApplication       : Starting DrawGuessApplication using Java 25.0.1 with PID 12388 (C:\Users\dUser\Documents\sketch-app\backend\DrawGuess\target\classes started by dUser in C:\Users\dUser\Documents\sketch-app\backend\DrawGuess)
+2026-02-18T21:43:05.055+05:30  INFO 12388 --- [DrawGuess] [main] c.p.drawguess.DrawGuessApplication       : No active profile set, falling back to 1 default profile: "default"
+2026-02-18T21:43:06.132+05:30  INFO 12388 --- [DrawGuess] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-18T21:43:06.198+05:30  INFO 12388 --- [DrawGuess] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 56 ms. Found 5 JPA repository interfaces.
+2026-02-18T21:43:06.778+05:30  INFO 12388 --- [DrawGuess] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-02-18T21:43:06.802+05:30  INFO 12388 --- [DrawGuess] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-18T21:43:06.802+05:30  INFO 12388 --- [DrawGuess] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-02-18T21:43:06.903+05:30  INFO 12388 --- [DrawGuess] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1778 ms
+2026-02-18T21:43:21.004+05:30  INFO 2740 --- [DrawGuess] [main] c.p.drawguess.DrawGuessApplication       : Starting DrawGuessApplication using Java 25.0.1 with PID 2740 (C:\Users\dUser\Documents\sketch-app\backend\DrawGuess\target\classes started by dUser in C:\Users\dUser\Documents\sketch-app\backend\DrawGuess)
+2026-02-18T21:43:21.007+05:30  INFO 2740 --- [DrawGuess] [main] c.p.drawguess.DrawGuessApplication       : No active profile set, falling back to 1 default profile: "default"
+2026-02-18T21:43:21.610+05:30  INFO 2740 --- [DrawGuess] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-18T21:43:21.665+05:30  INFO 2740 --- [DrawGuess] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 48 ms. Found 5 JPA repository interfaces.
+2026-02-18T21:43:22.060+05:30  INFO 2740 --- [DrawGuess] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-02-18T21:43:22.071+05:30  INFO 2740 --- [DrawGuess] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-18T21:43:22.072+05:30  INFO 2740 --- [DrawGuess] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-02-18T21:43:22.120+05:30  INFO 2740 --- [DrawGuess] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1075 ms
+2026-02-18T21:43:22.397+05:30  INFO 2740 --- [DrawGuess] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-02-18T21:43:22.468+05:30  INFO 2740 --- [DrawGuess] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.1.Final
+2026-02-18T21:43:22.936+05:30  INFO 2740 --- [DrawGuess] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-18T21:43:22.975+05:30  INFO 2740 --- [DrawGuess] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-02-18T21:43:23.129+05:30  INFO 2740 --- [DrawGuess] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5ced0537
+2026-02-18T21:43:23.131+05:30  INFO 2740 --- [DrawGuess] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-02-18T21:43:23.218+05:30  WARN 2740 --- [DrawGuess] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-18T21:43:23.239+05:30  INFO 2740 --- [DrawGuess] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://127.0.0.1:3306/DrawGuessDB?useSSL=false]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.36
+	Default catalog/schema: DrawGuessDB/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-18T21:43:24.325+05:30  INFO 2740 --- [DrawGuess] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-18T21:43:24.329+05:30  INFO 2740 --- [DrawGuess] [main] org.hibernate.orm.jdbc.batch             : HHH100501: Automatic JDBC statement batching enabled (maximum batch size 16)
+2026-02-18T21:43:24.460+05:30  INFO 2740 --- [DrawGuess] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-18T21:43:24.546+05:30  INFO 2740 --- [DrawGuess] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-18T21:43:25.289+05:30  INFO 2740 --- [DrawGuess] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userServiceImpl
+2026-02-18T21:43:25.734+05:30  INFO 2740 --- [DrawGuess] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2026-02-18T21:43:25.735+05:30  INFO 2740 --- [DrawGuess] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@b8d10c9]]
+2026-02-18T21:43:25.736+05:30  INFO 2740 --- [DrawGuess] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2026-02-18T21:43:25.761+05:30  INFO 2740 --- [DrawGuess] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-02-18T21:43:25.767+05:30  INFO 2740 --- [DrawGuess] [main] c.p.drawguess.DrawGuessApplication       : Started DrawGuessApplication in 5.106 seconds (process running for 5.681)
+2026-02-18T21:43:36.464+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-18T21:43:36.465+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-02-18T21:43:36.466+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 1 ms
+2026-02-18T21:43:41.074+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: null
+2026-02-18T21:43:41.074+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.w.WebSocketAuthInterceptor         : Using JWT from cookie handshake
+2026-02-18T21:43:41.082+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-18T21:43:41.143+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: null
+2026-02-18T21:43:41.143+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.w.WebSocketAuthInterceptor         : Using JWT from cookie handshake
+2026-02-18T21:43:41.150+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-18T21:43:41.207+05:30  INFO 2740 --- [DrawGuess] [clientInboundChannel-4] c.p.d.controller.WebSocketController     : Joined room - Room - 906719, User - sushruth@gmail.com, wsSessionId - lfvkzjij 
+2026-02-18T21:43:41.277+05:30  INFO 2740 --- [DrawGuess] [clientInboundChannel-4] c.p.d.service.impl.RoomServiceImpl       : User Sushruth joined room 906719 for first time
+2026-02-18T21:44:06.040+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-9] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : lfvkzjij 
+2026-02-18T21:44:06.040+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.websocket.WebSocketEventListener   : Canvas websocket disconnected: tbcbfjue, skipping grace period
+2026-02-18T21:44:06.056+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-9] c.p.d.service.impl.RoomServiceImpl       : User Sushruth disconnected from room 906719 - starting 30 second grace period
+2026-02-18T21:44:06.071+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-9] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for Sushruth in room 906719
+2026-02-18T21:44:25.725+05:30  INFO 2740 --- [DrawGuess] [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 2 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(2)-CONNECTED(2)-DISCONNECT(2)], stompBrokerRelay[null], inboundChannel[pool size = 24, active threads = 0, queued tasks = 0, completed tasks = 42], outboundChannel[pool size = 7, active threads = 0, queued tasks = 0, completed tasks = 7], sockJsScheduler[pool size = 12, active threads = 1, queued tasks = 2, completed tasks = 18]
+2026-02-18T21:44:36.072+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 1:116, disconnectingPlayers list -> {1:116=lfvkzjij}
+2026-02-18T21:44:36.072+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for Sushruth in room 906719 - removing user
+2026-02-18T21:44:36.109+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : User Sushruth left room 906719 (grace period done)
+2026-02-18T21:44:36.135+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Room 906719 closed - no session started, all players left 
+2026-02-18T21:44:36.146+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.SessionServiceImpl    : endSession: No active session for room 906719 (already ended?)
+2026-02-18T21:44:36.147+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Room 906719 closed - empty
+2026-02-18T21:44:36.155+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Room 906719 closed - empty
+2026-02-18T22:04:39.859+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: null
+2026-02-18T22:04:39.876+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.w.WebSocketAuthInterceptor         : Using JWT from cookie handshake
+2026-02-18T22:04:39.891+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-18T22:04:40.102+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-4] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: null
+2026-02-18T22:04:40.103+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-4] c.p.d.w.WebSocketAuthInterceptor         : Using JWT from cookie handshake
+2026-02-18T22:04:40.121+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-4] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-18T22:04:40.240+05:30  INFO 2740 --- [DrawGuess] [clientInboundChannel-29] c.p.d.controller.WebSocketController     : Joined room - Room - 162645, User - sushruth@gmail.com, wsSessionId - xu23c0mz 
+2026-02-18T22:04:40.332+05:30  INFO 2740 --- [DrawGuess] [clientInboundChannel-29] c.p.d.service.impl.RoomServiceImpl       : User Sushruth joined room 162645 for first time
+2026-02-18T22:04:42.061+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : xu23c0mz 
+2026-02-18T22:04:42.062+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.websocket.WebSocketEventListener   : Canvas websocket disconnected: rwpvmwjx, skipping grace period
+2026-02-18T22:04:42.109+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.service.impl.RoomServiceImpl       : User Sushruth disconnected from room 162645 - starting 30 second grace period
+2026-02-18T22:04:42.170+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for Sushruth in room 162645
+2026-02-18T22:04:46.459+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: null
+2026-02-18T22:04:46.460+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.w.WebSocketAuthInterceptor         : Using JWT from cookie handshake
+2026-02-18T22:04:46.495+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-18T22:04:46.562+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: null
+2026-02-18T22:04:46.563+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.w.WebSocketAuthInterceptor         : Using JWT from cookie handshake
+2026-02-18T22:04:46.572+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-18T22:04:46.647+05:30  INFO 2740 --- [DrawGuess] [clientInboundChannel-27] c.p.d.controller.WebSocketController     : Joined room - Room - 764773, User - sushruth@gmail.com, wsSessionId - hapogtyz 
+2026-02-18T22:04:46.692+05:30  INFO 2740 --- [DrawGuess] [clientInboundChannel-27] c.p.d.service.impl.RoomServiceImpl       : User Sushruth joined room 764773 for first time
+2026-02-18T22:04:47.539+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.websocket.WebSocketEventListener   : Canvas websocket disconnected: o1nsr2xg, skipping grace period
+2026-02-18T22:04:47.539+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : hapogtyz 
+2026-02-18T22:04:47.558+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.service.impl.RoomServiceImpl       : User Sushruth disconnected from room 764773 - starting 30 second grace period
+2026-02-18T22:04:47.582+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for Sushruth in room 764773
+2026-02-18T22:04:49.565+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: null
+2026-02-18T22:04:49.565+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.w.WebSocketAuthInterceptor         : Using JWT from cookie handshake
+2026-02-18T22:04:49.580+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-18T22:04:49.748+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: null
+2026-02-18T22:04:49.749+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.w.WebSocketAuthInterceptor         : Using JWT from cookie handshake
+2026-02-18T22:04:49.763+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-18T22:04:49.833+05:30  INFO 2740 --- [DrawGuess] [clientInboundChannel-31] c.p.d.controller.WebSocketController     : Joined room - Room - 664097, User - sushruth@gmail.com, wsSessionId - zh5voky3 
+2026-02-18T22:04:49.885+05:30  INFO 2740 --- [DrawGuess] [clientInboundChannel-31] c.p.d.service.impl.RoomServiceImpl       : User Sushruth joined room 664097 for first time
+2026-02-18T22:04:52.973+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : zh5voky3 
+2026-02-18T22:04:52.975+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.websocket.WebSocketEventListener   : Canvas websocket disconnected: wfbyr12r, skipping grace period
+2026-02-18T22:04:52.986+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.service.impl.RoomServiceImpl       : User Sushruth disconnected from room 664097 - starting 30 second grace period
+2026-02-18T22:04:53.017+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for Sushruth in room 664097
+2026-02-18T22:04:54.636+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: null
+2026-02-18T22:04:54.637+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.w.WebSocketAuthInterceptor         : Using JWT from cookie handshake
+2026-02-18T22:04:54.651+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-18T22:04:54.754+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: null
+2026-02-18T22:04:54.754+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.w.WebSocketAuthInterceptor         : Using JWT from cookie handshake
+2026-02-18T22:04:54.765+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-18T22:04:54.823+05:30  INFO 2740 --- [DrawGuess] [clientInboundChannel-45] c.p.d.controller.WebSocketController     : Joined room - Room - 814738, User - sushruth@gmail.com, wsSessionId - dlc52ncf 
+2026-02-18T22:04:54.847+05:30  INFO 2740 --- [DrawGuess] [clientInboundChannel-45] c.p.d.service.impl.RoomServiceImpl       : User Sushruth joined room 814738 for first time
+2026-02-18T22:04:56.859+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.websocket.WebSocketEventListener   : Canvas websocket disconnected: mzxyqlwq, skipping grace period
+2026-02-18T22:04:56.859+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : dlc52ncf 
+2026-02-18T22:04:56.870+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.service.impl.RoomServiceImpl       : User Sushruth disconnected from room 814738 - starting 30 second grace period
+2026-02-18T22:04:56.881+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for Sushruth in room 814738
+2026-02-18T22:04:58.281+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: null
+2026-02-18T22:04:58.282+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.w.WebSocketAuthInterceptor         : Using JWT from cookie handshake
+2026-02-18T22:04:58.293+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-18T22:04:58.395+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: null
+2026-02-18T22:04:58.396+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.w.WebSocketAuthInterceptor         : Using JWT from cookie handshake
+2026-02-18T22:04:58.406+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-18T22:04:58.471+05:30  INFO 2740 --- [DrawGuess] [clientInboundChannel-25] c.p.d.controller.WebSocketController     : Joined room - Room - 842106, User - sushruth@gmail.com, wsSessionId - buwbkvhd 
+2026-02-18T22:04:58.495+05:30  INFO 2740 --- [DrawGuess] [clientInboundChannel-25] c.p.d.service.impl.RoomServiceImpl       : User Sushruth joined room 842106 for first time
+2026-02-18T22:04:59.785+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-9] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : buwbkvhd 
+2026-02-18T22:04:59.785+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.websocket.WebSocketEventListener   : Canvas websocket disconnected: ewpdbftk, skipping grace period
+2026-02-18T22:04:59.798+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-9] c.p.d.service.impl.RoomServiceImpl       : User Sushruth disconnected from room 842106 - starting 30 second grace period
+2026-02-18T22:04:59.808+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-9] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for Sushruth in room 842106
+2026-02-18T22:05:12.169+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 1:117, disconnectingPlayers list -> {1:118=hapogtyz, 1:117=xu23c0mz, 1:121=buwbkvhd, 1:120=dlc52ncf, 1:119=zh5voky3}
+2026-02-18T22:05:12.170+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for Sushruth in room 162645 - removing user
+2026-02-18T22:05:12.200+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.RoomServiceImpl       : User Sushruth left room 162645 (grace period done)
+2026-02-18T22:05:12.222+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.RoomServiceImpl       : Room 162645 closed - empty
+2026-02-18T22:05:17.582+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 1:118, disconnectingPlayers list -> {1:118=hapogtyz, 1:121=buwbkvhd, 1:120=dlc52ncf, 1:119=zh5voky3}
+2026-02-18T22:05:17.582+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for Sushruth in room 764773 - removing user
+2026-02-18T22:05:17.594+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : User Sushruth left room 764773 (grace period done)
+2026-02-18T22:05:17.615+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Room 764773 closed - empty
+2026-02-18T22:05:23.017+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-3] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 1:119, disconnectingPlayers list -> {1:121=buwbkvhd, 1:120=dlc52ncf, 1:119=zh5voky3}
+2026-02-18T22:05:23.017+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-3] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for Sushruth in room 664097 - removing user
+2026-02-18T22:05:23.027+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-3] c.p.d.service.impl.RoomServiceImpl       : User Sushruth left room 664097 (grace period done)
+2026-02-18T22:05:23.048+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-3] c.p.d.service.impl.RoomServiceImpl       : Room 664097 closed - empty
+2026-02-18T22:05:26.882+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-4] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 1:120, disconnectingPlayers list -> {1:121=buwbkvhd, 1:120=dlc52ncf}
+2026-02-18T22:05:26.882+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-4] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for Sushruth in room 814738 - removing user
+2026-02-18T22:05:26.891+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-4] c.p.d.service.impl.RoomServiceImpl       : User Sushruth left room 814738 (grace period done)
+2026-02-18T22:05:26.906+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-4] c.p.d.service.impl.RoomServiceImpl       : Room 814738 closed - empty
+2026-02-18T22:05:29.810+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-5] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 1:121, disconnectingPlayers list -> {1:121=buwbkvhd}
+2026-02-18T22:05:29.810+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-5] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for Sushruth in room 842106 - removing user
+2026-02-18T22:05:29.826+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-5] c.p.d.service.impl.RoomServiceImpl       : User Sushruth left room 842106 (grace period done)
+2026-02-18T22:05:29.860+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-5] c.p.d.service.impl.RoomServiceImpl       : Room 842106 closed - no session started, all players left 
+2026-02-18T22:05:29.873+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-5] c.p.d.service.impl.SessionServiceImpl    : endSession: No active session for room 842106 (already ended?)
+2026-02-18T22:05:29.876+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-5] c.p.d.service.impl.RoomServiceImpl       : Room 842106 closed - empty
+2026-02-18T22:05:29.886+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-5] c.p.d.service.impl.RoomServiceImpl       : Room 842106 closed - empty
+2026-02-18T22:06:18.233+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: null
+2026-02-18T22:06:18.233+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.w.WebSocketAuthInterceptor         : Using JWT from cookie handshake
+2026-02-18T22:06:18.238+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-18T22:06:18.274+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: null
+2026-02-18T22:06:18.274+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.w.WebSocketAuthInterceptor         : Using JWT from cookie handshake
+2026-02-18T22:06:18.281+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-18T22:06:18.342+05:30  INFO 2740 --- [DrawGuess] [clientInboundChannel-70] c.p.d.controller.WebSocketController     : Joined room - Room - 954350, User - sushruth@gmail.com, wsSessionId - 3vp2xskm 
+2026-02-18T22:06:18.357+05:30  INFO 2740 --- [DrawGuess] [clientInboundChannel-70] c.p.d.service.impl.RoomServiceImpl       : User Sushruth joined room 954350 for first time
+2026-02-18T22:06:20.947+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : 3vp2xskm 
+2026-02-18T22:06:20.948+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-9] c.p.d.websocket.WebSocketEventListener   : Canvas websocket disconnected: vol423um, skipping grace period
+2026-02-18T22:06:20.956+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.service.impl.RoomServiceImpl       : User Sushruth disconnected from room 954350 - starting 30 second grace period
+2026-02-18T22:06:20.966+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for Sushruth in room 954350
+2026-02-18T22:06:22.775+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: null
+2026-02-18T22:06:22.775+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.w.WebSocketAuthInterceptor         : Using JWT from cookie handshake
+2026-02-18T22:06:22.781+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-18T22:06:22.856+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: null
+2026-02-18T22:06:22.856+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.w.WebSocketAuthInterceptor         : Using JWT from cookie handshake
+2026-02-18T22:06:22.862+05:30  INFO 2740 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-18T22:06:22.917+05:30  INFO 2740 --- [DrawGuess] [clientInboundChannel-71] c.p.d.controller.WebSocketController     : Joined room - Room - 168376, User - sushruth@gmail.com, wsSessionId - cic2pg0u 
+2026-02-18T22:06:22.930+05:30  INFO 2740 --- [DrawGuess] [clientInboundChannel-71] c.p.d.service.impl.RoomServiceImpl       : User Sushruth joined room 168376 for first time
+2026-02-18T22:06:50.967+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-6] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 1:122, disconnectingPlayers list -> {1:122=3vp2xskm}
+2026-02-18T22:06:50.967+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-6] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for Sushruth in room 954350 - removing user
+2026-02-18T22:06:50.978+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-6] c.p.d.service.impl.RoomServiceImpl       : User Sushruth left room 954350 (grace period done)
+2026-02-18T22:06:51.006+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-6] c.p.d.service.impl.RoomServiceImpl       : Room 954350 closed - no session started, all players left 
+2026-02-18T22:06:51.016+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-6] c.p.d.service.impl.SessionServiceImpl    : endSession: No active session for room 954350 (already ended?)
+2026-02-18T22:06:51.018+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-6] c.p.d.service.impl.RoomServiceImpl       : Room 954350 closed - empty
+2026-02-18T22:06:51.024+05:30  INFO 2740 --- [DrawGuess] [pool-4-thread-6] c.p.d.service.impl.RoomServiceImpl       : Room 954350 closed - empty
+2026-02-18T22:14:25.733+05:30  INFO 2740 --- [DrawGuess] [MessageBroker-8] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[2 current WS(2)-HttpStream(0)-HttpPoll(0), 16 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(16)-CONNECTED(16)-DISCONNECT(14)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 354], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 52], sockJsScheduler[pool size = 12, active threads = 1, queued tasks = 4, completed tasks = 777]
+2026-02-18T22:15:48.816+05:30  INFO 2740 --- [DrawGuess] [RMI TCP Connection(43)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2026-02-18T22:15:48.863+05:30  INFO 2740 --- [DrawGuess] [RMI TCP Connection(44)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2026-02-18T22:15:49.015+05:30  INFO 2740 --- [DrawGuess] [RMI TCP Connection(45)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2026-02-18T22:15:49.060+05:30  INFO 2740 --- [DrawGuess] [RMI TCP Connection(43)-127.0.0.1] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-18T22:15:49.113+05:30  INFO 2740 --- [DrawGuess] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-02-18T22:15:49.163+05:30  INFO 2740 --- [DrawGuess] [RMI TCP Connection(43)-127.0.0.1] c.p.d.websocket.WebSocketEventListener   : Canvas websocket disconnected: 4i3idrb3, skipping grace period
+2026-02-18T22:15:49.168+05:30  INFO 2740 --- [DrawGuess] [RMI TCP Connection(43)-127.0.0.1] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : cic2pg0u 
+2026-02-18T22:15:49.228+05:30  INFO 2740 --- [DrawGuess] [RMI TCP Connection(43)-127.0.0.1] c.p.d.service.impl.RoomServiceImpl       : User Sushruth disconnected from room 168376 - starting 30 second grace period
+2026-02-18T22:15:49.252+05:30  INFO 2740 --- [DrawGuess] [RMI TCP Connection(43)-127.0.0.1] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for Sushruth in room 168376
+2026-02-18T22:15:49.252+05:30  INFO 2740 --- [DrawGuess] [RMI TCP Connection(46)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2026-02-18T22:15:49.258+05:30  INFO 2740 --- [DrawGuess] [RMI TCP Connection(43)-127.0.0.1] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2026-02-18T22:15:49.261+05:30  INFO 2740 --- [DrawGuess] [RMI TCP Connection(43)-127.0.0.1] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@b8d10c9]]
+2026-02-18T22:15:49.262+05:30  INFO 2740 --- [DrawGuess] [RMI TCP Connection(43)-127.0.0.1] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2026-02-18T22:15:49.319+05:30  INFO 2740 --- [DrawGuess] [RMI TCP Connection(43)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-18T22:15:49.408+05:30  INFO 2740 --- [DrawGuess] [RMI TCP Connection(43)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-02-18T22:15:49.419+05:30  INFO 2740 --- [DrawGuess] [RMI TCP Connection(43)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.
+2026-02-18T22:16:03.129+05:30  INFO 10560 --- [DrawGuess] [main] c.p.drawguess.DrawGuessApplication       : Starting DrawGuessApplication using Java 25.0.1 with PID 10560 (C:\Users\dUser\Documents\sketch-app\backend\DrawGuess\target\classes started by dUser in C:\Users\dUser\Documents\sketch-app\backend\DrawGuess)
+2026-02-18T22:16:03.134+05:30  INFO 10560 --- [DrawGuess] [main] c.p.drawguess.DrawGuessApplication       : No active profile set, falling back to 1 default profile: "default"
+2026-02-18T22:16:04.667+05:30  INFO 10560 --- [DrawGuess] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-18T22:16:04.762+05:30  INFO 10560 --- [DrawGuess] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 83 ms. Found 5 JPA repository interfaces.
+2026-02-18T22:16:05.465+05:30  INFO 10560 --- [DrawGuess] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-02-18T22:16:05.482+05:30  INFO 10560 --- [DrawGuess] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-18T22:16:05.482+05:30  INFO 10560 --- [DrawGuess] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-02-18T22:16:05.554+05:30  INFO 10560 --- [DrawGuess] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 2354 ms
+2026-02-18T22:16:05.989+05:30  INFO 10560 --- [DrawGuess] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-02-18T22:16:06.093+05:30  INFO 10560 --- [DrawGuess] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.1.Final
+2026-02-18T22:16:06.767+05:30  INFO 10560 --- [DrawGuess] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-18T22:16:06.815+05:30  INFO 10560 --- [DrawGuess] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-02-18T22:16:07.047+05:30  INFO 10560 --- [DrawGuess] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@5d98364c
+2026-02-18T22:16:07.050+05:30  INFO 10560 --- [DrawGuess] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-02-18T22:16:07.168+05:30  WARN 10560 --- [DrawGuess] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-18T22:16:07.198+05:30  INFO 10560 --- [DrawGuess] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://127.0.0.1:3306/DrawGuessDB?useSSL=false]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.36
+	Default catalog/schema: DrawGuessDB/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-18T22:16:08.878+05:30  INFO 10560 --- [DrawGuess] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-18T22:16:08.884+05:30  INFO 10560 --- [DrawGuess] [main] org.hibernate.orm.jdbc.batch             : HHH100501: Automatic JDBC statement batching enabled (maximum batch size 16)
+2026-02-18T22:16:09.043+05:30  INFO 10560 --- [DrawGuess] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-18T22:16:09.159+05:30  INFO 10560 --- [DrawGuess] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-18T22:16:10.464+05:30  INFO 10560 --- [DrawGuess] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userServiceImpl
+2026-02-18T22:16:11.227+05:30  INFO 10560 --- [DrawGuess] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2026-02-18T22:16:11.229+05:30  INFO 10560 --- [DrawGuess] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@3243d4ca]]
+2026-02-18T22:16:11.230+05:30  INFO 10560 --- [DrawGuess] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2026-02-18T22:16:11.260+05:30  INFO 10560 --- [DrawGuess] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-02-18T22:16:11.270+05:30  INFO 10560 --- [DrawGuess] [main] c.p.drawguess.DrawGuessApplication       : Started DrawGuessApplication in 8.688 seconds (process running for 10.161)
+2026-02-18T22:16:11.525+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-18T22:16:11.526+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-02-18T22:16:11.529+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 3 ms
+2026-02-18T22:16:12.179+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: null
+2026-02-18T22:16:12.179+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.w.WebSocketAuthInterceptor         : Using JWT from cookie handshake
+2026-02-18T22:16:12.188+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-18T22:16:12.768+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: null
+2026-02-18T22:16:12.769+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.w.WebSocketAuthInterceptor         : Using JWT from cookie handshake
+2026-02-18T22:16:12.783+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-18T22:16:14.953+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: null
+2026-02-18T22:16:14.953+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.w.WebSocketAuthInterceptor         : Using JWT from cookie handshake
+2026-02-18T22:16:14.962+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-18T22:17:11.207+05:30  INFO 10560 --- [DrawGuess] [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[3 current WS(3)-HttpStream(0)-HttpPoll(0), 3 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(3)-CONNECTED(3)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 24, active threads = 0, queued tasks = 0, completed tasks = 39], outboundChannel[pool size = 3, active threads = 0, queued tasks = 0, completed tasks = 3], sockJsScheduler[pool size = 12, active threads = 1, queued tasks = 5, completed tasks = 30]
+2026-02-18T22:17:42.098+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.websocket.WebSocketEventListener   : Canvas websocket disconnected: hlirjbzg, skipping grace period
+2026-02-18T22:17:42.098+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : z51djxae 
+2026-02-18T22:17:42.098+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.websocket.WebSocketEventListener   : Canvas websocket disconnected: yy0mfpil, skipping grace period
+2026-02-18T22:17:42.158+05:30  WARN 10560 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.service.impl.RoomServiceImpl       : No RoomPlayer found for wsSessionId: z51djxae
+2026-02-18T22:17:46.106+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: null
+2026-02-18T22:17:46.107+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.w.WebSocketAuthInterceptor         : Using JWT from cookie handshake
+2026-02-18T22:17:46.112+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-18T22:17:46.877+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: null
+2026-02-18T22:17:46.878+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.w.WebSocketAuthInterceptor         : Using JWT from cookie handshake
+2026-02-18T22:17:46.884+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-18T22:17:47.192+05:30  INFO 10560 --- [DrawGuess] [clientInboundChannel-41] c.p.d.controller.WebSocketController     : Joined room - Room - 168376, User - sushruth@gmail.com, wsSessionId - a3la3a3y 
+2026-02-18T22:17:47.256+05:30  INFO 10560 --- [DrawGuess] [clientInboundChannel-41] c.p.d.service.impl.RoomServiceImpl       : User Sushruth has existing RoomPlayer record - treating as reconnection
+2026-02-18T22:17:47.280+05:30  INFO 10560 --- [DrawGuess] [clientInboundChannel-41] c.p.d.service.impl.RoomServiceImpl       : User Sushruth updated websocket session in room 168376
+2026-02-18T22:17:52.003+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-9] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: null
+2026-02-18T22:17:52.003+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-9] c.p.d.w.WebSocketAuthInterceptor         : Using JWT from cookie handshake
+2026-02-18T22:17:52.009+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-9] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-18T22:17:52.071+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-4] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: null
+2026-02-18T22:17:52.072+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-4] c.p.d.w.WebSocketAuthInterceptor         : Using JWT from cookie handshake
+2026-02-18T22:17:52.079+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-4] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-18T22:17:52.099+05:30  INFO 10560 --- [DrawGuess] [clientInboundChannel-35] c.p.d.controller.WebSocketController     : Joined room - Room - 441905, User - sushruth@gmail.com, wsSessionId - yhkeyh2o 
+2026-02-18T22:17:52.138+05:30  INFO 10560 --- [DrawGuess] [clientInboundChannel-35] c.p.d.service.impl.RoomServiceImpl       : User Sushruth joined room 441905 for first time
+2026-02-18T22:18:40.500+05:30  INFO 10560 --- [DrawGuess] [MessageBroker-12] c.p.d.websocket.WebSocketEventListener   : Canvas websocket disconnected: 5ojabuy2, skipping grace period
+2026-02-18T22:18:40.500+05:30  INFO 10560 --- [DrawGuess] [MessageBroker-11] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : a3la3a3y 
+2026-02-18T22:18:40.513+05:30  INFO 10560 --- [DrawGuess] [MessageBroker-11] c.p.d.service.impl.RoomServiceImpl       : User Sushruth disconnected from room 168376 - starting 30 second grace period
+2026-02-18T22:18:40.512+05:30 ERROR 10560 --- [DrawGuess] [http-nio-8080-exec-5] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] threw exception
+
+org.springframework.security.authorization.AuthorizationDeniedException: Access Denied
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:99) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:92) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:86) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:181) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:110) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:96) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:237) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:195) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:317) ~[spring-security-config-7.0.2.jar:7.0.2]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:355) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:272) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:513) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.ApplicationDispatcher.include(ApplicationDispatcher.java:411) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:356) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:206) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.StandardHostValve.throwable(StandardHostValve.java:282) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.AsyncContextImpl.setErrorState(AsyncContextImpl.java:438) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.connector.CoyoteAdapter.asyncDispatch(CoyoteAdapter.java:154) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.AbstractProcessor.dispatch(AbstractProcessor.java:242) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:57) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1778) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-02-18T22:18:40.512+05:30 ERROR 10560 --- [DrawGuess] [http-nio-8080-exec-8] o.a.c.c.C.[.[.[/].[dispatcherServlet]    : Servlet.service() for servlet [dispatcherServlet] threw exception
+
+org.springframework.security.authorization.AuthorizationDeniedException: Access Denied
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:99) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:92) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:86) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:181) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:110) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:96) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:237) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:195) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:317) ~[spring-security-config-7.0.2.jar:7.0.2]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:355) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:272) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:513) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.ApplicationDispatcher.include(ApplicationDispatcher.java:411) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:356) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:206) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.StandardHostValve.throwable(StandardHostValve.java:282) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.AsyncContextImpl.setErrorState(AsyncContextImpl.java:438) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.connector.CoyoteAdapter.asyncDispatch(CoyoteAdapter.java:154) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.AbstractProcessor.dispatch(AbstractProcessor.java:242) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:57) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1778) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+
+2026-02-18T22:18:40.519+05:30 ERROR 10560 --- [DrawGuess] [http-nio-8080-exec-5] o.a.c.c.C.[Tomcat].[localhost]           : Exception Processing [ErrorPage[errorCode=0, location=/error]]
+
+jakarta.servlet.ServletException: Unable to handle the Spring Security Exception because the response is already committed.
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:144) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:92) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:86) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:181) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:110) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:96) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:237) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:195) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:317) ~[spring-security-config-7.0.2.jar:7.0.2]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:355) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:272) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:513) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.ApplicationDispatcher.include(ApplicationDispatcher.java:411) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:356) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:206) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.StandardHostValve.throwable(StandardHostValve.java:282) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.AsyncContextImpl.setErrorState(AsyncContextImpl.java:438) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.connector.CoyoteAdapter.asyncDispatch(CoyoteAdapter.java:154) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.AbstractProcessor.dispatch(AbstractProcessor.java:242) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:57) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1778) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+Caused by: org.springframework.security.authorization.AuthorizationDeniedException: Access Denied
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:99) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-7.0.2.jar:7.0.2]
+	... 60 common frames omitted
+
+2026-02-18T22:18:40.519+05:30 ERROR 10560 --- [DrawGuess] [http-nio-8080-exec-8] o.a.c.c.C.[Tomcat].[localhost]           : Exception Processing [ErrorPage[errorCode=0, location=/error]]
+
+jakarta.servlet.ServletException: Unable to handle the Spring Security Exception because the response is already committed.
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:144) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:92) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:86) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:181) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:110) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:96) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:237) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:195) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:317) ~[spring-security-config-7.0.2.jar:7.0.2]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:355) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:272) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.ApplicationDispatcher.invoke(ApplicationDispatcher.java:513) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.ApplicationDispatcher.include(ApplicationDispatcher.java:411) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.StandardHostValve.custom(StandardHostValve.java:356) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.StandardHostValve.status(StandardHostValve.java:206) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.StandardHostValve.throwable(StandardHostValve.java:282) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.AsyncContextImpl.setErrorState(AsyncContextImpl.java:438) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.connector.CoyoteAdapter.asyncDispatch(CoyoteAdapter.java:154) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.AbstractProcessor.dispatch(AbstractProcessor.java:242) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:57) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1778) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+Caused by: org.springframework.security.authorization.AuthorizationDeniedException: Access Denied
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:99) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-7.0.2.jar:7.0.2]
+	... 60 common frames omitted
+
+2026-02-18T22:18:40.550+05:30  INFO 10560 --- [DrawGuess] [MessageBroker-11] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for Sushruth in room 168376
+2026-02-18T22:18:53.054+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-4] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : yhkeyh2o 
+2026-02-18T22:18:53.054+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.websocket.WebSocketEventListener   : Canvas websocket disconnected: qbdnsxr4, skipping grace period
+2026-02-18T22:18:53.065+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-4] c.p.d.service.impl.RoomServiceImpl       : User Sushruth disconnected from room 441905 - starting 30 second grace period
+2026-02-18T22:18:53.078+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-4] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for Sushruth in room 441905
+2026-02-18T22:19:10.550+05:30  INFO 10560 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 1:123, disconnectingPlayers list -> {1:123=a3la3a3y, 1:124=yhkeyh2o}
+2026-02-18T22:19:10.552+05:30  INFO 10560 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for Sushruth in room 168376 - removing user
+2026-02-18T22:19:10.572+05:30  INFO 10560 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : User Sushruth left room 168376 (grace period done)
+2026-02-18T22:19:10.601+05:30  INFO 10560 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Room 168376 closed - empty
+2026-02-18T22:19:23.080+05:30  INFO 10560 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 1:124, disconnectingPlayers list -> {1:124=yhkeyh2o}
+2026-02-18T22:19:23.080+05:30  INFO 10560 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for Sushruth in room 441905 - removing user
+2026-02-18T22:19:23.090+05:30  INFO 10560 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.RoomServiceImpl       : User Sushruth left room 441905 (grace period done)
+2026-02-18T22:19:23.123+05:30  INFO 10560 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.RoomServiceImpl       : Room 441905 closed - no session started, all players left 
+2026-02-18T22:19:23.140+05:30  INFO 10560 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.SessionServiceImpl    : endSession: No active session for room 441905 (already ended?)
+2026-02-18T22:19:23.141+05:30  INFO 10560 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.RoomServiceImpl       : Room 441905 closed - empty
+2026-02-18T22:19:23.151+05:30  INFO 10560 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.RoomServiceImpl       : Room 441905 closed - empty
+2026-02-18T22:19:52.338+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: null
+2026-02-18T22:19:52.338+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.w.WebSocketAuthInterceptor         : Using JWT from cookie handshake
+2026-02-18T22:19:52.343+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-18T22:19:52.376+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: null
+2026-02-18T22:19:52.376+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.w.WebSocketAuthInterceptor         : Using JWT from cookie handshake
+2026-02-18T22:19:52.383+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-18T22:19:52.406+05:30  INFO 10560 --- [DrawGuess] [clientInboundChannel-61] c.p.d.controller.WebSocketController     : Joined room - Room - 734050, User - sushruth@gmail.com, wsSessionId - iknokvmt 
+2026-02-18T22:19:52.437+05:30  INFO 10560 --- [DrawGuess] [clientInboundChannel-61] c.p.d.service.impl.RoomServiceImpl       : User Sushruth joined room 734050 for first time
+2026-02-18T22:19:54.083+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : iknokvmt 
+2026-02-18T22:19:54.083+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-4] c.p.d.websocket.WebSocketEventListener   : Canvas websocket disconnected: my1vvqbs, skipping grace period
+2026-02-18T22:19:54.092+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.service.impl.RoomServiceImpl       : User Sushruth disconnected from room 734050 - starting 30 second grace period
+2026-02-18T22:19:54.106+05:30  INFO 10560 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for Sushruth in room 734050
+2026-02-18T22:20:24.107+05:30  INFO 10560 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 1:125, disconnectingPlayers list -> {1:125=iknokvmt}
+2026-02-18T22:20:24.107+05:30  INFO 10560 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for Sushruth in room 734050 - removing user
+2026-02-18T22:20:24.113+05:30  INFO 10560 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : User Sushruth left room 734050 (grace period done)
+2026-02-18T22:20:24.126+05:30  INFO 10560 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Room 734050 closed - no session started, all players left 
+2026-02-18T22:20:24.134+05:30  INFO 10560 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.SessionServiceImpl    : endSession: No active session for room 734050 (already ended?)
+2026-02-18T22:20:24.135+05:30  INFO 10560 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Room 734050 closed - empty
+2026-02-18T22:20:24.139+05:30  INFO 10560 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Room 734050 closed - empty
+2026-02-18T22:47:11.211+05:30  INFO 10560 --- [DrawGuess] [MessageBroker-8] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 9 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(9)-CONNECTED(9)-DISCONNECT(6)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 186], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 27], sockJsScheduler[pool size = 12, active threads = 1, queued tasks = 2, completed tasks = 762]
+2026-02-18T22:49:05.931+05:30  INFO 10560 --- [DrawGuess] [RMI TCP Connection(40)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2026-02-18T22:49:06.224+05:30  INFO 10560 --- [DrawGuess] [RMI TCP Connection(40)-127.0.0.1] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-18T22:49:06.233+05:30  INFO 10560 --- [DrawGuess] [RMI TCP Connection(42)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2026-02-18T22:49:06.288+05:30  INFO 10560 --- [DrawGuess] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-02-18T22:49:06.312+05:30  INFO 10560 --- [DrawGuess] [RMI TCP Connection(40)-127.0.0.1] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2026-02-18T22:49:06.313+05:30  INFO 10560 --- [DrawGuess] [RMI TCP Connection(40)-127.0.0.1] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@3243d4ca]]
+2026-02-18T22:49:06.314+05:30  INFO 10560 --- [DrawGuess] [RMI TCP Connection(40)-127.0.0.1] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2026-02-18T22:49:06.383+05:30  INFO 10560 --- [DrawGuess] [RMI TCP Connection(40)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-18T22:49:06.488+05:30  INFO 10560 --- [DrawGuess] [RMI TCP Connection(40)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown initiated...
+2026-02-18T22:49:06.502+05:30  INFO 10560 --- [DrawGuess] [RMI TCP Connection(40)-127.0.0.1] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Shutdown completed.

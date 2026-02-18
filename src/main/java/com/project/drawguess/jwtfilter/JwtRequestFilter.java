@@ -25,7 +25,6 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 	private UserServiceImpl userServiceImpl;
     private final HandlerExceptionResolver handlerExceptionResolver;
 
-
 	 public JwtRequestFilter(JwtUtil jwtUtil, @Lazy UserServiceImpl userServiceImpl, HandlerExceptionResolver handlerExceptionResolver) {
 	        this.jwtUtil = jwtUtil;
 	        this.userServiceImpl = userServiceImpl;
@@ -41,30 +40,27 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 	protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain chain)
 			throws ServletException, IOException {
 		try {
+			String username = null;
+			String jwt = null;
 
-		final String authorizationHeader = request.getHeader("Authorization");
+			final String authorizationHeader = request.getHeader("Authorization");
 
-		String username = null;
-		String jwt = null;
-
-
-		if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
-			jwt = authorizationHeader.substring(7);
-			username = jwtUtil.extractUsername(jwt);
-		}
-
-		if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
-			UserDetails userDetails = this.userServiceImpl.loadUserByUsername(username);
-			if (jwtUtil.isTokenValid(jwt, userDetails.getUsername())) {
-				UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(userDetails,
-						null, userDetails.getAuthorities());
-				authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
-				SecurityContextHolder.getContext().setAuthentication(authToken);
+			if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
+				jwt = authorizationHeader.substring(7);
+				username = jwtUtil.extractUsernameFromAccessToken(jwt);
 			}
-		}
-		chain.doFilter(request, response);
-		} catch (Exception e)
-		{
+
+			if (username != null && SecurityContextHolder.getContext().getAuthentication() == null) {
+				UserDetails userDetails = this.userServiceImpl.loadUserByUsername(username);
+				if (jwtUtil.isAccessTokenValid(jwt, userDetails.getUsername())) {
+					UsernamePasswordAuthenticationToken authToken = new UsernamePasswordAuthenticationToken(userDetails,
+							null, userDetails.getAuthorities());
+					authToken.setDetails(new WebAuthenticationDetailsSource().buildDetails(request));
+					SecurityContextHolder.getContext().setAuthentication(authToken);
+				}
+			}
+			chain.doFilter(request, response);
+		} catch (Exception e) {
 			handlerExceptionResolver.resolveException(request, response, null, e);
 		}
 	}
