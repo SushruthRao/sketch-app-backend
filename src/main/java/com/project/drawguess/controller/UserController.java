@@ -4,6 +4,7 @@ import java.time.Duration;
 import java.util.Map;
 import java.util.Optional;
 
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.http.HttpHeaders;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseCookie;
@@ -33,20 +34,32 @@ import jakarta.servlet.http.Cookie;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import jakarta.validation.Valid;
-import lombok.AllArgsConstructor;
 
-@AllArgsConstructor
 @RestController
 @RequestMapping("/user")
 public class UserController {
 
 	private static final String REFRESH_COOKIE_NAME = "refresh_token";
-	private static final String REFRESH_COOKIE_PATH = "/user/refresh";
+	private static final String REFRESH_COOKIE_PATH = "/user/";
 
-	private AuthenticationManager authenticationManager;
-	private JwtUtil jwtUtil;
-	private UserServiceImpl userServiceImpl;
-	private RefreshTokenService refreshTokenService;
+	private final AuthenticationManager authenticationManager;
+	private final JwtUtil jwtUtil;
+	private final UserServiceImpl userServiceImpl;
+	private final RefreshTokenService refreshTokenService;
+	private final boolean cookieSecure;
+
+	public UserController(
+			AuthenticationManager authenticationManager,
+			JwtUtil jwtUtil,
+			UserServiceImpl userServiceImpl,
+			RefreshTokenService refreshTokenService,
+			@Value("${app.cookie.secure}") boolean cookieSecure) {
+		this.authenticationManager = authenticationManager;
+		this.jwtUtil = jwtUtil;
+		this.userServiceImpl = userServiceImpl;
+		this.refreshTokenService = refreshTokenService;
+		this.cookieSecure = cookieSecure;
+	}
 
 	@PostMapping("/register")
 	public ResponseEntity<?> registerUser(@RequestBody @Valid RegisterRequestDto registerRequestDto) throws UserWithEmailAlreadyRegisteredException
@@ -64,14 +77,7 @@ public class UserController {
 		String accessToken = jwtUtil.generateAccessToken(authRequestDto.getEmail());
 		String rawRefreshToken = refreshTokenService.createRefreshToken(authRequestDto.getEmail());
 
-		ResponseCookie refreshCookie = ResponseCookie.from(REFRESH_COOKIE_NAME, rawRefreshToken)
-				.httpOnly(true)
-				.secure(true)
-				.path(REFRESH_COOKIE_PATH)
-				.maxAge(Duration.ofMillis(jwtUtil.getRefreshTokenExpirationMs()))
-				.sameSite("None")
-				.build();
-		response.addHeader(HttpHeaders.SET_COOKIE, refreshCookie.toString());
+		addRefreshCookie(response, rawRefreshToken);
 
 		AuthResponseDto authResponse = new AuthResponseDto();
 		authResponse.setUserName(userServiceImpl.fetchUsername(authRequestDto.getEmail()));
@@ -101,14 +107,7 @@ public class UserController {
 		String email = refreshTokenService.getUsernameFromToken(newRawRefreshToken.get());
 		String newAccessToken = jwtUtil.generateAccessToken(email);
 
-		ResponseCookie refreshCookie = ResponseCookie.from(REFRESH_COOKIE_NAME, newRawRefreshToken.get())
-				.httpOnly(true)
-				.secure(true)
-				.path(REFRESH_COOKIE_PATH)
-				.maxAge(Duration.ofMillis(jwtUtil.getRefreshTokenExpirationMs()))
-				.sameSite("None")
-				.build();
-		response.addHeader(HttpHeaders.SET_COOKIE, refreshCookie.toString());
+		addRefreshCookie(response, newRawRefreshToken.get());
 
 		RefreshResponseDto refreshResponse = new RefreshResponseDto();
 		refreshResponse.setAccessToken(newAccessToken);
@@ -146,14 +145,35 @@ public class UserController {
 		return null;
 	}
 
-	private void clearRefreshCookie(HttpServletResponse response) {
-		ResponseCookie expiredCookie = ResponseCookie.from(REFRESH_COOKIE_NAME, "")
+	private void addRefreshCookie(HttpServletResponse response, String tokenValue) {
+		ResponseCookie.ResponseCookieBuilder builder = ResponseCookie.from(REFRESH_COOKIE_NAME, tokenValue)
 				.httpOnly(true)
-				.secure(true)
+				.secure(cookieSecure)
 				.path(REFRESH_COOKIE_PATH)
-				.maxAge(0)
-				.sameSite("None")
-				.build();
-		response.addHeader(HttpHeaders.SET_COOKIE, expiredCookie.toString());
+				.maxAge(Duration.ofMillis(jwtUtil.getRefreshTokenExpirationMs()));
+
+		if (cookieSecure) {
+			builder.sameSite("None");
+		} else {
+			builder.sameSite("Lax");
+		}
+
+		response.addHeader(HttpHeaders.SET_COOKIE, builder.build().toString());
+	}
+
+	private void clearRefreshCookie(HttpServletResponse response) {
+		ResponseCookie.ResponseCookieBuilder builder = ResponseCookie.from(REFRESH_COOKIE_NAME, "")
+				.httpOnly(true)
+				.secure(cookieSecure)
+				.path(REFRESH_COOKIE_PATH)
+				.maxAge(0);
+
+		if (cookieSecure) {
+			builder.sameSite("None");
+		} else {
+			builder.sameSite("Lax");
+		}
+
+		response.addHeader(HttpHeaders.SET_COOKIE, builder.build().toString());
 	}
 }
