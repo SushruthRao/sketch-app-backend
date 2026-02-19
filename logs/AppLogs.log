@@ -228,3 +228,110 @@ Caused by: org.springframework.security.authorization.AuthorizationDeniedExcepti
 2026-02-19T19:08:43.680+05:30  INFO 26240 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.SessionServiceImpl    : endSession: No active session for room 909783 (already ended?)
 2026-02-19T19:08:43.682+05:30  INFO 26240 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Room 909783 closed - empty
 2026-02-19T19:08:43.690+05:30  INFO 26240 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Room 909783 closed - empty
+2026-02-19T19:24:44.768+05:30  INFO 26240 --- [DrawGuess] [RMI TCP Connection(27)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2026-02-19T19:24:44.758+05:30  INFO 26240 --- [DrawGuess] [RMI TCP Connection(26)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2026-02-19T19:24:44.943+05:30  INFO 26240 --- [DrawGuess] [RMI TCP Connection(28)-127.0.0.1] inMXBeanRegistrar$SpringApplicationAdmin : Application shutdown requested.
+2026-02-19T19:24:45.210+05:30  INFO 26240 --- [DrawGuess] [RMI TCP Connection(27)-127.0.0.1] o.s.boot.tomcat.GracefulShutdown         : Commencing graceful shutdown. Waiting for active requests to complete
+2026-02-19T19:24:45.309+05:30  INFO 26240 --- [DrawGuess] [tomcat-shutdown] o.s.boot.tomcat.GracefulShutdown         : Graceful shutdown complete
+2026-02-19T19:24:45.357+05:30  INFO 26240 --- [DrawGuess] [RMI TCP Connection(27)-127.0.0.1] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopping...
+2026-02-19T19:24:45.360+05:30  INFO 26240 --- [DrawGuess] [RMI TCP Connection(27)-127.0.0.1] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=false, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@7145469]]
+2026-02-19T19:24:45.364+05:30  INFO 26240 --- [DrawGuess] [RMI TCP Connection(27)-127.0.0.1] o.s.m.s.b.SimpleBrokerMessageHandler     : Stopped.
+2026-02-19T19:24:45.449+05:30  INFO 26240 --- [DrawGuess] [RMI TCP Connection(27)-127.0.0.1] j.LocalContainerEntityManagerFactoryBean : Closing JPA EntityManagerFactory for persistence unit 'default'
+2026-02-19T19:24:48.986+05:30  INFO 24732 --- [DrawGuess] [main] c.p.drawguess.DrawGuessApplication       : Starting DrawGuessApplication using Java 25.0.1 with PID 24732 (C:\Users\dUser\Documents\sketch-app\backend\DrawGuess\target\classes started by dUser in C:\Users\dUser\Documents\sketch-app\backend\DrawGuess)
+2026-02-19T19:24:48.993+05:30  INFO 24732 --- [DrawGuess] [main] c.p.drawguess.DrawGuessApplication       : No active profile set, falling back to 1 default profile: "default"
+2026-02-19T19:24:50.387+05:30  INFO 24732 --- [DrawGuess] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-19T19:24:50.530+05:30  INFO 24732 --- [DrawGuess] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 124 ms. Found 6 JPA repository interfaces.
+2026-02-19T19:24:51.614+05:30  INFO 24732 --- [DrawGuess] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-02-19T19:24:51.647+05:30  INFO 24732 --- [DrawGuess] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-19T19:24:51.649+05:30  INFO 24732 --- [DrawGuess] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-02-19T19:24:51.772+05:30  INFO 24732 --- [DrawGuess] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 2685 ms
+2026-02-19T19:24:52.830+05:30  INFO 24732 --- [DrawGuess] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-02-19T19:24:52.969+05:30  INFO 24732 --- [DrawGuess] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.1.Final
+2026-02-19T19:24:53.916+05:30  INFO 24732 --- [DrawGuess] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-19T19:24:54.004+05:30  INFO 24732 --- [DrawGuess] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-02-19T19:24:54.320+05:30  INFO 24732 --- [DrawGuess] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6a97517
+2026-02-19T19:24:54.325+05:30  INFO 24732 --- [DrawGuess] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-02-19T19:24:54.426+05:30  WARN 24732 --- [DrawGuess] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-19T19:24:54.463+05:30  INFO 24732 --- [DrawGuess] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://127.0.0.1:3306/DrawGuessDB?useSSL=false]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.36
+	Default catalog/schema: DrawGuessDB/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-19T19:24:56.525+05:30  INFO 24732 --- [DrawGuess] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-19T19:24:56.535+05:30  INFO 24732 --- [DrawGuess] [main] org.hibernate.orm.jdbc.batch             : HHH100501: Automatic JDBC statement batching enabled (maximum batch size 16)
+2026-02-19T19:24:56.767+05:30  INFO 24732 --- [DrawGuess] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-19T19:24:56.950+05:30  INFO 24732 --- [DrawGuess] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-19T19:24:58.365+05:30  INFO 24732 --- [DrawGuess] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userServiceImpl
+2026-02-19T19:24:59.447+05:30  INFO 24732 --- [DrawGuess] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2026-02-19T19:24:59.449+05:30  INFO 24732 --- [DrawGuess] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@11138809]]
+2026-02-19T19:24:59.451+05:30  INFO 24732 --- [DrawGuess] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2026-02-19T19:24:59.499+05:30  INFO 24732 --- [DrawGuess] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-02-19T19:24:59.525+05:30  INFO 24732 --- [DrawGuess] [main] c.p.drawguess.DrawGuessApplication       : Started DrawGuessApplication in 11.376 seconds (process running for 12.378)
+2026-02-19T19:25:59.425+05:30  INFO 24732 --- [DrawGuess] [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 2, active threads = 1, queued tasks = 1, completed tasks = 0]
+2026-02-19T19:44:52.673+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-19T19:44:52.682+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-02-19T19:44:52.782+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 99 ms
+2026-02-19T19:44:54.369+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-19T19:44:56.780+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-9] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNzcxNTEwNDk0LCJleHAiOjE3NzE1MTEzOTR9.RemelSJQF4oG0h2H2eAJknODv5xC8wXI7NNQ6lykfwCXST8n1nxjRFgGwXxkAvFULuwRTZP4s8PXRfGGR7T4Iw]
+2026-02-19T19:44:56.787+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-9] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-19T19:44:56.827+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNzcxNTEwNDk0LCJleHAiOjE3NzE1MTEzOTR9.RemelSJQF4oG0h2H2eAJknODv5xC8wXI7NNQ6lykfwCXST8n1nxjRFgGwXxkAvFULuwRTZP4s8PXRfGGR7T4Iw]
+2026-02-19T19:44:56.836+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-19T19:44:56.911+05:30  INFO 24732 --- [DrawGuess] [clientInboundChannel-8] c.p.d.controller.WebSocketController     : Joined room - Room - 556307, User - sushruth@gmail.com, wsSessionId - ni0fnlzj 
+2026-02-19T19:44:56.982+05:30  INFO 24732 --- [DrawGuess] [clientInboundChannel-8] c.p.d.service.impl.RoomServiceImpl       : User Sushruth joined room 556307 for first time
+2026-02-19T19:45:51.816+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.websocket.WebSocketEventListener   : Canvas websocket disconnected: 3paz4ddn, skipping grace period
+2026-02-19T19:45:51.816+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : ni0fnlzj 
+2026-02-19T19:45:51.884+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.service.impl.RoomServiceImpl       : User Sushruth disconnected from room 556307 - starting 30 second grace period
+2026-02-19T19:45:51.949+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for Sushruth in room 556307
+2026-02-19T19:46:21.950+05:30  INFO 24732 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 1:128, disconnectingPlayers list -> {1:128=ni0fnlzj}
+2026-02-19T19:46:21.951+05:30  INFO 24732 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for Sushruth in room 556307 - removing user
+2026-02-19T19:46:22.080+05:30  INFO 24732 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : User Sushruth left room 556307 (grace period done)
+2026-02-19T19:46:22.120+05:30  INFO 24732 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Room 556307 closed - no session started, all players left 
+2026-02-19T19:46:22.145+05:30  INFO 24732 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.SessionServiceImpl    : endSession: No active session for room 556307 (already ended?)
+2026-02-19T19:46:22.147+05:30  INFO 24732 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Room 556307 closed - empty
+2026-02-19T19:46:22.156+05:30  INFO 24732 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Room 556307 closed - empty
+2026-02-19T19:53:32.513+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-4] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-19T19:55:46.411+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-9] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-19T19:55:51.935+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-19T19:56:01.438+05:30  INFO 24732 --- [DrawGuess] [MessageBroker-5] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 2 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(2)-CONNECTED(2)-DISCONNECT(2)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 45], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 7], sockJsScheduler[pool size = 12, active threads = 1, queued tasks = 3, completed tasks = 271]
+2026-02-19T19:57:51.830+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-19T19:58:09.235+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-19T19:58:38.906+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-19T19:58:44.095+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-19T20:03:07.069+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-19T20:05:19.177+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-19T20:05:24.340+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-19T20:05:27.331+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-19T20:05:29.723+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-4] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-19T20:05:31.099+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-19T20:05:32.231+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-19T20:05:33.858+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-19T20:06:09.811+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-4] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-19T20:06:16.161+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-19T20:06:17.500+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-19T20:06:19.099+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-19T20:06:20.120+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-19T20:06:28.024+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-19T20:06:43.923+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNzcxNTExNzg4LCJleHAiOjE3NzE1MTI2ODh9.nliYbo2kWdPyIF2tRybd4hxtSEoi_jzdkVsX_xp8EhM47OdoSj_bdvVwyxlka2ofWyxyOYlpXiwOrkojclGXUQ]
+2026-02-19T20:06:43.930+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-19T20:06:43.949+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNzcxNTExNzg4LCJleHAiOjE3NzE1MTI2ODh9.nliYbo2kWdPyIF2tRybd4hxtSEoi_jzdkVsX_xp8EhM47OdoSj_bdvVwyxlka2ofWyxyOYlpXiwOrkojclGXUQ]
+2026-02-19T20:06:43.956+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-19T20:06:44.002+05:30  INFO 24732 --- [DrawGuess] [clientInboundChannel-32] c.p.d.controller.WebSocketController     : Joined room - Room - 152756, User - sushruth@gmail.com, wsSessionId - onu3b5w0 
+2026-02-19T20:06:44.032+05:30  INFO 24732 --- [DrawGuess] [clientInboundChannel-32] c.p.d.service.impl.RoomServiceImpl       : User Sushruth joined room 152756 for first time
+2026-02-19T20:06:46.326+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-9] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : onu3b5w0 
+2026-02-19T20:06:46.326+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.websocket.WebSocketEventListener   : Canvas websocket disconnected: cgvpvacu, skipping grace period
+2026-02-19T20:06:46.340+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-9] c.p.d.service.impl.RoomServiceImpl       : User Sushruth disconnected from room 152756 - starting 30 second grace period
+2026-02-19T20:06:46.352+05:30  INFO 24732 --- [DrawGuess] [http-nio-8080-exec-9] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for Sushruth in room 152756
+2026-02-19T20:07:16.354+05:30  INFO 24732 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 1:129, disconnectingPlayers list -> {1:129=onu3b5w0}
+2026-02-19T20:07:16.354+05:30  INFO 24732 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for Sushruth in room 152756 - removing user
+2026-02-19T20:07:16.380+05:30  INFO 24732 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.RoomServiceImpl       : User Sushruth left room 152756 (grace period done)
+2026-02-19T20:07:16.623+05:30  INFO 24732 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.RoomServiceImpl       : Room 152756 closed - no session started, all players left 
+2026-02-19T20:07:16.648+05:30  INFO 24732 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.SessionServiceImpl    : endSession: No active session for room 152756 (already ended?)
+2026-02-19T20:07:16.650+05:30  INFO 24732 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.RoomServiceImpl       : Room 152756 closed - empty
+2026-02-19T20:07:16.662+05:30  INFO 24732 --- [DrawGuess] [pool-4-thread-2] c.p.d.service.impl.RoomServiceImpl       : Room 152756 closed - empty
