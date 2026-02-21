@@ -165,6 +165,10 @@ public class GameRoundManager {
 
 		canvasStrokeService.clearStrokes(roomCode);
 
+		Map<String, Object> clearMsg = new HashMap<>();
+		clearMsg.put("type", "CANVAS_CLEAR");
+		messagingTemplate.convertAndSend("/canvas-topic/room/" + roomCode + "/draw", (Object) clearMsg);
+
 		session.setCurrentRound(nextRound);
 		sessionRepository.save(session);
 
