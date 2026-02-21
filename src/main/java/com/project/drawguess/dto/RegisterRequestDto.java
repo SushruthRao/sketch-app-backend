@@ -11,7 +11,9 @@ import lombok.Data;
 public class RegisterRequestDto {
 
 	@NotNull
-	@NotBlank(message = "Username canot be blank")
+	@NotBlank(message = "Username cannot be blank")
+	@Size(max = 24, message = "Username must be 24 characters or less")
+	@Pattern(regexp = "^[a-zA-Z0-9_ ]+$", message = "Username can only contain letters, numbers, underscores and spaces")
     private String username;
     @NotBlank(message = "Email is required")
     @Email(message = "Please provide a valid email address")

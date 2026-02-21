@@ -76,12 +76,12 @@ public class SecurityConfig {
 	@Bean
 	public FilterRegistrationBean<CorsFilter> corsFilterRegistration() {
 		CorsConfiguration corsConfiguration = new CorsConfiguration();
-//		corsConfiguration.setAllowedOriginPatterns(
-//			List.of("*")
-//		);
-		corsConfiguration.setAllowedOrigins(
-				List.of("https://sketch-app-frontend.vercel.app", "https://sketch-vr.vercel.app")
-			);
+		corsConfiguration.setAllowedOriginPatterns(
+			List.of("*")
+		);
+//		corsConfiguration.setAllowedOrigins(
+//				List.of("https://sketch-app-frontend.vercel.app", "https://sketch-vr.vercel.app")
+//			);
 		corsConfiguration.setAllowedMethods(
 			List.of("GET", "POST", "PUT", "DELETE", "OPTIONS")
 		);
