@@ -1,0 +1,288 @@
+2026-02-21T08:42:51.007+05:30  INFO 15424 --- [DrawGuess] [main] c.p.drawguess.DrawGuessApplication       : Starting DrawGuessApplication using Java 25.0.1 with PID 15424 (C:\Users\dUser\Documents\sketch-app\backend\DrawGuess\target\classes started by dUser in C:\Users\dUser\Documents\sketch-app\backend\DrawGuess)
+2026-02-21T08:42:51.014+05:30  INFO 15424 --- [DrawGuess] [main] c.p.drawguess.DrawGuessApplication       : No active profile set, falling back to 1 default profile: "default"
+2026-02-21T08:42:52.294+05:30  INFO 15424 --- [DrawGuess] [main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2026-02-21T08:42:52.360+05:30  INFO 15424 --- [DrawGuess] [main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 57 ms. Found 6 JPA repository interfaces.
+2026-02-21T08:42:52.818+05:30  INFO 15424 --- [DrawGuess] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat initialized with port 8080 (http)
+2026-02-21T08:42:52.830+05:30  INFO 15424 --- [DrawGuess] [main] o.apache.catalina.core.StandardService   : Starting service [Tomcat]
+2026-02-21T08:42:52.830+05:30  INFO 15424 --- [DrawGuess] [main] o.apache.catalina.core.StandardEngine    : Starting Servlet engine: [Apache Tomcat/11.0.15]
+2026-02-21T08:42:52.881+05:30  INFO 15424 --- [DrawGuess] [main] b.w.c.s.WebApplicationContextInitializer : Root WebApplicationContext: initialization completed in 1809 ms
+2026-02-21T08:42:53.306+05:30  INFO 15424 --- [DrawGuess] [main] org.hibernate.orm.jpa                    : HHH008540: Processing PersistenceUnitInfo [name: default]
+2026-02-21T08:42:53.368+05:30  INFO 15424 --- [DrawGuess] [main] org.hibernate.orm.core                   : HHH000001: Hibernate ORM core version 7.2.1.Final
+2026-02-21T08:42:53.847+05:30  INFO 15424 --- [DrawGuess] [main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2026-02-21T08:42:53.886+05:30  INFO 15424 --- [DrawGuess] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
+2026-02-21T08:42:54.085+05:30  INFO 15424 --- [DrawGuess] [main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3e0327dd
+2026-02-21T08:42:54.087+05:30  INFO 15424 --- [DrawGuess] [main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
+2026-02-21T08:42:54.170+05:30  WARN 15424 --- [DrawGuess] [main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2026-02-21T08:42:54.188+05:30  INFO 15424 --- [DrawGuess] [main] org.hibernate.orm.connections.pooling    : HHH10001005: Database info:
+	Database JDBC URL [jdbc:mysql://127.0.0.1:3306/DrawGuessDB?useSSL=false]
+	Database driver: MySQL Connector/J
+	Database dialect: MySQLDialect
+	Database version: 8.0.36
+	Default catalog/schema: DrawGuessDB/undefined
+	Autocommit mode: undefined/unknown
+	Isolation level: REPEATABLE_READ [default REPEATABLE_READ]
+	JDBC fetch size: none
+	Pool: DataSourceConnectionProvider
+	Minimum pool size: undefined/unknown
+	Maximum pool size: undefined/unknown
+2026-02-21T08:42:55.238+05:30  INFO 15424 --- [DrawGuess] [main] org.hibernate.orm.core                   : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2026-02-21T08:42:55.246+05:30  INFO 15424 --- [DrawGuess] [main] org.hibernate.orm.jdbc.batch             : HHH100501: Automatic JDBC statement batching enabled (maximum batch size 16)
+2026-02-21T08:42:55.365+05:30  INFO 15424 --- [DrawGuess] [main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2026-02-21T08:42:55.443+05:30  INFO 15424 --- [DrawGuess] [main] o.s.d.j.r.query.QueryEnhancerFactories   : Hibernate is in classpath; If applicable, HQL parser will be used.
+2026-02-21T08:42:56.181+05:30  INFO 15424 --- [DrawGuess] [main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name userServiceImpl
+2026-02-21T08:42:56.692+05:30  INFO 15424 --- [DrawGuess] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Starting...
+2026-02-21T08:42:56.693+05:30  INFO 15424 --- [DrawGuess] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : BrokerAvailabilityEvent[available=true, SimpleBrokerMessageHandler [org.springframework.messaging.simp.broker.DefaultSubscriptionRegistry@4cbb217e]]
+2026-02-21T08:42:56.694+05:30  INFO 15424 --- [DrawGuess] [main] o.s.m.s.b.SimpleBrokerMessageHandler     : Started.
+2026-02-21T08:42:56.711+05:30  INFO 15424 --- [DrawGuess] [main] o.s.boot.tomcat.TomcatWebServer          : Tomcat started on port 8080 (http) with context path '/'
+2026-02-21T08:42:56.718+05:30  INFO 15424 --- [DrawGuess] [main] c.p.drawguess.DrawGuessApplication       : Started DrawGuessApplication in 6.197 seconds (process running for 7.198)
+2026-02-21T08:43:13.117+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-1] o.a.c.c.C.[Tomcat].[localhost].[/]       : Initializing Spring DispatcherServlet 'dispatcherServlet'
+2026-02-21T08:43:13.118+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Initializing Servlet 'dispatcherServlet'
+2026-02-21T08:43:13.120+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-1] o.s.web.servlet.DispatcherServlet        : Completed initialization in 2 ms
+2026-02-21T08:43:13.829+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-21T08:43:17.468+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-21T08:43:20.193+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.service.RefreshTokenService        : Revoked refresh token
+2026-02-21T08:43:56.687+05:30  INFO 15424 --- [DrawGuess] [MessageBroker-1] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[0 current WS(0)-HttpStream(0)-HttpPoll(0), 0 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(0)-CONNECTED(0)-DISCONNECT(0)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 0], sockJsScheduler[pool size = 2, active threads = 1, queued tasks = 1, completed tasks = 0]
+2026-02-21T08:45:15.948+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-21T08:45:20.455+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNzcxNjQzNzE1LCJleHAiOjE3NzE2NDQ2MTV9.DJaZ1FfYPPNdWDtUO5ag6nTr80YCBppQE7f_Uo4DLqYrTbROziRFA9OWxi0BTeDGI1yTSSqJ0QToX9tU6uhG6Q]
+2026-02-21T08:45:20.463+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-21T08:45:20.531+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNzcxNjQzNzE1LCJleHAiOjE3NzE2NDQ2MTV9.DJaZ1FfYPPNdWDtUO5ag6nTr80YCBppQE7f_Uo4DLqYrTbROziRFA9OWxi0BTeDGI1yTSSqJ0QToX9tU6uhG6Q]
+2026-02-21T08:45:20.547+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-3] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-21T08:45:20.625+05:30  INFO 15424 --- [DrawGuess] [clientInboundChannel-7] c.p.d.controller.WebSocketController     : Joined room - Room - 772744, User - sushruth@gmail.com, wsSessionId - oqs2ws3l 
+2026-02-21T08:45:20.676+05:30  INFO 15424 --- [DrawGuess] [clientInboundChannel-7] c.p.d.service.impl.RoomServiceImpl       : User Sushruth joined room 772744 for first time
+2026-02-21T08:45:21.856+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : oqs2ws3l 
+2026-02-21T08:45:21.856+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.websocket.WebSocketEventListener   : Canvas websocket disconnected: b32fglm0, skipping grace period
+2026-02-21T08:45:21.873+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.service.impl.RoomServiceImpl       : User Sushruth disconnected from room 772744 - starting 30 second grace period
+2026-02-21T08:45:21.894+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for Sushruth in room 772744
+2026-02-21T08:45:22.332+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-21T08:45:22.806+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNzcxNjQzNzIyLCJleHAiOjE3NzE2NDQ2MjJ9.NUc5x58LvG_RZD_Bs3ZA5w37Z2osUWH4-jhBmwRpLPxV4tT7z53FOuOtEmOVCZYYoHjnrFYfM_BpN_1x5WqwxA]
+2026-02-21T08:45:22.817+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-21T08:45:22.846+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-9] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNzcxNjQzNzIyLCJleHAiOjE3NzE2NDQ2MjJ9.NUc5x58LvG_RZD_Bs3ZA5w37Z2osUWH4-jhBmwRpLPxV4tT7z53FOuOtEmOVCZYYoHjnrFYfM_BpN_1x5WqwxA]
+2026-02-21T08:45:22.856+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-9] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-21T08:45:22.931+05:30  INFO 15424 --- [DrawGuess] [clientInboundChannel-1] c.p.d.controller.WebSocketController     : Joined room - Room - 772744, User - sushruth@gmail.com, wsSessionId - qhsik2fm 
+2026-02-21T08:45:22.947+05:30  INFO 15424 --- [DrawGuess] [clientInboundChannel-1] c.p.d.service.impl.RoomServiceImpl       : Cancelled pending disconnect for user Sushruth in room 772744
+2026-02-21T08:45:22.952+05:30  INFO 15424 --- [DrawGuess] [clientInboundChannel-1] c.p.d.service.impl.RoomServiceImpl       : User Sushruth updated ws session id in room 772744
+2026-02-21T08:59:23.308+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-21T09:09:47.225+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.websocket.WebSocketEventListener   : Canvas websocket disconnected: ljqp4zvn, skipping grace period
+2026-02-21T09:09:47.225+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.websocket.WebSocketEventListener   : Websocket disconnected : qhsik2fm 
+2026-02-21T09:09:47.334+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.service.impl.RoomServiceImpl       : User Sushruth disconnected from room 772744 - starting 30 second grace period
+2026-02-21T09:09:47.352+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-21T09:09:47.385+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.service.impl.RoomServiceImpl       : Grace Period timer started for Sushruth in room 772744
+2026-02-21T09:09:47.497+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-4] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNzcxNjQ1MTg3LCJleHAiOjE3NzE2NDYwODd9.aqD7Gjx8hnvO63hyPp_Zsza7eFpUoU5ilTm8ceRAmDxbJuGoFem36Ou0jL92PCe1ErYfZhVc1EMpGpKpgl7OOw]
+2026-02-21T09:09:47.507+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-4] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-21T09:09:47.541+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.w.WebSocketAuthInterceptor         : STOMP Connect Authorization: [Bearer eyJhbGciOiJIUzUxMiJ9.eyJzdWIiOiJzdXNocnV0aEBnbWFpbC5jb20iLCJ0eXBlIjoiYWNjZXNzIiwiaWF0IjoxNzcxNjQ1MTg3LCJleHAiOjE3NzE2NDYwODd9.aqD7Gjx8hnvO63hyPp_Zsza7eFpUoU5ilTm8ceRAmDxbJuGoFem36Ou0jL92PCe1ErYfZhVc1EMpGpKpgl7OOw]
+2026-02-21T09:09:47.553+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.w.WebSocketAuthInterceptor         : Successfully authenticated WebSocket user: sushruth@gmail.com
+2026-02-21T09:10:17.395+05:30  INFO 15424 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Removed playerkey from disconnectingPlayers 1:130, disconnectingPlayers list -> {1:130=qhsik2fm}
+2026-02-21T09:10:17.396+05:30  INFO 15424 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Grace period expired for Sushruth in room 772744 - removing user
+2026-02-21T09:10:17.529+05:30  INFO 15424 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : User Sushruth left room 772744 (grace period done)
+2026-02-21T09:10:17.615+05:30  INFO 15424 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Room 772744 closed - no session started, all players left 
+2026-02-21T09:10:17.638+05:30  INFO 15424 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.SessionServiceImpl    : endSession: No active session for room 772744 (already ended?)
+2026-02-21T09:10:17.639+05:30  INFO 15424 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Room 772744 closed - empty
+2026-02-21T09:10:17.652+05:30  INFO 15424 --- [DrawGuess] [pool-4-thread-1] c.p.d.service.impl.RoomServiceImpl       : Room 772744 closed - empty
+2026-02-21T09:13:56.695+05:30  INFO 15424 --- [DrawGuess] [MessageBroker-3] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[2 current WS(2)-HttpStream(0)-HttpPoll(0), 6 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(6)-CONNECTED(6)-DISCONNECT(2)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 105], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 15], sockJsScheduler[pool size = 12, active threads = 1, queued tasks = 5, completed tasks = 823]
+2026-02-21T09:23:48.136+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-21T09:30:21.602+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-5] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-21T09:30:27.403+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-21T09:32:27.990+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-21T09:32:29.375+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-10] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-21T09:43:56.714+05:30  INFO 15424 --- [DrawGuess] [MessageBroker-10] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[2 current WS(2)-HttpStream(0)-HttpPoll(0), 6 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(6)-CONNECTED(6)-DISCONNECT(2)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 105], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 15], sockJsScheduler[pool size = 12, active threads = 1, queued tasks = 5, completed tasks = 1688]
+2026-02-21T09:46:29.125+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-7] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-21T09:46:29.874+05:30  WARN 15424 --- [DrawGuess] [http-nio-8080-exec-8] org.hibernate.orm.jdbc.error             : HHH000247: ErrorCode: 1062, SQLState: 23000
+2026-02-21T09:46:29.875+05:30  WARN 15424 --- [DrawGuess] [http-nio-8080-exec-8] org.hibernate.orm.jdbc.error             : Duplicate entry '59cfe30fab0a191ef495cacbee423405572c0bfdb8d10a196d0cbb4c52a34a13' for key 'refresh_tokens.UKo2mlirhldriil2y7krapq4frt'
+2026-02-21T09:46:30.009+05:30 ERROR 15424 --- [DrawGuess] [http-nio-8080-exec-8] c.p.d.g.GlobalExceptionHandler           : Unexpected error: could not execute statement [Duplicate entry '59cfe30fab0a191ef495cacbee423405572c0bfdb8d10a196d0cbb4c52a34a13' for key 'refresh_tokens.UKo2mlirhldriil2y7krapq4frt'] [insert into refresh_tokens (created_at,expires_at,revoked,token_hash,user_id) values (?,?,?,?,?)]; SQL [insert into refresh_tokens (created_at,expires_at,revoked,token_hash,user_id) values (?,?,?,?,?)]; constraint [refresh_tokens.UKo2mlirhldriil2y7krapq4frt]
+
+org.springframework.dao.DataIntegrityViolationException: could not execute statement [Duplicate entry '59cfe30fab0a191ef495cacbee423405572c0bfdb8d10a196d0cbb4c52a34a13' for key 'refresh_tokens.UKo2mlirhldriil2y7krapq4frt'] [insert into refresh_tokens (created_at,expires_at,revoked,token_hash,user_id) values (?,?,?,?,?)]; SQL [insert into refresh_tokens (created_at,expires_at,revoked,token_hash,user_id) values (?,?,?,?,?)]; constraint [refresh_tokens.UKo2mlirhldriil2y7krapq4frt]
+	at org.springframework.orm.jpa.hibernate.HibernateExceptionTranslator.convertHibernateAccessException(HibernateExceptionTranslator.java:169) ~[spring-orm-7.0.3.jar:7.0.3]
+	at org.springframework.orm.jpa.hibernate.HibernateExceptionTranslator.convertHibernateAccessException(HibernateExceptionTranslator.java:131) ~[spring-orm-7.0.3.jar:7.0.3]
+	at org.springframework.orm.jpa.hibernate.HibernateExceptionTranslator.translateExceptionIfPossible(HibernateExceptionTranslator.java:105) ~[spring-orm-7.0.3.jar:7.0.3]
+	at org.springframework.orm.jpa.vendor.HibernateJpaDialect.translateExceptionIfPossible(HibernateJpaDialect.java:199) ~[spring-orm-7.0.3.jar:7.0.3]
+	at org.springframework.orm.jpa.AbstractEntityManagerFactoryBean.translateExceptionIfPossible(AbstractEntityManagerFactoryBean.java:556) ~[spring-orm-7.0.3.jar:7.0.3]
+	at org.springframework.dao.support.ChainedPersistenceExceptionTranslator.translateExceptionIfPossible(ChainedPersistenceExceptionTranslator.java:61) ~[spring-tx-7.0.3.jar:7.0.3]
+	at org.springframework.dao.support.DataAccessUtils.translateIfNecessary(DataAccessUtils.java:346) ~[spring-tx-7.0.3.jar:7.0.3]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:157) ~[spring-tx-7.0.3.jar:7.0.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.3.jar:7.0.3]
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:166) ~[spring-data-jpa-4.0.2.jar:4.0.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.3.jar:7.0.3]
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:222) ~[spring-aop-7.0.3.jar:7.0.3]
+	at jdk.proxy2/jdk.proxy2.$Proxy158.save(Unknown Source) ~[na:na]
+	at com.project.drawguess.service.RefreshTokenService.createRefreshToken(RefreshTokenService.java:60) ~[classes/:na]
+	at com.project.drawguess.service.RefreshTokenService.validateAndRotate(RefreshTokenService.java:85) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-7.0.3.jar:7.0.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:190) ~[spring-aop-7.0.3.jar:7.0.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:158) ~[spring-aop-7.0.3.jar:7.0.3]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133) ~[spring-tx-7.0.3.jar:7.0.3]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371) ~[spring-tx-7.0.3.jar:7.0.3]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130) ~[spring-tx-7.0.3.jar:7.0.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.3.jar:7.0.3]
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:719) ~[spring-aop-7.0.3.jar:7.0.3]
+	at com.project.drawguess.service.RefreshTokenService$$SpringCGLIB$$0.validateAndRotate(<generated>) ~[classes/:na]
+	at com.project.drawguess.controller.UserController.refresh(UserController.java:99) ~[classes/:na]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:258) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:190) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:117) ~[spring-webmvc-7.0.3.jar:7.0.3]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:934) ~[spring-webmvc-7.0.3.jar:7.0.3]
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:853) ~[spring-webmvc-7.0.3.jar:7.0.3]
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:86) ~[spring-webmvc-7.0.3.jar:7.0.3]
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:963) ~[spring-webmvc-7.0.3.jar:7.0.3]
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:866) ~[spring-webmvc-7.0.3.jar:7.0.3]
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1003) ~[spring-webmvc-7.0.3.jar:7.0.3]
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:903) ~[spring-webmvc-7.0.3.jar:7.0.3]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:649) ~[tomcat-embed-core-11.0.15.jar:6.1]
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:874) ~[spring-webmvc-7.0.3.jar:7.0.3]
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:710) ~[tomcat-embed-core-11.0.15.jar:6.1]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:128) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:53) ~[tomcat-embed-websocket-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:108) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:235) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:371) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:101) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:132) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:86) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:181) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at com.project.drawguess.jwtfilter.JwtRequestFilter.doFilterInternal(JwtRequestFilter.java:62) ~[classes/:na]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:110) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:96) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:380) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:237) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:195) ~[spring-security-web-7.0.2.jar:7.0.2]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.ServletRequestPathFilter.doFilter(ServletRequestPathFilter.java:52) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.CompositeFilter$VirtualFilterChain.doFilter(CompositeFilter.java:113) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.CompositeFilter.doFilter(CompositeFilter.java:74) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.security.config.annotation.web.configuration.WebSecurityConfiguration$CompositeFilterChainProxy.doFilter(WebSecurityConfiguration.java:317) ~[spring-security-config-7.0.2.jar:7.0.2]
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:355) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:272) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:199) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116) ~[spring-web-7.0.3.jar:7.0.3]
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:107) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:165) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:77) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:113) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:83) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:72) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:397) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:903) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1778) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:946) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:480) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:57) ~[tomcat-embed-core-11.0.15.jar:11.0.15]
+	at java.base/java.lang.Thread.run(Thread.java:1474) ~[na:na]
+Caused by: org.hibernate.exception.ConstraintViolationException: could not execute statement [Duplicate entry '59cfe30fab0a191ef495cacbee423405572c0bfdb8d10a196d0cbb4c52a34a13' for key 'refresh_tokens.UKo2mlirhldriil2y7krapq4frt'] [insert into refresh_tokens (created_at,expires_at,revoked,token_hash,user_id) values (?,?,?,?,?)]
+	at org.hibernate.dialect.MySQLDialect.lambda$buildSQLExceptionConversionDelegate$0(MySQLDialect.java:1269) ~[hibernate-core-7.2.1.Final.jar:7.2.1.Final]
+	at org.hibernate.exception.internal.StandardSQLExceptionConverter.convert(StandardSQLExceptionConverter.java:34) ~[hibernate-core-7.2.1.Final.jar:7.2.1.Final]
+	at org.hibernate.engine.jdbc.spi.SqlExceptionHelper.convert(SqlExceptionHelper.java:115) ~[hibernate-core-7.2.1.Final.jar:7.2.1.Final]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:184) ~[hibernate-core-7.2.1.Final.jar:7.2.1.Final]
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performMutation(GetGeneratedKeysDelegate.java:103) ~[hibernate-core-7.2.1.Final.jar:7.2.1.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorSingleNonBatched.performNonBatchedOperations(MutationExecutorSingleNonBatched.java:45) ~[hibernate-core-7.2.1.Final.jar:7.2.1.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.execute(AbstractMutationExecutor.java:66) ~[hibernate-core-7.2.1.Final.jar:7.2.1.Final]
+	at org.hibernate.engine.jdbc.mutation.internal.AbstractMutationExecutor.execute(AbstractMutationExecutor.java:55) ~[hibernate-core-7.2.1.Final.jar:7.2.1.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.doStaticInserts(InsertCoordinatorStandard.java:180) ~[hibernate-core-7.2.1.Final.jar:7.2.1.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.coordinateInsert(InsertCoordinatorStandard.java:120) ~[hibernate-core-7.2.1.Final.jar:7.2.1.Final]
+	at org.hibernate.persister.entity.mutation.InsertCoordinatorStandard.insert(InsertCoordinatorStandard.java:84) ~[hibernate-core-7.2.1.Final.jar:7.2.1.Final]
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:85) ~[hibernate-core-7.2.1.Final.jar:7.2.1.Final]
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:667) ~[hibernate-core-7.2.1.Final.jar:7.2.1.Final]
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:291) ~[hibernate-core-7.2.1.Final.jar:7.2.1.Final]
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:270) ~[hibernate-core-7.2.1.Final.jar:7.2.1.Final]
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:322) ~[hibernate-core-7.2.1.Final.jar:7.2.1.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:371) ~[hibernate-core-7.2.1.Final.jar:7.2.1.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:285) ~[hibernate-core-7.2.1.Final.jar:7.2.1.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:215) ~[hibernate-core-7.2.1.Final.jar:7.2.1.Final]
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:133) ~[hibernate-core-7.2.1.Final.jar:7.2.1.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:145) ~[hibernate-core-7.2.1.Final.jar:7.2.1.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:89) ~[hibernate-core-7.2.1.Final.jar:7.2.1.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:73) ~[hibernate-core-7.2.1.Final.jar:7.2.1.Final]
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:49) ~[hibernate-core-7.2.1.Final.jar:7.2.1.Final]
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:138) ~[hibernate-core-7.2.1.Final.jar:7.2.1.Final]
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:689) ~[hibernate-core-7.2.1.Final.jar:7.2.1.Final]
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:672) ~[hibernate-core-7.2.1.Final.jar:7.2.1.Final]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:317) ~[spring-orm-7.0.3.jar:7.0.3]
+	at jdk.proxy2/jdk.proxy2.$Proxy141.persist(Unknown Source) ~[na:na]
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:664) ~[spring-data-jpa-4.0.2.jar:4.0.2]
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104) ~[na:na]
+	at java.base/java.lang.reflect.Method.invoke(Method.java:565) ~[na:na]
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:359) ~[spring-aop-7.0.3.jar:7.0.3]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:278) ~[spring-data-commons-4.0.2.jar:4.0.2]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:169) ~[spring-data-commons-4.0.2.jar:4.0.2]
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:158) ~[spring-data-commons-4.0.2.jar:4.0.2]
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:545) ~[spring-data-commons-4.0.2.jar:4.0.2]
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:290) ~[spring-data-commons-4.0.2.jar:4.0.2]
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:690) ~[spring-data-commons-4.0.2.jar:4.0.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.3.jar:7.0.3]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:171) ~[spring-data-commons-4.0.2.jar:4.0.2]
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:146) ~[spring-data-commons-4.0.2.jar:4.0.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.3.jar:7.0.3]
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:69) ~[spring-data-commons-4.0.2.jar:4.0.2]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.3.jar:7.0.3]
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:133) ~[spring-tx-7.0.3.jar:7.0.3]
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:371) ~[spring-tx-7.0.3.jar:7.0.3]
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:130) ~[spring-tx-7.0.3.jar:7.0.3]
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:179) ~[spring-aop-7.0.3.jar:7.0.3]
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:135) ~[spring-tx-7.0.3.jar:7.0.3]
+	... 113 common frames omitted
+Caused by: java.sql.SQLIntegrityConstraintViolationException: Duplicate entry '59cfe30fab0a191ef495cacbee423405572c0bfdb8d10a196d0cbb4c52a34a13' for key 'refresh_tokens.UKo2mlirhldriil2y7krapq4frt'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:109) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:114) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.ServerPreparedStatement.serverExecute(ServerPreparedStatement.java:613) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.ServerPreparedStatement.executeInternal(ServerPreparedStatement.java:320) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1166) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1101) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1448) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:1084) ~[mysql-connector-j-9.5.0.jar:9.5.0]
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61) ~[HikariCP-7.0.2.jar:na]
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java) ~[HikariCP-7.0.2.jar:na]
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:181) ~[hibernate-core-7.2.1.Final.jar:7.2.1.Final]
+	... 161 common frames omitted
+
+2026-02-21T10:00:30.131+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-1] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-21T10:13:56.742+05:30  INFO 15424 --- [DrawGuess] [MessageBroker-10] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[2 current WS(2)-HttpStream(0)-HttpPoll(0), 6 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(6)-CONNECTED(6)-DISCONNECT(2)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 105], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 15], sockJsScheduler[pool size = 12, active threads = 1, queued tasks = 5, completed tasks = 2553]
+2026-02-21T10:14:30.995+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-2] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-21T10:28:31.914+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-6] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-21T10:42:33.077+05:30  INFO 15424 --- [DrawGuess] [http-nio-8080-exec-9] c.p.d.service.RefreshTokenService        : Created refresh token for user: sushruth@gmail.com
+2026-02-21T10:43:56.747+05:30  INFO 15424 --- [DrawGuess] [MessageBroker-10] o.s.w.s.c.WebSocketMessageBrokerStats    : WebSocketSession[2 current WS(2)-HttpStream(0)-HttpPoll(0), 6 total, 0 closed abnormally (0 connect failure, 0 send limit, 0 transport error)], stompSubProtocol[processed CONNECT(6)-CONNECTED(6)-DISCONNECT(2)], stompBrokerRelay[null], inboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 105], outboundChannel[pool size = 0, active threads = 0, queued tasks = 0, completed tasks = 15], sockJsScheduler[pool size = 12, active threads = 1, queued tasks = 5, completed tasks = 3418]
