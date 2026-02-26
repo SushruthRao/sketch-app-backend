@@ -30,6 +30,7 @@ import com.project.drawguess.repository.RoomRepository;
 import com.project.drawguess.repository.SessionRepository;
 import com.project.drawguess.repository.UserRepository;
 import com.project.drawguess.repository.UserSessionRepository;
+import com.project.drawguess.service.RoomCacheService;
 
 import org.springframework.beans.factory.annotation.Value;
 
@@ -49,6 +50,7 @@ public class SessionServiceImpl {
 	private final SimpMessagingTemplate messagingTemplate;
 	private final GameRoundManager gameRoundManager;
 	private final CanvasStrokeServiceImpl canvasStrokeService;
+	private final RoomCacheService roomCacheService;
 
 	private final Map<String, ScheduledFuture<?>> sessionDisconnectTasks = new ConcurrentHashMap<>();
 	private final Map<String, String> disconnectingSessionPlayers = new ConcurrentHashMap<>();
@@ -59,7 +61,7 @@ public class SessionServiceImpl {
 
 	@Transactional
 	public Session startSession(String roomCode, String hostEmail) {
-		Room room = roomRepository.findByRoomCode(roomCode).getFirst();
+		Room room = roomCacheService.findByRoomCode(roomCode);
 		User host = userRepository.findByEmail(hostEmail);
 
 		if (!room.getHost().getUserId().equals(host.getUserId())) {
@@ -74,7 +76,7 @@ public class SessionServiceImpl {
 			throw new IllegalStateException("Need at least 2 users to start session");
 		}
 		room.setStatus(RoomStatus.PLAYING);
-		roomRepository.save(room);
+		roomCacheService.save(room);
 
 		Session session = new Session(room, activePlayers.size() * 2);
 		session.setStatus(SessionStatus.ACTIVE);
@@ -97,12 +99,11 @@ public class SessionServiceImpl {
 
 	@Transactional
 	public void endSession(String roomCode) {
-		List<Room> rooms = roomRepository.findByRoomCode(roomCode);
-		if (rooms.isEmpty()) {
+		Room room = roomCacheService.findByRoomCode(roomCode);
+		if (room == null) {
 			log.warn("endSession: Room not found for code {}", roomCode);
 			return;
 		}
-		Room room = rooms.get(0);
 		Optional<Session> sessionOpt = sessionRepository.findByRoomAndStatus(room, SessionStatus.ACTIVE);
 		if (sessionOpt.isEmpty()) {
 			log.info("endSession: No active session for room {} (already ended?)", roomCode);
@@ -115,7 +116,7 @@ public class SessionServiceImpl {
 		if (room.getStatus() != RoomStatus.FINISHED) {
 			room.setStatus(RoomStatus.FINISHED);
 			room.setClosedAt(LocalDateTime.now());
-			roomRepository.save(room);
+			roomCacheService.save(room);
 		}
 		log.info("Session ended : {} for room {} ", session.getSessionId(), roomCode);
 
@@ -358,7 +359,7 @@ public class SessionServiceImpl {
 
 	@Transactional()
 	public Session getActiveSession(String roomCode) {
-		Room room = roomRepository.findByRoomCode(roomCode).getFirst();
+		Room room = roomCacheService.findByRoomCode(roomCode);
 		return sessionRepository.findByRoomAndStatus(room, SessionStatus.ACTIVE).orElse(null);
 	}
 

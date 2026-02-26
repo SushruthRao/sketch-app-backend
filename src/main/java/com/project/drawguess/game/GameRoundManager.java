@@ -24,6 +24,7 @@ import com.project.drawguess.model.UserSession;
 import com.project.drawguess.repository.RoomRepository;
 import com.project.drawguess.repository.SessionRepository;
 import com.project.drawguess.repository.UserSessionRepository;
+import com.project.drawguess.service.RoomCacheService;
 import com.project.drawguess.service.impl.CanvasStrokeServiceImpl;
 
 import lombok.RequiredArgsConstructor;
@@ -39,6 +40,7 @@ public class GameRoundManager {
 	private final RoomRepository roomRepository;
 	private final SimpMessagingTemplate messagingTemplate;
 	private final CanvasStrokeServiceImpl canvasStrokeService;
+	private final RoomCacheService roomCacheService;
 
 	private final Map<Long, RoundState> activeRounds = new ConcurrentHashMap<>();
 	private final Map<Long, List<Long>> drawerOrders = new ConcurrentHashMap<>();
@@ -496,12 +498,11 @@ public class GameRoundManager {
 			session.setEndedAt(LocalDateTime.now());
 			sessionRepository.save(session);
 
-			List<Room> rooms = roomRepository.findByRoomCode(roomCode);
-			if (!rooms.isEmpty()) {
-				Room room = rooms.get(0);
+			Room room = roomCacheService.findByRoomCode(roomCode);
+			if (room != null) {
 				room.setStatus(RoomStatus.FINISHED);
 				room.setClosedAt(LocalDateTime.now());
-				roomRepository.save(room);
+				roomCacheService.save(room);
 			}
 			log.info("Session {} and room {} finalized after all rounds complete", session.getSessionId(), roomCode);
 		} catch (Exception e) {

@@ -2,6 +2,7 @@ package com.project.drawguess.model;
 
 import java.time.LocalDateTime;
 
+import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import com.project.drawguess.enums.RoomStatus;
 
 import jakarta.persistence.Column;
@@ -20,6 +21,7 @@ import lombok.NoArgsConstructor;
 
 @Data
 @Entity
+@JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})
 @Table(name = "rooms_table")
 @NoArgsConstructor
 public class Room {

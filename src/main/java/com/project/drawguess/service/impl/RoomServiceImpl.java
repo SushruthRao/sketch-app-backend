@@ -28,6 +28,8 @@ import com.project.drawguess.repository.RoomPlayerRepository;
 import com.project.drawguess.repository.RoomRepository;
 import com.project.drawguess.repository.SessionRepository;
 import com.project.drawguess.repository.UserRepository;
+import com.project.drawguess.service.RoomCacheService;
+import com.project.drawguess.service.UserCacheService;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -48,6 +50,8 @@ public class RoomServiceImpl {
 	private final SessionServiceImpl sessionServiceImpl;
 	private final SimpMessagingTemplate messagingTemplate;
 	private final CanvasStrokeServiceImpl canvasStrokeService;
+	private final UserCacheService userCacheService;
+	private final RoomCacheService roomCacheService;
 
 	private final Map<String, ScheduledFuture<?>> pendingDisconnectTasks = new ConcurrentHashMap<>();
 	private final Map<String, String> disconnectingPlayers = new ConcurrentHashMap<>();
@@ -62,20 +66,20 @@ public class RoomServiceImpl {
 
 	@Transactional
 	public Room createRoom(String username) {
-		User user = userRepository.findByEmail(username);
+		User user = userCacheService.findByEmail(username);
 		if (user == null) {
 			throw new ResourceNotFoundException("User " + username + " not found");
 		}
 		String roomCode = generateRoomCode();
 		Room room = new Room(roomCode, user);
-		return roomRepository.save(room);
+		return roomCacheService.save(room);
 	}
 
 	@Transactional
 	public void joinRoomViaWebSocket(String roomCode, String username, String wsSessionId) {
 		
-		Room room = roomRepository.findByRoomCode(roomCode).getFirst();
-		User user = userRepository.findByEmail(username);
+		Room room = roomCacheService.findByRoomCode(roomCode);
+		User user = userCacheService.findByEmail(username);
 
 		if (room == null) {
 			throw new ResourceNotFoundException("Room not found");
@@ -316,7 +320,7 @@ public class RoomServiceImpl {
 				Room room = player.getRoom();
 				room.setStatus(RoomStatus.FINISHED);
 				room.setClosedAt(LocalDateTime.now());
-				roomRepository.save(room);
+				roomCacheService.save(room);
 				log.info("Room {} closed - no session started, all players left ", roomCode);
 			}
 		}
@@ -325,7 +329,7 @@ public class RoomServiceImpl {
 			Room room = player.getRoom();
 			room.setStatus(RoomStatus.FINISHED);
 			room.setClosedAt(LocalDateTime.now());
-			roomRepository.save(room);
+			roomCacheService.save(room);
 			sessionServiceImpl.endSession(roomCode);
 			log.info("Room {} closed - empty", roomCode);
 		}
@@ -334,7 +338,7 @@ public class RoomServiceImpl {
 			Room room = player.getRoom();
 			room.setStatus(RoomStatus.FINISHED);
 			room.setClosedAt(LocalDateTime.now());
-			roomRepository.save(room);
+			roomCacheService.save(room);
 			log.info("Room {} closed - empty", roomCode);
 		} else {
 			reassignHostIfNeeded(player.getRoom(), player.getUser());
@@ -355,7 +359,7 @@ public class RoomServiceImpl {
 
 		User newHost = activePlayers.get(0).getUser();
 		room.setHost(newHost);
-		roomRepository.save(room);
+		roomCacheService.save(room);
 		log.info("Host reassigned to {} in room {}", newHost.getUsername(), room.getRoomCode());
 
 		Map<String, Object> hostChangeMessage = new HashMap<>();
@@ -369,7 +373,7 @@ public class RoomServiceImpl {
 
 	@Transactional()
 	public List<Map<String, Object>> getActivePlayers(String roomCode) {
-		Room room = roomRepository.findByRoomCode(roomCode).getFirst();
+		Room room = roomCacheService.findByRoomCode(roomCode);
 
 		List<RoomPlayer> players = roomPlayerRepository.findByRoomAndIsActive(room, true);
 
@@ -413,7 +417,7 @@ public class RoomServiceImpl {
 	}
 
 	public Room getRoomByCode(String roomCode) {
-		Room room = roomRepository.findByRoomCode(roomCode).getFirst();
+		Room room = roomCacheService.findByRoomCode(roomCode);
 		if (room == null) {
 			throw new ResourceNotFoundException("Room not found");
 		}

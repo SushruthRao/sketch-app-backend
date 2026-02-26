@@ -15,6 +15,7 @@ import com.project.drawguess.dto.RegisterRequestDto;
 import com.project.drawguess.exception.UserWithEmailAlreadyRegisteredException;
 import com.project.drawguess.model.User;
 import com.project.drawguess.repository.UserRepository;
+import com.project.drawguess.service.UserCacheService;
 import com.project.drawguess.service.UserService;
 
 
@@ -23,6 +24,9 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 
 	@Autowired
 	private UserRepository userRepository;
+
+	@Autowired
+	private UserCacheService userCacheService;
 	
 
 	private final PasswordEncoder passwordEncoder;
@@ -34,7 +38,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
-		User existingUser = userRepository.findByEmail(username);
+		User existingUser = userCacheService.findByEmail(username);
 		if (existingUser == null) {
 			throw new UsernameNotFoundException(username + " not found in database ");
 		}
@@ -49,7 +53,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 	@Override
 	public String fetchUsername(String email)
 	{
-		User existingUser = userRepository.findByEmail(email);
+		User existingUser = userCacheService.findByEmail(email);
 		if (existingUser == null) {
 			throw new ResourceNotFoundException("User not found for email: " + email);
 		}
