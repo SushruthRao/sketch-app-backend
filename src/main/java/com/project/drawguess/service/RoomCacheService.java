@@ -4,6 +4,7 @@ import org.springframework.cache.annotation.CacheEvict;
 import org.springframework.cache.annotation.Cacheable;
 import org.springframework.stereotype.Service;
 
+import com.project.drawguess.enums.RoomStatus;
 import com.project.drawguess.model.Room;
 import com.project.drawguess.repository.RoomRepository;
 
@@ -27,7 +28,8 @@ public class RoomCacheService {
      */
     @Cacheable(value = "rooms", key = "#roomCode", unless = "#result == null")
     public Room findByRoomCode(String roomCode) {
-        return roomRepository.findByRoomCode(roomCode).stream().findFirst().orElse(null);
+        // Only return active (non-FINISHED) rooms so that closed codes can be reused
+        return roomRepository.findFirstByRoomCodeAndStatusNot(roomCode, RoomStatus.FINISHED).orElse(null);
     }
 
     /**

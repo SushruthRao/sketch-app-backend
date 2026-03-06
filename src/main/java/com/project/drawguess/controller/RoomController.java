@@ -10,9 +10,11 @@ import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.project.drawguess.dto.PublicRoomDto;
 import com.project.drawguess.model.Room;
 import com.project.drawguess.service.impl.RoomServiceImpl;
 
@@ -26,13 +28,25 @@ public class RoomController {
 	private final RoomServiceImpl roomServiceImpl;
 
 	@PostMapping("/create")
-	public ResponseEntity<?> createRoom(@AuthenticationPrincipal UserDetails userDetails)
+	public ResponseEntity<?> createRoom(
+			@AuthenticationPrincipal UserDetails userDetails,
+			@RequestBody(required = false) Map<String, Object> body)
 			throws IllegalArgumentException {
-		Room room = roomServiceImpl.createRoom(userDetails.getUsername());
+		boolean isPublic = body == null || !Boolean.FALSE.equals(body.get("isPublic"));
+		Room room = roomServiceImpl.createRoom(userDetails.getUsername(), isPublic);
 		Map<String, Object> response = new HashMap<>();
 		response.put("success", true);
 		response.put("roomCode", room.getRoomCode());
 		response.put("roomId", room.getRoomId());
+		return ResponseEntity.ok(response);
+	}
+
+	@GetMapping("/public")
+	public ResponseEntity<?> getPublicRooms() {
+		List<PublicRoomDto> rooms = roomServiceImpl.getPublicRooms();
+		Map<String, Object> response = new HashMap<>();
+		response.put("success", true);
+		response.put("rooms", rooms);
 		return ResponseEntity.ok(response);
 	}
 

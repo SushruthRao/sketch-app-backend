@@ -77,6 +77,7 @@ public class SessionServiceImpl {
 		}
 		room.setStatus(RoomStatus.PLAYING);
 		roomCacheService.save(room);
+		messagingTemplate.convertAndSend("/topic/public-rooms", (Object) java.util.Map.of("type", "PUBLIC_ROOMS_UPDATED"));
 
 		Session session = new Session(room, activePlayers.size() * 2);
 		session.setStatus(SessionStatus.ACTIVE);
@@ -117,6 +118,7 @@ public class SessionServiceImpl {
 			room.setStatus(RoomStatus.FINISHED);
 			room.setClosedAt(LocalDateTime.now());
 			roomCacheService.save(room);
+			messagingTemplate.convertAndSend("/topic/public-rooms", (Object) java.util.Map.of("type", "PUBLIC_ROOMS_UPDATED"));
 		}
 		log.info("Session ended : {} for room {} ", session.getSessionId(), roomCode);
 

@@ -30,7 +30,9 @@ public class Room {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long roomId;
   	
-  	@Column(nullable = false, unique = true, length = 6)
+  	// unique constraint removed from annotation so closed room codes can be reused.
+  	// Run: ALTER TABLE rooms_table DROP INDEX UK_<roomCode_constraint_name>;
+  	@Column(nullable = false, length = 6)
   	private String roomCode;
   	
   	@ManyToOne(fetch = FetchType.EAGER)
@@ -43,14 +45,18 @@ public class Room {
   	
   	
   	@Column(nullable = false)
+  	private Boolean isPublic = true;
+
+  	@Column(nullable = false)
   	private LocalDateTime createdAt = LocalDateTime.now();
-  	
+
   	private LocalDateTime closedAt;
-  	
+
   	public Room(String roomCode, User host) {
   		this.roomCode = roomCode;
   		this.host = host;
   		this.status = RoomStatus.WAITING;
+  		this.isPublic = true;
   	}
 
 }
