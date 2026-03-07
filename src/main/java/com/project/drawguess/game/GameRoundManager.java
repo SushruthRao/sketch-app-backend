@@ -16,12 +16,15 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
+import com.fasterxml.jackson.databind.ObjectMapper;
 import com.project.drawguess.enums.RoomStatus;
 import com.project.drawguess.enums.SessionStatus;
 import com.project.drawguess.model.Room;
+import com.project.drawguess.model.RoundRecord;
 import com.project.drawguess.model.Session;
 import com.project.drawguess.model.UserSession;
 import com.project.drawguess.repository.RoomRepository;
+import com.project.drawguess.repository.RoundRecordRepository;
 import com.project.drawguess.repository.SessionRepository;
 import com.project.drawguess.repository.UserSessionRepository;
 import com.project.drawguess.service.RoomCacheService;
@@ -35,18 +38,22 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 public class GameRoundManager {
 
+	private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
+
 	private final SessionRepository sessionRepository;
 	private final UserSessionRepository userSessionRepository;
 	private final RoomRepository roomRepository;
 	private final SimpMessagingTemplate messagingTemplate;
 	private final CanvasStrokeServiceImpl canvasStrokeService;
 	private final RoomCacheService roomCacheService;
+	private final RoundRecordRepository roundRecordRepository;
 
 	private final Map<Long, RoundState> activeRounds = new ConcurrentHashMap<>();
 	private final Map<Long, List<Long>> drawerOrders = new ConcurrentHashMap<>();
 	private final Map<Long, Integer> drawerRotationCounters = new ConcurrentHashMap<>();
 	private final Map<String, Long> roomCodeToSessionId = new ConcurrentHashMap<>();
 	private final Map<Long, ScheduledFuture<?>> pendingNextRoundTasks = new ConcurrentHashMap<>();
+	private final Map<Long, Set<String>> usedWordsPerSession = new ConcurrentHashMap<>();
 
 	private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(10);
 
@@ -163,7 +170,9 @@ public class GameRoundManager {
 			return;
 		}
 
-		String word = WordProvider.getRandomWord();
+		Set<String> usedWords = usedWordsPerSession.computeIfAbsent(sessionId, k -> ConcurrentHashMap.newKeySet());
+		String word = WordProvider.getRandomWord(usedWords);
+		usedWords.add(word);
 
 		canvasStrokeService.clearStrokes(roomCode);
 
@@ -293,6 +302,7 @@ public class GameRoundManager {
 				if (round.hasPlayerGuessed(us.getUser().getUserId())) {
 					correctGuesserUsernames.add(us.getUser().getUsername());
 				}
+
 			}
 		}
 		state.put("players", players);
@@ -354,7 +364,13 @@ public class GameRoundManager {
 		log.info("Round {} ended for session {}. Reason: {}. Correct guessers: {}",
 				round.getRoundNumber(), sessionId, reason, round.getCorrectGuessers().size());
 
+		// Capture strokes NOW before the next round clears them
+		List<Map<String, Object>> strokeSnapshot = new ArrayList<>(canvasStrokeService.getStrokes(roomCode));
+
 		broadcastRoundEnded(roomCode, round, reason);
+
+		// Save round record asynchronously so it doesn't block the game loop
+		scheduler.schedule(() -> saveRoundRecord(round, strokeSnapshot, reason), 0, TimeUnit.MILLISECONDS);
 
 		scheduler.schedule(() -> {
 			try {
@@ -365,9 +381,40 @@ public class GameRoundManager {
 		}, DELAY_BETWEEN_ROUNDS_SECONDS, TimeUnit.SECONDS);
 	}
 
+	private void saveRoundRecord(RoundState round, List<Map<String, Object>> strokes, String reason) {
+		try {
+			Session session = sessionRepository.findById(round.getSessionId()).orElse(null);
+			if (session == null) return;
+
+			Map<Long, Long> guesserTimings = round.getCorrectGuessers(); // userId → secondsTaken
+			List<UserSession> allPlayers = userSessionRepository.findBySession(session);
+			List<Map<String, Object>> correctGuesserData = allPlayers.stream()
+					.filter(us -> guesserTimings.containsKey(us.getUser().getUserId()))
+					.map(us -> {
+						Map<String, Object> entry = new HashMap<>();
+						entry.put("username", us.getUser().getUsername());
+						entry.put("secondsTaken", guesserTimings.get(us.getUser().getUserId()));
+						return entry;
+					})
+					.collect(Collectors.toList());
+
+			String correctGuessersJson = OBJECT_MAPPER.writeValueAsString(correctGuesserData);
+			String canvasStrokesJson = OBJECT_MAPPER.writeValueAsString(strokes);
+
+			RoundRecord record = new RoundRecord(session, round.getRoundNumber(), round.getWord(),
+					round.getDrawerUsername(), correctGuessersJson, canvasStrokesJson, reason);
+			roundRecordRepository.save(record);
+
+			log.info("Round record saved: session={} round={} word={}",
+					round.getSessionId(), round.getRoundNumber(), round.getWord());
+		} catch (Exception e) {
+			log.error("Failed to save round record for session {}: {}", round.getSessionId(), e.getMessage());
+		}
+	}
+
 	private void handleCorrectGuess(Long sessionId, String roomCode,
 			RoundState round, Long userId, String username) {
-		round.addCorrectGuesser(userId);
+		round.addCorrectGuesser(userId, round.getElapsedSeconds());
 
 		long elapsed = round.getElapsedSeconds();
 		int guesserScore = Math.max(50, (int) (MAX_GUESSER_POINTS
@@ -455,7 +502,7 @@ public class GameRoundManager {
 		msg.put("roundNumber", round.getRoundNumber());
 		msg.put("word", round.getWord());
 		msg.put("reason", reason);
-		msg.put("correctGuessers", new ArrayList<>(round.getCorrectGuessers()));
+		msg.put("correctGuessers", new ArrayList<>(round.getCorrectGuesserIds()));
 		msg.put("drawerUsername", round.getDrawerUsername());
 		msg.put("timestamp", LocalDateTime.now().toString());
 		messagingTemplate.convertAndSend("/topic/room/" + roomCode, (Object) msg);
@@ -539,6 +586,7 @@ public class GameRoundManager {
 		}
 		drawerOrders.remove(sessionId);
 		drawerRotationCounters.remove(sessionId);
+		usedWordsPerSession.remove(sessionId);
 		roomCodeToSessionId.entrySet().removeIf(e -> e.getValue().equals(sessionId));
 	}
 }

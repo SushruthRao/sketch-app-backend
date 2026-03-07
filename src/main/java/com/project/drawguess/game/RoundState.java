@@ -3,6 +3,7 @@ package com.project.drawguess.game;
 
 import java.time.Duration;
 import java.time.Instant;
+import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
 import java.util.concurrent.ScheduledFuture;
@@ -18,7 +19,8 @@ public class RoundState {
 	private final String drawerEmail;
 	private final String word;
 	private final Instant startedAt;
-	private final Set<Long> correctGuessers = ConcurrentHashMap.newKeySet();
+	/** Maps userId → seconds elapsed when they guessed correctly */
+	private final Map<Long, Long> correctGuessers = new ConcurrentHashMap<>();
 	private final int totalGuessers;
 	private ScheduledFuture<?> timerTask;
 
@@ -44,10 +46,15 @@ public class RoundState {
 	}
 
 	public boolean hasPlayerGuessed(Long userId) {
-		return correctGuessers.contains(userId);
+		return correctGuessers.containsKey(userId);
 	}
 
-	public void addCorrectGuesser(Long userId) {
-		correctGuessers.add(userId);
+	public void addCorrectGuesser(Long userId, long secondsTaken) {
+		correctGuessers.put(userId, secondsTaken);
+	}
+
+	/** Returns just the user IDs of correct guessers (for live broadcasts). */
+	public Set<Long> getCorrectGuesserIds() {
+		return correctGuessers.keySet();
 	}
 }
