@@ -17,6 +17,7 @@ import com.project.drawguess.game.GameRoundManager;
 import com.project.drawguess.model.Session;
 import com.project.drawguess.service.impl.CanvasStrokeServiceImpl;
 import com.project.drawguess.service.impl.SessionServiceImpl;
+import com.project.drawguess.websocket.BinaryCanvasCodec;
 
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
@@ -34,7 +35,7 @@ public class CanvasWebSocketController {
 	@MessageMapping("/canvas/room/{roomCode}/draw")
 	public void handleDraw(@DestinationVariable String roomCode,
 			Principal principal,
-			@Payload Map<String, Object> strokeData) {
+			@Payload byte[] rawData) {
 		if (principal == null) return;
 
 		Session session = sessionServiceImpl.getActiveSession(roomCode);
@@ -44,11 +45,12 @@ public class CanvasWebSocketController {
 				return;
 			}
 		}
+
+		Map<String, Object> strokeData = BinaryCanvasCodec.decodeClientStroke(rawData);
 		canvasStrokeService.addStroke(roomCode, strokeData);
 
-		Map<String, Object> broadcast = new HashMap<>(strokeData);
-		broadcast.put("senderUsername", principal.getName());
-		messagingTemplate.convertAndSend("/canvas-topic/room/" + roomCode + "/draw", (Object) broadcast);
+		byte[] broadcast = BinaryCanvasCodec.encodeStroke(strokeData, principal.getName());
+		messagingTemplate.convertAndSend("/canvas-topic/room/" + roomCode + "/draw", broadcast);
 	}
 
 	@MessageMapping("/canvas/room/{roomCode}/clear")
@@ -59,9 +61,7 @@ public class CanvasWebSocketController {
 
 		canvasStrokeService.clearStrokes(roomCode);
 
-		Map<String, Object> clearMsg = new HashMap<>();
-		clearMsg.put("type", "CANVAS_CLEAR");
-		messagingTemplate.convertAndSend("/canvas-topic/room/" + roomCode + "/draw", (Object) clearMsg);
+		messagingTemplate.convertAndSend("/canvas-topic/room/" + roomCode + "/draw", BinaryCanvasCodec.encodeClear());
 	}
 
 	@MessageMapping("/canvas/room/{roomCode}/request-state")
@@ -69,11 +69,9 @@ public class CanvasWebSocketController {
 		if (principal == null) return;
 		List<Map<String, Object>> strokes = canvasStrokeService.getStrokes(roomCode);
 		if (strokes != null && !strokes.isEmpty()) {
-			Map<String, Object> canvasState = new HashMap<>();
-			canvasState.put("type", "CANVAS_STATE");
-			canvasState.put("strokes", new ArrayList<>(strokes));
-			messagingTemplate.convertAndSendToUser(principal.getName(), "/canvas-queue/canvas-state", canvasState);
-			log.info("Sent {} canvas strokes to {} for room {}", strokes.size(), principal.getName(), roomCode);
+			byte[] stateBytes = BinaryCanvasCodec.encodeCanvasState(new ArrayList<>(strokes));
+			messagingTemplate.convertAndSendToUser(principal.getName(), "/canvas-queue/canvas-state", stateBytes);
+			log.info("Sent {} canvas strokes (binary) to {} for room {}", strokes.size(), principal.getName(), roomCode);
 		}
 	}
 

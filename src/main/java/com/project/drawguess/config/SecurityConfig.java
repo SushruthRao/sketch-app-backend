@@ -60,7 +60,7 @@ public class SecurityConfig {
 						auth.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 						.requestMatchers("/health").permitAll()
 						.requestMatchers("/user/register", "/user/login", "/user/logout", "/user/refresh").permitAll()
-						.requestMatchers("/ws/**", "/ws-canvas/**").permitAll()
+						.requestMatchers("/ws/**", "/ws-canvas/**", "/ws-canvas-binary").permitAll()
 						.anyRequest().authenticated()
 						);
 
