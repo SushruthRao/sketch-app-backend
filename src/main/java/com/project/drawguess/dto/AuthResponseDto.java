@@ -7,4 +7,5 @@ public class AuthResponseDto {
 	public String userName;
 	public String accessToken;
 	public long expiresIn;
+	public boolean isAdmin;
 }

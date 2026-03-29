@@ -83,6 +83,7 @@ public class UserController {
 		authResponse.setUserName(userServiceImpl.fetchUsername(authRequestDto.getEmail()));
 		authResponse.setAccessToken(accessToken);
 		authResponse.setExpiresIn(jwtUtil.getAccessTokenExpirationMs());
+		authResponse.setAdmin(userServiceImpl.fetchIsAdmin(authRequestDto.getEmail()));
 
 		return ResponseEntity.ok(authResponse);
 	}
@@ -130,7 +131,8 @@ public class UserController {
 	public ResponseEntity<?> me(@AuthenticationPrincipal UserDetails userDetails) {
 		String email = userDetails.getUsername();
 		String userName = userServiceImpl.fetchUsername(email);
-		return ResponseEntity.ok(Map.of("userName", userName));
+		boolean isAdmin = userServiceImpl.fetchIsAdmin(email);
+		return ResponseEntity.ok(Map.of("userName", userName, "isAdmin", isAdmin));
 	}
 
 	private String extractRefreshCookie(HttpServletRequest request) {

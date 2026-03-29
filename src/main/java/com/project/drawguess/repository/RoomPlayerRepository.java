@@ -16,4 +16,5 @@ public interface RoomPlayerRepository extends JpaRepository<RoomPlayer, Long> {
 	Optional<RoomPlayer> findByWebsocketSessionId(String websocketSessionId);
 	long countByRoomAndIsActive(Room room, Boolean isActive);
 	List<RoomPlayer> findByRoomAndUser(Room room, User user);
+	long countByIsActive(boolean isActive);
 }

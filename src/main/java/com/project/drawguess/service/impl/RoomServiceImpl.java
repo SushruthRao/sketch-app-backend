@@ -52,6 +52,7 @@ public class RoomServiceImpl {
 	private final CanvasStrokeServiceImpl canvasStrokeService;
 	private final UserCacheService userCacheService;
 	private final RoomCacheService roomCacheService;
+	private final com.project.drawguess.service.PublicRoomsSseService publicRoomsSseService;
 
 	private final Map<String, ScheduledFuture<?>> pendingDisconnectTasks = new ConcurrentHashMap<>();
 	private final Map<String, String> disconnectingPlayers = new ConcurrentHashMap<>();
@@ -442,9 +443,13 @@ public class RoomServiceImpl {
 	}
 
 	public void broadcastLobbyUpdate() {
+		// Keep the WebSocket broadcast for any existing subscribers
 		Map<String, Object> signal = new HashMap<>();
 		signal.put("type", "PUBLIC_ROOMS_UPDATED");
 		messagingTemplate.convertAndSend("/topic/public-rooms", (Object) signal);
+
+		// Push the updated room list directly to all open SSE connections on the home page
+		publicRoomsSseService.push(getPublicRooms());
 	}
 
 	private void sendLobbyCanvasState(String roomCode, User user) {

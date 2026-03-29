@@ -1,5 +1,6 @@
 package com.project.drawguess.service.impl;
 
+import java.util.ArrayList;
 import java.util.List;
 
 import com.project.drawguess.exception.ResourceNotFoundException;
@@ -43,7 +44,11 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 			throw new UsernameNotFoundException(username + " not found in database ");
 		}
 
-		List<SimpleGrantedAuthority> authorities = List.of(new SimpleGrantedAuthority("ROLE_USER"));
+		List<SimpleGrantedAuthority> authorities = new ArrayList<>();
+		authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
+		if (existingUser.isAdmin()) {
+			authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
+		}
 
 		return new org.springframework.security.core.userdetails.User(existingUser.getEmail(),
 				existingUser.getPasswordHash(), authorities);
@@ -58,6 +63,16 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 			throw new ResourceNotFoundException("User not found for email: " + email);
 		}
 		return existingUser.getUsername();
+	}
+
+	@Override
+	public boolean fetchIsAdmin(String email)
+	{
+		User existingUser = userCacheService.findByEmail(email);
+		if (existingUser == null) {
+			throw new ResourceNotFoundException("User not found for email: " + email);
+		}
+		return existingUser.isAdmin();
 	}
 	
 	@Override

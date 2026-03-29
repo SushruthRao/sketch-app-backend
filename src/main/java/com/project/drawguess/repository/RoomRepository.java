@@ -1,5 +1,7 @@
 package com.project.drawguess.repository;
 
+import org.springframework.data.domain.Page;
+import org.springframework.data.domain.Pageable;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.stereotype.Repository;
 
@@ -24,4 +26,10 @@ public interface RoomRepository extends JpaRepository<Room, Long> {
 
 	// Used by the cleanup scheduler to find all waiting rooms
 	List<Room> findByStatus(RoomStatus status);
+
+	// Paginated room list filtered by status — used by the admin rooms table
+	Page<Room> findByStatusInOrderByCreatedAtDesc(List<RoomStatus> statuses, Pageable pageable);
+
+	// All rooms newest-first, no status filter — used for the full admin rooms view
+	Page<Room> findAllByOrderByCreatedAtDesc(Pageable pageable);
 }
