@@ -24,6 +24,12 @@ import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Per-player state for a single {@link Session}: score, host flag,
+ * join/leave timestamps, and an active flag mirroring presence. Scoring
+ * accumulates here via {@link #addScore(int)} and is reported at session
+ * end to compute the winner.
+ */
 @Entity
 @Table(name = "user_sessions_table", indexes = {
     @Index(name = "idx_user_session_session_active", columnList = "session_id, is_active"),

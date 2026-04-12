@@ -24,6 +24,13 @@ import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * A single run of a game inside a {@link Room}. Created when the host
+ * clicks "start", marked {@code ACTIVE} during gameplay, and flipped to
+ * {@code COMPLETED} when all rounds finish (or the room empties out past
+ * the grace period). {@link UserSession} rows are the per-player join
+ * table for scoring and host/drawer flags.
+ */
 @Entity
 @Table(name = "sessions_table", indexes = {
     @Index(name = "idx_session_room_status", columnList = "room_id, status")

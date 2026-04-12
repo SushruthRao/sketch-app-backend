@@ -291,7 +291,7 @@ public class RoomServiceImpl {
 					maxPlayersPerRoom,
 					room.getCreatedAt().toString()
 				);
-			}).collect(Collectors.toList());
+			}).toList();
 	}
 	
 
@@ -533,7 +533,7 @@ public class RoomServiceImpl {
 				playerData.put("isHost", room.getHost().getUserId().equals(player.getUser().getUserId()));
 				playerData.put("joinedAt", player.getJoinedAt().toString());
 				return playerData;
-			}).collect(Collectors.toList());
+			}).toList();
 	}
 
 	private void broadcastPlayerUpdate(String roomCode, String eventType, String username) {

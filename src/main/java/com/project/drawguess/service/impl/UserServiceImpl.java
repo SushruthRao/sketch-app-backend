@@ -74,15 +74,15 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 			throws UserWithEmailAlreadyRegisteredException {
 
 		User newUser = new User();
-		newUser.setEmail(registerRequestDto.getEmail());
-		newUser.setUsername(registerRequestDto.getUsername());
-		String email = registerRequestDto.getEmail();
+		newUser.setEmail(registerRequestDto.email());
+		newUser.setUsername(registerRequestDto.username());
+		String email = registerRequestDto.email();
 
 		if (userRepository.existsByEmail(email)) {
 			throw new UserWithEmailAlreadyRegisteredException("User with email " + email + " already registered");
 		}
 
-		newUser.setPasswordHash(passwordEncoder.encode(registerRequestDto.getPasswordHash()));
+		newUser.setPasswordHash(passwordEncoder.encode(registerRequestDto.passwordHash()));
 		userRepository.save(newUser);
 		User savedUser = userRepository.findByEmail(newUser.getEmail());
 		userRepository.save(savedUser);

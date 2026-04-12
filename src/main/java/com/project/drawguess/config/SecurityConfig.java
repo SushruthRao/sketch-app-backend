@@ -29,6 +29,18 @@ import com.project.drawguess.jwtfilter.JwtRequestFilter;
 import com.project.drawguess.service.impl.UserServiceImpl;
 
 
+/**
+ * Central Spring Security wiring: disables CSRF (we're JWT-stateless),
+ * installs {@link JwtRequestFilter} before the username/password filter,
+ * and routes auth failures / forbiddens through our custom JSON-shaped
+ * handlers so the frontend always receives a predictable
+ * {@code ErrorResponse} body.
+ *
+ * <p><b>Public routes:</b> {@code /user/register}, {@code /user/login},
+ * {@code /user/refresh}, {@code /user/logout}, {@code /health}, and the
+ * raw WebSocket handshakes (auth for those happens inside
+ * {@code WebSocketAuthInterceptor} at STOMP CONNECT time).
+ */
 @Configuration
 @EnableWebSecurity
 public class SecurityConfig {

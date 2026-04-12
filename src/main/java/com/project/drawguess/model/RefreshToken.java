@@ -16,6 +16,13 @@ import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Refresh token row backing JWT refresh-token rotation. Only the SHA-256
+ * {@code tokenHash} is stored — the raw opaque token is returned to the
+ * client in an {@code HttpOnly} cookie and never appears in the DB.
+ * Rotated on every {@code /user/refresh} call; {@code revoked=true} on
+ * logout or after successful rotation.
+ */
 @Data
 @Entity
 @Table(name = "refresh_tokens", indexes = {

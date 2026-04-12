@@ -14,6 +14,11 @@ import com.project.drawguess.service.impl.SessionServiceImpl;
 
 import lombok.RequiredArgsConstructor;
 
+/**
+ * Exposes the currently active game session (if any) for a given room code.
+ * The frontend hits this on room load to decide between "show lobby" and
+ * "show in-progress game UI" before connecting the WebSocket.
+ */
 @RestController
 @RequestMapping("/api/sessions")
 @RequiredArgsConstructor

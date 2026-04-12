@@ -13,12 +13,23 @@ import org.springframework.web.servlet.HandlerExceptionResolver;
 
 import com.project.drawguess.service.impl.UserServiceImpl;
 
+import io.jsonwebtoken.ExpiredJwtException;
+import io.jsonwebtoken.JwtException;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * Per-request JWT filter.
+ *
+ * Extracts the {@code Authorization: Bearer <token>} header, validates it,
+ * and populates the Spring Security context. Any JWT exception (expired,
+ * malformed, signature mismatch) is forwarded to
+ * {@link HandlerExceptionResolver} so that {@code GlobalExceptionHandler}
+ * produces a consistent 401 JSON body across REST and SSE endpoints.
+ */
 @Component
 @Slf4j
 public class JwtRequestFilter extends OncePerRequestFilter {
@@ -47,8 +58,6 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 
 			final String authorizationHeader = request.getHeader("Authorization");
 
-//			log.info("[JWTRequestFilter] doFilterInternal : request" + request.getServletPath() + " Header : " + authorizationHeader);
-			
 			if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
 				jwt = authorizationHeader.substring(7);
 				username = jwtUtil.extractUsernameFromAccessToken(jwt);
@@ -64,7 +73,18 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 				}
 			}
 			chain.doFilter(request, response);
+		} catch (ExpiredJwtException e) {
+			// Surface expiry explicitly so the frontend can trigger a refresh
+			log.info("Expired JWT on {} from {}: {}", request.getRequestURI(), request.getRemoteAddr(), e.getMessage());
+			request.setAttribute("jwt_expired", Boolean.TRUE);
+			handlerExceptionResolver.resolveException(request, response, null, e);
+		} catch (JwtException e) {
+			// Malformed / signature / unsupported token → 401
+			log.warn("Invalid JWT on {}: {}", request.getRequestURI(), e.getMessage());
+			handlerExceptionResolver.resolveException(request, response, null, e);
 		} catch (Exception e) {
+			// Last-resort catch; avoid leaking stack trace to client but keep server log
+			log.error("Unexpected error in JwtRequestFilter on {}: {}", request.getRequestURI(), e.getMessage(), e);
 			handlerExceptionResolver.resolveException(request, response, null, e);
 		}
 	}

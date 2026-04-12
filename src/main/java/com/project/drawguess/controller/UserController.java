@@ -72,18 +72,18 @@ public class UserController {
 	public ResponseEntity<?> login(@RequestBody @Valid AuthRequestDto authRequestDto, HttpServletResponse response) throws BadCredentialsException, Exception {
 
 		authenticationManager.authenticate(
-				new UsernamePasswordAuthenticationToken(authRequestDto.getEmail(), authRequestDto.getPassword()));
+				new UsernamePasswordAuthenticationToken(authRequestDto.email(), authRequestDto.password()));
 
-		String accessToken = jwtUtil.generateAccessToken(authRequestDto.getEmail());
-		String rawRefreshToken = refreshTokenService.createRefreshToken(authRequestDto.getEmail());
+		String accessToken = jwtUtil.generateAccessToken(authRequestDto.email());
+		String rawRefreshToken = refreshTokenService.createRefreshToken(authRequestDto.email());
 
 		addRefreshCookie(response, rawRefreshToken);
 
-		AuthResponseDto authResponse = new AuthResponseDto();
-		authResponse.setUserName(userServiceImpl.fetchUsername(authRequestDto.getEmail()));
-		authResponse.setAccessToken(accessToken);
-		authResponse.setExpiresIn(jwtUtil.getAccessTokenExpirationMs());
-		authResponse.setAdmin(userServiceImpl.isUserAdmin(authRequestDto.getEmail()));
+		AuthResponseDto authResponse = new AuthResponseDto(
+				userServiceImpl.fetchUsername(authRequestDto.email()),
+				accessToken,
+				jwtUtil.getAccessTokenExpirationMs(),
+				userServiceImpl.isUserAdmin(authRequestDto.email()));
 
 		return ResponseEntity.ok(authResponse);
 	}
@@ -110,10 +110,10 @@ public class UserController {
 
 		addRefreshCookie(response, newRawRefreshToken.get());
 
-		RefreshResponseDto refreshResponse = new RefreshResponseDto();
-		refreshResponse.setAccessToken(newAccessToken);
-		refreshResponse.setExpiresIn(jwtUtil.getAccessTokenExpirationMs());
-		
+		RefreshResponseDto refreshResponse = new RefreshResponseDto(
+				newAccessToken,
+				jwtUtil.getAccessTokenExpirationMs());
+
 		return ResponseEntity.ok(refreshResponse);
 	}
 

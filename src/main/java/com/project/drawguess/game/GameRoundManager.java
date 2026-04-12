@@ -135,11 +135,11 @@ public class GameRoundManager {
 
 		Set<Long> activeIds = activePlayers.stream()
 				.map(us -> us.getUser().getUserId())
-				.collect(Collectors.toSet());
+				.collect(Collectors.toUnmodifiableSet());
 
 		List<Long> activeOrder = originalOrder.stream()
 				.filter(activeIds::contains)
-				.collect(Collectors.toList());
+				.toList();
 
 		if (activeOrder.isEmpty()) {
 			if (retryCount < MAX_START_RETRIES) {

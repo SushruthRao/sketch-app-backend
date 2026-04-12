@@ -24,6 +24,23 @@ import com.project.drawguess.service.impl.SessionServiceImpl;
 import lombok.RequiredArgsConstructor;
 import lombok.extern.slf4j.Slf4j;
 
+/**
+ * STOMP-facing controller for in-game messaging. Handles:
+ *
+ * <ul>
+ *   <li>{@code /app/room/{code}/join}  — client announces it's in the room
+ *       (used to bind username ↔ websocket session and start grace-period
+ *       bookkeeping)</li>
+ *   <li>{@code /app/room/{code}/start} — host starts the session</li>
+ *   <li>{@code /app/room/{code}/guess} — chat + guess pipeline routed
+ *       through {@link GameRoundManager} for scoring</li>
+ * </ul>
+ *
+ * Exceptions thrown from any {@code @MessageMapping} are caught by
+ * {@link #handleWebSocketException} and pushed to the user's personal
+ * {@code /user/queue/errors} destination — never swallowed, so the
+ * frontend toast layer can surface them.
+ */
 @Controller
 @Slf4j
 @RequiredArgsConstructor

@@ -17,6 +17,21 @@ import com.project.drawguess.websocket.WebSocketAuthInterceptor;
 
 import lombok.RequiredArgsConstructor;
 
+/**
+ * STOMP/WebSocket broker configuration.
+ *
+ * <ul>
+ *   <li>Simple in-memory broker on {@code /topic}, {@code /queue},
+ *       {@code /canvas-topic}, {@code /canvas-queue}</li>
+ *   <li>Client publishes under {@code /app}; user-targeted destinations
+ *       under {@code /user}</li>
+ *   <li>SockJS fallback enabled on both {@code /ws} (game) and
+ *       {@code /ws-canvas} (drawing strokes)</li>
+ *   <li>Inbound channel interceptor ({@link WebSocketAuthInterceptor})
+ *       validates JWT on STOMP CONNECT and enforces marked-for-disconnect
+ *       on every subsequent frame</li>
+ * </ul>
+ */
 @Configuration
 @EnableWebSocketMessageBroker
 @RequiredArgsConstructor

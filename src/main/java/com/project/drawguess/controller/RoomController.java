@@ -1,6 +1,5 @@
 package com.project.drawguess.controller;
 
-import java.io.IOException;
 import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
@@ -16,13 +15,18 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.servlet.mvc.method.annotation.SseEmitter;
 
-import com.project.drawguess.dto.OpenRoomDto;
 import com.project.drawguess.model.Room;
 import com.project.drawguess.service.impl.OpenRoomSseService;
 import com.project.drawguess.service.impl.RoomServiceImpl;
 
 import lombok.RequiredArgsConstructor;
 
+/**
+ * REST endpoints for room lifecycle (create, fetch) and the public lobby
+ * SSE stream. Gameplay messaging happens over STOMP in
+ * {@link WebSocketController}; this controller only covers the HTTP surface
+ * the frontend hits before/alongside its WebSocket connection.
+ */
 @RestController
 @RequestMapping("/api/rooms")
 @RequiredArgsConstructor
@@ -57,15 +61,6 @@ public class RoomController {
 	
 	@GetMapping(value = "/public/stream", produces = MediaType.TEXT_EVENT_STREAM_VALUE)
 	public SseEmitter streamPublicRooms() {
-//		SseEmitter emitter = openRoomSseService.createEmitter();
-//
-//		try {
-//			List<OpenRoomDto> rooms = roomServiceImpl.getOpenRooms();
-//			emitter.send(SseEmitter.event().data(rooms, MediaType.APPLICATION_JSON));
-//		} catch (IOException e) {
-//			
-//		}
-
 		return openRoomSseService.createEmitter();
 	}
 

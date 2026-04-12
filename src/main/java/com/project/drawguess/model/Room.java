@@ -19,6 +19,13 @@ import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * A game room identified by a 6-character {@code roomCode}. A room owns
+ * its host user, a status ({@code WAITING}/{@code PLAYING}/{@code FINISHED}),
+ * and is the parent of zero-or-more {@link RoomPlayer} rows. A room can
+ * have at most one <em>active</em> {@link Session} at a time; see
+ * {@code SessionRepository#findActiveSessionByRoomId}.
+ */
 @Data
 @Entity
 @JsonIgnoreProperties({"hibernateLazyInitializer", "handler"})

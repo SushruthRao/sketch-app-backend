@@ -16,6 +16,14 @@ import jakarta.persistence.Table;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * Join row between {@link Room} and {@link User} representing membership
+ * in a room's lobby (pre-game) or active player pool. {@code isActive}
+ * is flipped to {@code false} when the player leaves permanently or the
+ * 30-second disconnect grace period expires; a row's existence is what
+ * lets a returning player rejoin a {@code PLAYING} room (security check
+ * in {@code RoomServiceImpl#joinRoomViaWebSocket}).
+ */
 @Entity
 @Table(name = "room_player_table", indexes = {
     @Index(name = "idx_room_player_room_active", columnList = "room_id, is_active"),

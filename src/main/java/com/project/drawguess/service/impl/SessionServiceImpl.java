@@ -157,7 +157,7 @@ public class SessionServiceImpl {
 			playerData.put("score", us.getScore());
 			playerData.put("isHost", us.getIsHost());
 			return playerData;
-		}).collect(Collectors.toList());
+		}).toList();
 	}
 
 	@Transactional
@@ -365,7 +365,7 @@ public class SessionServiceImpl {
 			scoreData.put("score", us.getScore());
 			return scoreData;
 		}).sorted((a, b) -> Integer.compare((Integer) b.get("score"), (Integer) a.get("score")))
-				.collect(Collectors.toList());
+				.toList();
 		String winner = finalScores.isEmpty() ? null : (String) finalScores.get(0).get("username");
 		Map<String, Object> message = new HashMap<>();
 		message.put("type", "GAME_ENDED");
