@@ -14,7 +14,7 @@ public class HealthController {
 	public ResponseEntity<?> health() {
 		return ResponseEntity.ok(Map.of(
 			"status", "UP",
-			"lastPinged", Instant.now().toString()
+			"time", Instant.now().toString()
 		));
 	}
 }

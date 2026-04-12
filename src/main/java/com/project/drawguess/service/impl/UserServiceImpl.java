@@ -1,10 +1,8 @@
 package com.project.drawguess.service.impl;
 
-import java.util.ArrayList;
 import java.util.List;
 
 import com.project.drawguess.exception.ResourceNotFoundException;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import org.springframework.security.core.userdetails.UserDetailsService;
@@ -23,19 +21,18 @@ import com.project.drawguess.service.UserService;
 @Service
 public class UserServiceImpl implements UserDetailsService, UserService {
 
-	@Autowired
-	private UserRepository userRepository;
-
-	@Autowired
-	private UserCacheService userCacheService;
-	
-
+	private final UserRepository userRepository;
+	private final UserCacheService userCacheService;
 	private final PasswordEncoder passwordEncoder;
 
-	public UserServiceImpl(PasswordEncoder passwordEncoder) {
-		this.passwordEncoder = passwordEncoder;
-	}
 
+	public UserServiceImpl(UserRepository userRepository, 
+	                       UserCacheService userCacheService, 
+	                       PasswordEncoder passwordEncoder) {
+	    this.userRepository = userRepository;
+	    this.userCacheService = userCacheService;
+	    this.passwordEncoder = passwordEncoder;
+	}
 	@Override
 	public UserDetails loadUserByUsername(String username) throws UsernameNotFoundException {
 
@@ -44,11 +41,7 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 			throw new UsernameNotFoundException(username + " not found in database ");
 		}
 
-		List<SimpleGrantedAuthority> authorities = new ArrayList<>();
-		authorities.add(new SimpleGrantedAuthority("ROLE_USER"));
-		if (existingUser.isAdmin()) {
-			authorities.add(new SimpleGrantedAuthority("ROLE_ADMIN"));
-		}
+		List<SimpleGrantedAuthority> authorities = List.of(new SimpleGrantedAuthority("ROLE_USER"));
 
 		return new org.springframework.security.core.userdetails.User(existingUser.getEmail(),
 				existingUser.getPasswordHash(), authorities);
@@ -64,12 +57,13 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 		}
 		return existingUser.getUsername();
 	}
-
+	
 	@Override
-	public boolean fetchIsAdmin(String email)
+	public boolean isUserAdmin(String email)
 	{
 		User existingUser = userCacheService.findByEmail(email);
-		if (existingUser == null) {
+		if(existingUser == null)
+		{
 			throw new ResourceNotFoundException("User not found for email: " + email);
 		}
 		return existingUser.isAdmin();
@@ -96,4 +90,3 @@ public class UserServiceImpl implements UserDetailsService, UserService {
 	}
 
 }
-

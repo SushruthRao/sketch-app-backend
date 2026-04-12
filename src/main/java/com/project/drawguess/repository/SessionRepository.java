@@ -17,11 +17,5 @@ public interface SessionRepository extends JpaRepository<Session, Long> {
 	
 	@Query("SELECT s FROM Session s WHERE s.room.roomId = :roomId AND s.status = 'ACTIVE'")
 	Optional<Session> findActiveSessionByRoomId(Long roomId);
-
-	long countByStatus(SessionStatus status);
-
-	// Sum up currentRound across all sessions for a lifetime "total rounds played" figure
-	@Query("SELECT COALESCE(SUM(s.currentRound), 0) FROM Session s")
-	long sumAllCurrentRounds();
-
+	
 }

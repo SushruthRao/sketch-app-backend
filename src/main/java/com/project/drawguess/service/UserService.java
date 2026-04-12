@@ -7,8 +7,8 @@ public interface UserService {
 
 	String fetchUsername(String email);
 
-	boolean fetchIsAdmin(String email);
-
 	String registerUser(RegisterRequestDto registerRequestDto) throws UserWithEmailAlreadyRegisteredException;
+
+	boolean isUserAdmin(String email);
 
 }

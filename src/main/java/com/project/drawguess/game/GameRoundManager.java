@@ -6,6 +6,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Set;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
@@ -16,15 +17,11 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.messaging.simp.SimpMessagingTemplate;
 import org.springframework.stereotype.Service;
 
-import com.fasterxml.jackson.databind.ObjectMapper;
 import com.project.drawguess.enums.RoomStatus;
 import com.project.drawguess.enums.SessionStatus;
 import com.project.drawguess.model.Room;
-import com.project.drawguess.model.RoundRecord;
 import com.project.drawguess.model.Session;
 import com.project.drawguess.model.UserSession;
-import com.project.drawguess.repository.RoomRepository;
-import com.project.drawguess.repository.RoundRecordRepository;
 import com.project.drawguess.repository.SessionRepository;
 import com.project.drawguess.repository.UserSessionRepository;
 import com.project.drawguess.service.RoomCacheService;
@@ -38,24 +35,20 @@ import lombok.extern.slf4j.Slf4j;
 @RequiredArgsConstructor
 public class GameRoundManager {
 
-	private static final ObjectMapper OBJECT_MAPPER = new ObjectMapper();
-
 	private final SessionRepository sessionRepository;
 	private final UserSessionRepository userSessionRepository;
-	private final RoomRepository roomRepository;
 	private final SimpMessagingTemplate messagingTemplate;
 	private final CanvasStrokeServiceImpl canvasStrokeService;
 	private final RoomCacheService roomCacheService;
-	private final RoundRecordRepository roundRecordRepository;
 
 	private final Map<Long, RoundState> activeRounds = new ConcurrentHashMap<>();
 	private final Map<Long, List<Long>> drawerOrders = new ConcurrentHashMap<>();
 	private final Map<Long, Integer> drawerRotationCounters = new ConcurrentHashMap<>();
 	private final Map<String, Long> roomCodeToSessionId = new ConcurrentHashMap<>();
 	private final Map<Long, ScheduledFuture<?>> pendingNextRoundTasks = new ConcurrentHashMap<>();
-	private final Map<Long, Set<String>> usedWordsPerSession = new ConcurrentHashMap<>();
 
-	private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(10);
+	private final ExecutorService virtualExecutor = Executors.newVirtualThreadPerTaskExecutor();
+	private final ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
 
 	private static final int MAX_START_RETRIES = 6;
 	private static final int RETRY_INTERVAL_SECONDS = 5;
@@ -87,11 +80,13 @@ public class GameRoundManager {
 		log.info("Game initialized for session {}. Drawer order: {}", sessionId, drawerOrder);
 
 		scheduler.schedule(() -> {
-			try {
-				startNextRound(sessionId, roomCode);
-			} catch (Exception e) {
-				log.error("Error starting round for session {}: {}", sessionId, e.getMessage(), e);
-			}
+		    virtualExecutor.submit(() -> {
+		        try {
+		            startNextRound(sessionId, roomCode);
+		        } catch (Exception e) {
+		            log.error("Error starting round for session {}: {}", sessionId, e.getMessage(), e);
+		        }
+		    });
 		}, 2, TimeUnit.SECONDS);
 	}
 
@@ -170,9 +165,7 @@ public class GameRoundManager {
 			return;
 		}
 
-		Set<String> usedWords = usedWordsPerSession.computeIfAbsent(sessionId, k -> ConcurrentHashMap.newKeySet());
-		String word = WordProvider.getRandomWord(usedWords);
-		usedWords.add(word);
+		String word = WordProvider.getRandomWord();
 
 		canvasStrokeService.clearStrokes(roomCode);
 
@@ -192,11 +185,14 @@ public class GameRoundManager {
 		activeRounds.put(sessionId, roundState);
 
 		ScheduledFuture<?> timerTask = scheduler.schedule(() -> {
-			try {
-				endRound(sessionId, roomCode, "TIME_UP");
-			} catch (Exception e) {
-				log.error("Error ending round (TIME_UP) for session {}: {}", sessionId, e.getMessage(), e);
-			}
+		    virtualExecutor.submit(() -> {
+		        try {
+		            endRound(sessionId, roomCode, "TIME_UP");
+		        } catch (Exception e) {
+		            log.error("Error ending round (TIME_UP) for session {}: {}", 
+		                      sessionId, e.getMessage(), e);
+		        }
+		    });
 		}, ROUND_DURATION_SECONDS, TimeUnit.SECONDS);
 		roundState.setTimerTask(timerTask);
 
@@ -302,7 +298,6 @@ public class GameRoundManager {
 				if (round.hasPlayerGuessed(us.getUser().getUserId())) {
 					correctGuesserUsernames.add(us.getUser().getUsername());
 				}
-
 			}
 		}
 		state.put("players", players);
@@ -364,57 +359,23 @@ public class GameRoundManager {
 		log.info("Round {} ended for session {}. Reason: {}. Correct guessers: {}",
 				round.getRoundNumber(), sessionId, reason, round.getCorrectGuessers().size());
 
-		// Capture strokes NOW before the next round clears them
-		List<Map<String, Object>> strokeSnapshot = new ArrayList<>(canvasStrokeService.getStrokes(roomCode));
-
 		broadcastRoundEnded(roomCode, round, reason);
 
-		// Save round record asynchronously so it doesn't block the game loop
-		scheduler.schedule(() -> saveRoundRecord(round, strokeSnapshot, reason), 0, TimeUnit.MILLISECONDS);
-
 		scheduler.schedule(() -> {
-			try {
-				startNextRound(sessionId, roomCode);
-			} catch (Exception e) {
-				log.error("Error starting next round for session {}: {}", sessionId, e.getMessage(), e);
-			}
+		    virtualExecutor.submit(() -> {
+		        try {
+		            startNextRound(sessionId, roomCode);
+		        } catch (Exception e) {
+		            log.error("Error starting next round for session {}: {}", 
+		                      sessionId, e.getMessage(), e);
+		        }
+		    });
 		}, DELAY_BETWEEN_ROUNDS_SECONDS, TimeUnit.SECONDS);
-	}
-
-	private void saveRoundRecord(RoundState round, List<Map<String, Object>> strokes, String reason) {
-		try {
-			Session session = sessionRepository.findById(round.getSessionId()).orElse(null);
-			if (session == null) return;
-
-			Map<Long, Long> guesserTimings = round.getCorrectGuessers(); // userId → secondsTaken
-			List<UserSession> allPlayers = userSessionRepository.findBySession(session);
-			List<Map<String, Object>> correctGuesserData = allPlayers.stream()
-					.filter(us -> guesserTimings.containsKey(us.getUser().getUserId()))
-					.map(us -> {
-						Map<String, Object> entry = new HashMap<>();
-						entry.put("username", us.getUser().getUsername());
-						entry.put("secondsTaken", guesserTimings.get(us.getUser().getUserId()));
-						return entry;
-					})
-					.collect(Collectors.toList());
-
-			String correctGuessersJson = OBJECT_MAPPER.writeValueAsString(correctGuesserData);
-			String canvasStrokesJson = OBJECT_MAPPER.writeValueAsString(strokes);
-
-			RoundRecord record = new RoundRecord(session, round.getRoundNumber(), round.getWord(),
-					round.getDrawerUsername(), correctGuessersJson, canvasStrokesJson, reason);
-			roundRecordRepository.save(record);
-
-			log.info("Round record saved: session={} round={} word={}",
-					round.getSessionId(), round.getRoundNumber(), round.getWord());
-		} catch (Exception e) {
-			log.error("Failed to save round record for session {}: {}", round.getSessionId(), e.getMessage());
-		}
 	}
 
 	private void handleCorrectGuess(Long sessionId, String roomCode,
 			RoundState round, Long userId, String username) {
-		round.addCorrectGuesser(userId, round.getElapsedSeconds());
+		round.addCorrectGuesser(userId);
 
 		long elapsed = round.getElapsedSeconds();
 		int guesserScore = Math.max(50, (int) (MAX_GUESSER_POINTS
@@ -459,8 +420,20 @@ public class GameRoundManager {
 		return message.toLowerCase().contains(word.toLowerCase());
 	}
 
+	
+	private String normalize(String str) {
+	    // Removes all whitespace and converts to lowercase
+	    return str.replaceAll("\\s+", "").toLowerCase();
+	}
+	
 	private boolean isCorrectGuess(String message, String word) {
-		return message.trim().equalsIgnoreCase(word);
+	    String cleanMessage = normalize(message);
+	    String cleanWord = normalize(word);
+	    
+	    if (cleanMessage.equals(cleanWord)) return true;
+
+	    int distance = getLevenshteinDistance(cleanMessage, cleanWord);
+	    return distance >= 1 && distance <= 2;
 	}
 
 	private void broadcastRoundStarted(String roomCode, RoundState round,
@@ -502,7 +475,7 @@ public class GameRoundManager {
 		msg.put("roundNumber", round.getRoundNumber());
 		msg.put("word", round.getWord());
 		msg.put("reason", reason);
-		msg.put("correctGuessers", new ArrayList<>(round.getCorrectGuesserIds()));
+		msg.put("correctGuessers", new ArrayList<>(round.getCorrectGuessers()));
 		msg.put("drawerUsername", round.getDrawerUsername());
 		msg.put("timestamp", LocalDateTime.now().toString());
 		messagingTemplate.convertAndSend("/topic/room/" + roomCode, (Object) msg);
@@ -566,11 +539,14 @@ public class GameRoundManager {
 
 	private void scheduleRetry(Long sessionId, String roomCode, int retryCount) {
 		ScheduledFuture<?> task = scheduler.schedule(() -> {
-			try {
-				startNextRound(sessionId, roomCode, retryCount);
-			} catch (Exception e) {
-				log.error("Error retrying startNextRound for session {}: {}", sessionId, e.getMessage(), e);
-			}
+		    virtualExecutor.submit(() -> {
+		        try {
+		            startNextRound(sessionId, roomCode, retryCount);
+		        } catch (Exception e) {
+		            log.error("Error retrying startNextRound for session {}: {}", 
+		                      sessionId, e.getMessage(), e);
+		        }
+		    });
 		}, RETRY_INTERVAL_SECONDS, TimeUnit.SECONDS);
 		pendingNextRoundTasks.put(sessionId, task);
 	}
@@ -586,7 +562,25 @@ public class GameRoundManager {
 		}
 		drawerOrders.remove(sessionId);
 		drawerRotationCounters.remove(sessionId);
-		usedWordsPerSession.remove(sessionId);
 		roomCodeToSessionId.entrySet().removeIf(e -> e.getValue().equals(sessionId));
 	}
+	
+	
+	private int getLevenshteinDistance(String s1, String s2) {
+	    int[][] dp = new int[s1.length() + 1][s2.length() + 1];
+
+	    for (int i = 0; i <= s1.length(); i++) {
+	        for (int j = 0; j <= s2.length(); j++) {
+	            if (i == 0) dp[i][j] = j;
+	            else if (j == 0) dp[i][j] = i;
+	            else {
+	                int cost = (s1.charAt(i - 1) == s2.charAt(j - 1)) ? 0 : 1;
+	                dp[i][j] = Math.min(Math.min(dp[i - 1][j] + 1, dp[i][j - 1] + 1), 
+	                           dp[i - 1][j - 1] + cost);
+	            }
+	        }
+	    }
+	    return dp[s1.length()][s2.length()];
+	}
+
 }

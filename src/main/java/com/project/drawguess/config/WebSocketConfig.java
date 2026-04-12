@@ -17,7 +17,6 @@ import com.project.drawguess.websocket.WebSocketAuthInterceptor;
 
 import lombok.RequiredArgsConstructor;
 
-
 @Configuration
 @EnableWebSocketMessageBroker
 @RequiredArgsConstructor
@@ -26,30 +25,23 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 	private final WebSocketAuthInterceptor webSocketAuthInterceptor;
 
 	@Override
-	public void configureMessageBroker(MessageBrokerRegistry config)
-	{
+	public void configureMessageBroker(MessageBrokerRegistry config) {
 		config.enableSimpleBroker("/topic", "/queue", "/canvas-topic", "/canvas-queue"); // server -> client (broadcast)
 		config.setApplicationDestinationPrefixes("/app"); // client -> server
 		config.setUserDestinationPrefix("/user");
 	}
 
 	@Override
-	public void registerStompEndpoints(StompEndpointRegistry registry)
-	{
-		registry.addEndpoint("/ws")
-			.setAllowedOrigins("https://sketch-app-frontend.vercel.app", "https://sketch-vr.vercel.app", "http://localhost:5173")
-			.addInterceptors(new JwtCookieHandshakeInterceptor())
-			.withSockJS();
+	public void registerStompEndpoints(StompEndpointRegistry registry) {
+		registry.addEndpoint("/ws").setAllowedOriginPatterns("*").addInterceptors(new JwtCookieHandshakeInterceptor())
+				.withSockJS();
 
-		registry.addEndpoint("/ws-canvas")
-			.setAllowedOrigins("https://sketch-app-frontend.vercel.app","https://sketch-vr.vercel.app", "http://localhost:5173")
-			.addInterceptors(new JwtCookieHandshakeInterceptor(), new CanvasHandshakeInterceptor())
-			.withSockJS();
+		registry.addEndpoint("/ws-canvas").setAllowedOriginPatterns("*")
+				.addInterceptors(new JwtCookieHandshakeInterceptor(), new CanvasHandshakeInterceptor()).withSockJS();
 	}
 
 	@Override
-	public void configureClientInboundChannel(ChannelRegistration registration)
-	{
+	public void configureClientInboundChannel(ChannelRegistration registration) {
 		registration.interceptors(webSocketAuthInterceptor);
 	}
 
@@ -61,8 +53,8 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 		}
 
 		@Override
-		public void afterHandshake(ServerHttpRequest request, ServerHttpResponse response,
-				WebSocketHandler wsHandler, Exception exception) {
+		public void afterHandshake(ServerHttpRequest request, ServerHttpResponse response, WebSocketHandler wsHandler,
+				Exception exception) {
 		}
 	}
 
@@ -75,8 +67,8 @@ public class WebSocketConfig implements WebSocketMessageBrokerConfigurer {
 		}
 
 		@Override
-		public void afterHandshake(ServerHttpRequest request, ServerHttpResponse response,
-				WebSocketHandler wsHandler, Exception exception) {
+		public void afterHandshake(ServerHttpRequest request, ServerHttpResponse response, WebSocketHandler wsHandler,
+				Exception exception) {
 		}
 	}
 

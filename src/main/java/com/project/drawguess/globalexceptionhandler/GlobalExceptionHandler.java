@@ -80,6 +80,12 @@ public class GlobalExceptionHandler {
 		return new ErrorResponse(HttpStatus.CONFLICT.value(), "Conflict", e.getMessage());
 	}
 
+	@ExceptionHandler(org.springframework.web.context.request.async.AsyncRequestNotUsableException.class)
+	public void handleAsyncRequestNotUsableException() {
+	    log.debug("AsyncRequestClosed : ");
+	}
+
+	
 	@ExceptionHandler(Exception.class)
 	@ResponseStatus(HttpStatus.INTERNAL_SERVER_ERROR)
 	public ErrorResponse handleGeneralException(Exception e) {

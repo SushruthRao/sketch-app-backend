@@ -22,11 +22,14 @@ public class CustomAccessDeniedHandler implements AccessDeniedHandler {
     public void handle(HttpServletRequest request, HttpServletResponse response, AccessDeniedException accessDeniedException) throws IOException {
         response.setContentType(MediaType.APPLICATION_JSON_VALUE);
         response.setStatus(HttpStatus.FORBIDDEN.value());
-
+        
+        String requestPath = request.getRequestURI();
+        
+        
         ErrorResponse errorResponse = new ErrorResponse(
                 HttpStatus.FORBIDDEN.value(),
                 "Forbidden",
-                "Access denied: You do not have permission to access this resource"
+                "Access denied: You do not have permission to access: " + requestPath
         );
 
         mapper.writeValue(response.getOutputStream(), errorResponse);

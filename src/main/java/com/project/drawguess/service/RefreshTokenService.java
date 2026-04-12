@@ -78,7 +78,6 @@ public class RefreshTokenService {
 
         String email = jwtUtil.extractUsernameFromRefreshToken(rawToken);
 
-        // Rotation: revoke old token, issue new one
         stored.get().setRevoked(true);
         refreshTokenRepository.save(stored.get());
 

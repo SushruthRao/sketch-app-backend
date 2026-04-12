@@ -7,6 +7,7 @@ import java.util.List;
 import java.util.Map;
 import java.util.Optional;
 import java.util.concurrent.ConcurrentHashMap;
+import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ScheduledFuture;
@@ -18,6 +19,7 @@ import org.springframework.stereotype.Service;
 
 import com.project.drawguess.enums.RoomStatus;
 import com.project.drawguess.enums.SessionStatus;
+import com.project.drawguess.events.RoomListChanged;
 import com.project.drawguess.game.GameRoundManager;
 import com.project.drawguess.model.Room;
 import java.util.ArrayList;
@@ -33,6 +35,7 @@ import com.project.drawguess.repository.UserSessionRepository;
 import com.project.drawguess.service.RoomCacheService;
 
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.ApplicationEventPublisher;
 
 import jakarta.transaction.Transactional;
 import lombok.RequiredArgsConstructor;
@@ -44,18 +47,20 @@ import lombok.extern.slf4j.Slf4j;
 public class SessionServiceImpl {
 	private final SessionRepository sessionRepository;
 	private final UserSessionRepository userSessionRepository;
-	private final RoomRepository roomRepository;
 	private final RoomPlayerRepository roomPlayerRepository;
 	private final UserRepository userRepository;
 	private final SimpMessagingTemplate messagingTemplate;
 	private final GameRoundManager gameRoundManager;
 	private final CanvasStrokeServiceImpl canvasStrokeService;
 	private final RoomCacheService roomCacheService;
-
+	private final ApplicationEventPublisher eventPublisher;
+	
 	private final Map<String, ScheduledFuture<?>> sessionDisconnectTasks = new ConcurrentHashMap<>();
 	private final Map<String, String> disconnectingSessionPlayers = new ConcurrentHashMap<>();
-	private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(10);
-
+//	private final ScheduledExecutorService scheduler = Executors.newScheduledThreadPool(10);
+//	private final ExecutorService virtualExecutor = Executors.newVirtualThreadPerTaskExecutor();
+	ScheduledExecutorService scheduler = Executors.newSingleThreadScheduledExecutor();
+	
 	@Value("${app.disconnect.grace-period-seconds:30}")
 	private int gracePeriodSeconds;
 
@@ -77,8 +82,6 @@ public class SessionServiceImpl {
 		}
 		room.setStatus(RoomStatus.PLAYING);
 		roomCacheService.save(room);
-		messagingTemplate.convertAndSend("/topic/public-rooms", (Object) java.util.Map.of("type", "PUBLIC_ROOMS_UPDATED"));
-
 		Session session = new Session(room, activePlayers.size() * 2);
 		session.setStatus(SessionStatus.ACTIVE);
 		session = sessionRepository.save(session);
@@ -94,10 +97,18 @@ public class SessionServiceImpl {
 		canvasStrokeService.clearStrokes(roomCode);
 		broadcastGameStarted(roomCode, session);
 		gameRoundManager.initializeGame(session, roomCode);
+		eventPublisher.publishEvent(new RoomListChanged());
 		return session;
 
 	}
 
+	
+//	 without virtual executor
+//	ScheduledFuture<?> task = scheduler.schedule(
+//			() -> handleDelayedSessionDisconnect(wsSessionId, room, user, session), gracePeriodSeconds,
+//			TimeUnit.SECONDS);
+	
+	
 	@Transactional
 	public void endSession(String roomCode) {
 		Room room = roomCacheService.findByRoomCode(roomCode);
@@ -118,7 +129,6 @@ public class SessionServiceImpl {
 			room.setStatus(RoomStatus.FINISHED);
 			room.setClosedAt(LocalDateTime.now());
 			roomCacheService.save(room);
-			messagingTemplate.convertAndSend("/topic/public-rooms", (Object) java.util.Map.of("type", "PUBLIC_ROOMS_UPDATED"));
 		}
 		log.info("Session ended : {} for room {} ", session.getSessionId(), roomCode);
 
@@ -167,9 +177,15 @@ public class SessionServiceImpl {
 		disconnectingSessionPlayers.put(playerKey, wsSessionId);
 
 
-		ScheduledFuture<?> task = scheduler.schedule(
-				() -> handleDelayedSessionDisconnect(wsSessionId, room, user, session), gracePeriodSeconds,
-				TimeUnit.SECONDS);
+
+		
+		
+		// with virtual threads executor 
+		ScheduledFuture<?> task = scheduler.schedule(() -> {
+		    Thread.startVirtualThread(() -> 
+	        handleDelayedSessionDisconnect(wsSessionId, room, user, session)
+	    );
+	}, gracePeriodSeconds, TimeUnit.SECONDS);
 
 		sessionDisconnectTasks.put(wsSessionId, task);
 		log.info("Session grace period timer started for {} in session {}", username, session.getSessionId());

@@ -26,14 +26,11 @@ public class WebSocketEventListener  {
 
 		Map<String, Object> sessionAttributes = headerAccessor.getSessionAttributes();
 		if (sessionAttributes != null && Boolean.TRUE.equals(sessionAttributes.get("isCanvasConnection"))) {
-			log.info("Canvas websocket disconnected: {}, skipping grace period", sessionId);
+			log.info("Canvas websocket disconnected: {}", sessionId);
 			return;
 		}
 
-		// event.getUser() is more reliable than headerAccessor.getUser() on disconnect
-		// because Spring stores the principal at the session level, not in the message headers
-		String username = event.getUser() != null ? event.getUser().getName() : null;
-		log.info("Websocket disconnected : {}, user: {}", sessionId, username);
-		roomServiceImpl.handlePlayerDisconnect(sessionId, username);
+		log.info("Websocket disconnected : {} ", sessionId);
+		roomServiceImpl.handlePlayerDisconnect(sessionId);
 	}
 }

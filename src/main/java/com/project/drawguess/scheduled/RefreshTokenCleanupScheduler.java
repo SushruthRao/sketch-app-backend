@@ -1,4 +1,4 @@
-package com.project.drawguess.scheduler;
+package com.project.drawguess.scheduled;
 
 import java.time.LocalDateTime;
 

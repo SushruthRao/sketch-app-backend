@@ -1,10 +1,6 @@
 package com.project.drawguess.game;
 
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.List;
 import java.util.Random;
-import java.util.Set;
 
 public class WordProvider {
 
@@ -27,17 +23,7 @@ public class WordProvider {
 		"crown", "treasure", "map", "key"
 	};
 
-	/**
-	 * Returns a random word that has not been used in the current session.
-	 * Falls back to any random word if all words have been exhausted.
-	 */
-	public static String getRandomWord(Set<String> usedWords) {
-		List<String> available = new ArrayList<>(Arrays.asList(WORDS));
-		available.removeAll(usedWords);
-		if (available.isEmpty()) {
-			// All words exhausted — fall back to full list
-			return WORDS[random.nextInt(WORDS.length)];
-		}
-		return available.get(random.nextInt(available.size()));
+	public static String getRandomWord() {
+		return WORDS[random.nextInt(WORDS.length)];
 	}
 }

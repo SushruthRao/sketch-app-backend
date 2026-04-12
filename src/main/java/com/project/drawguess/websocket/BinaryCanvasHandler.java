@@ -56,7 +56,7 @@ public class BinaryCanvasHandler extends AbstractWebSocketHandler {
     }
 
     @Override
-    protected void handleBinaryMessage(WebSocketSession session, BinaryMessage message) {
+	public void handleBinaryMessage(WebSocketSession session, BinaryMessage message) {
         String username = sessionToUser.get(session.getId());
         String roomCode = sessionToRoom.get(session.getId());
         if (username == null || roomCode == null) return;

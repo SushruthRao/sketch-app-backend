@@ -10,30 +10,27 @@ import java.util.Map;
 /**
  * Binary codec for canvas WebSocket messages.
  *
- * All client → server messages begin with a msg_type byte:
+ * All client -> server, server -> client messages begin with MSG type byte
  *   MSG_STROKE        (0x01) - draw stroke
  *   MSG_CLEAR         (0x02) - clear canvas
  *   MSG_REQUEST_STATE (0x03) - request full canvas state
  *
- * All server → client messages begin with a msg_type byte:
- *   MSG_STROKE (0x01) - draw stroke broadcast
- *   MSG_CLEAR  (0x02) - canvas cleared broadcast
- *   MSG_STATE  (0x03) - full canvas state response
  *
- * Client → server STROKE layout (after the 0x01 type byte):
+ * Client -> server STROKE layout (after the 0x01 type byte) :
  *   [1] tool (0=pen, 1=eraser)
  *   [1] R, [1] G, [1] B
  *   [1] lineWidth
  *   [2] pointCount (uint16 BE)
- *   [4 per point] x uint16 BE, y uint16 BE
+ *   [4] per point] x uint16 BE, y uint16 BE
  *
- * Server → client STROKE layout:
+ * Server -> client STROKE layout:
  *   [1] 0x01 | [1] tool | [3] RGB | [1] lineWidth
  *   [2] pointCount | [4*N] x,y pairs
  *   [1] usernameLen | [N] username UTF-8
  *
- * Server → client CLEAR:   [1] 0x02
- * Server → client STATE:   [1] 0x03 | [2] strokeCount | per-stroke data
+ * Server -> client CLEAR:   [1] 0x02
+ * Server -> client STATE:   [1] 0x03 | [2] strokeCount | per-stroke data
+ * 
  */
 public class BinaryCanvasCodec {
 

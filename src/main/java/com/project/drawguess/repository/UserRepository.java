@@ -1,26 +1,24 @@
 package com.project.drawguess.repository;
 
-import org.springframework.data.domain.Page;
-import org.springframework.data.domain.Pageable;
+import java.util.List;
+
 import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 import org.springframework.stereotype.Repository;
 
+import com.project.drawguess.dto.UserStats;
 import com.project.drawguess.model.User;
-
-import java.time.LocalDateTime;
 
 
 @Repository
 public interface UserRepository extends JpaRepository<User, Long> {
 
+	@Query(value = "SELECT u.username, COUNT(us.user_session_id) AS total_games_played, " +
+	           "MAX(us.score) AS high_score, SUM(us.score) AS total_accumulated_points " +
+	           "FROM users_table u LEFT JOIN user_sessions_table us ON u.user_id = us.user_id " +
+	           "GROUP BY u.user_id ORDER BY total_games_played DESC", nativeQuery = true)
+	List<UserStats> getUserDashboardStats();
 	User findByEmail(String email);
 	boolean existsByEmail(String email);
 	boolean existsByUsername(String username);
-
-	// Fuzzy search across username and email — used by the admin user search panel
-	Page<User> findByUsernameContainingIgnoreCaseOrEmailContainingIgnoreCase(
-		String username, String email, Pageable pageable);
-
-	// Count accounts created within a time window (used for "new users today" stat)
-	long countByCreatedAtBetween(LocalDateTime start, LocalDateTime end);
 }

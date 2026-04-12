@@ -47,9 +47,6 @@ public class CacheConfig {
                         RedisSerializationContext.SerializationPair.fromSerializer(serializer))
                 .disableCachingNullValues();
 
-        // Per-cache TTLs:
-        //   users  - 30 min  (users never change after registration)
-        //   rooms  -  5 min  (room status changes; explicit eviction also applied on save)
         Map<String, RedisCacheConfiguration> cacheConfigs = new HashMap<>();
         cacheConfigs.put("users", defaultConfig.entryTtl(Duration.ofMinutes(30)));
         cacheConfigs.put("rooms", defaultConfig.entryTtl(Duration.ofMinutes(5)));

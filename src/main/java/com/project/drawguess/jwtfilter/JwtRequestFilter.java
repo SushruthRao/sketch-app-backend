@@ -17,8 +17,10 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.extern.slf4j.Slf4j;
 
 @Component
+@Slf4j
 public class JwtRequestFilter extends OncePerRequestFilter {
 
 	private JwtUtil jwtUtil;
@@ -45,6 +47,8 @@ public class JwtRequestFilter extends OncePerRequestFilter {
 
 			final String authorizationHeader = request.getHeader("Authorization");
 
+//			log.info("[JWTRequestFilter] doFilterInternal : request" + request.getServletPath() + " Header : " + authorizationHeader);
+			
 			if (authorizationHeader != null && authorizationHeader.startsWith("Bearer ")) {
 				jwt = authorizationHeader.substring(7);
 				username = jwtUtil.extractUsernameFromAccessToken(jwt);

@@ -2,6 +2,7 @@ package com.project.drawguess.config;
 
 import java.util.List;
 
+import org.springframework.beans.factory.config.MethodInvokingFactoryBean;
 import org.springframework.boot.web.servlet.FilterRegistrationBean;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
@@ -13,6 +14,7 @@ import org.springframework.security.config.annotation.authentication.builders.Au
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.security.web.AuthenticationEntryPoint;
@@ -50,18 +52,22 @@ public class SecurityConfig {
 		return new BCryptPasswordEncoder();
 	}
 
+	
+	
 	@Bean
 	public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 		http.csrf(csrf -> csrf.disable())
-			.cors(cors -> cors.disable())
+			.cors(org.springframework.security.config.Customizer.withDefaults())
+			.securityContext(context -> context.requireExplicitSave(false))
 				.sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
 				.authorizeHttpRequests(
 						auth ->
 						auth.requestMatchers(HttpMethod.OPTIONS, "/**").permitAll()
 						.requestMatchers("/health").permitAll()
+						.requestMatchers("/api/rooms/public/stream").authenticated()
+						.requestMatchers("/dashboard/user-stats/stream").authenticated()
 						.requestMatchers("/user/register", "/user/login", "/user/logout", "/user/refresh").permitAll()
-						.requestMatchers("/ws/**", "/ws-canvas/**", "/ws-canvas-binary").permitAll()
-						.requestMatchers("/admin/**").hasRole("ADMIN")
+						.requestMatchers("/ws/**", "/ws-canvas/**", "/ws-canvas-binary" ).permitAll()
 						.anyRequest().authenticated()
 						);
 
@@ -80,9 +86,6 @@ public class SecurityConfig {
 		corsConfiguration.setAllowedOriginPatterns(
 			List.of("*")
 		);
-//		corsConfiguration.setAllowedOrigins(
-//				List.of("https://sketch-app-frontend.vercel.app", "https://sketch-vr.vercel.app")
-//			);
 		corsConfiguration.setAllowedMethods(
 			List.of("GET", "POST", "PUT", "DELETE", "OPTIONS")
 		);
